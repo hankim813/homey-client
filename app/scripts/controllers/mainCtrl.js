@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name homey.controller:MainCtrl
+ * @name homey.controller:MainController
  * @description
  * # MainCtrl
  * Controller of the homey
  */
 angular.module('homey')
-  .controller('MainCtrl', function () {
+  .controller('MainController', function () {
     
   });
