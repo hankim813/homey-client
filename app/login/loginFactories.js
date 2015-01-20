@@ -10,11 +10,10 @@ angular.
 
 				$http.post('http://localhost:3000/api/register', userForm)
 				.success(function (response) {
-					console.log('success', response);
 					AuthToken.set(response);
+					AuthFactory.isLogged = true;
 					d.resolve(response.user);
 				}).error(function (response) {
-					console.log('error', response);
 					d.reject(response.error);
 				});
 				return d.promise;
@@ -27,11 +26,10 @@ angular.
 					email: userForm.email,
 					password: userForm.password
 				}).success(function (response) {
-					console.log('success', response);
 					AuthToken.set(response);
+					AuthFactory.isLogged = true;
 					d.resolve(response.user);
 				}).error(function (response) {
-					console.log('error', response);
 					d.reject(response.error);
 				});
 				return d.promise;
@@ -42,7 +40,6 @@ angular.
 				delete $localStorage.userId;
 
 				userService.user = {};
-				AuthFactory.isLogged = false;
 
 				$state.go('/');
 			}

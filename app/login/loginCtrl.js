@@ -8,16 +8,24 @@ angular
 
   	vm.register = function () {
       console.log(vm.userForm);
-  		LoginFactory.register(vm.userForm).then(function () {
-  			vm.userForm = {};
-  			$state.go('home');
-  		});
+  		LoginFactory.register(vm.userForm)
+        .then(function () {
+    			vm.userForm = {};
+    			$state.go('home');
+    		}, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
   	};
 
   	vm.login = function () {
-  		LoginFactory.login(vm.userForm).then(function () {
-  			vm.userForm = {};
-  			$state.go('home');
-  		});
+  		LoginFactory.login(vm.userForm)
+        .then(function () {
+    			vm.userForm = {};
+    			$state.go('home');
+    		}, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
   	}
   }]);
