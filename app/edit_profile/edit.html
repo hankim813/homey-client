@@ -1,17 +1,13 @@
-<h1> {{ user.info.name}}'s profile edit</h1>
+<h1> {{ edit.info.name }}'s profile edit</h1>
 
-<form ng-submit="auth.register()">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" value="{{ editee.info.email}}" ng-model="edit.editForm.email">
-  </div>
+<form ng-submit="edit.editUser()">
   <div class="form-group">
     <label for="exampleInputPassword1">First Name</label>
-    <input type="text" class="form-control" value="{{ editee.info.first_name}}" ng-model="edit.editForm.first_name">
+    <input type="text" class="form-control" value="{{ edit.info.first_name}}" ng-model="edit.editForm.first_name">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Last Name</label>
-    <input type="text" class="form-control" value="{{ editee.info.last_name}}" ng-model="edit.editForm.last_name">
+    <input type="text" class="form-control" value="{{ edit.info.last_name}}" ng-model="edit.editForm.last_name">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Gender</label>
@@ -21,11 +17,11 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Age</label>
-    <input type="text" class="form-control" value="{{ editee.info.age}}" ng-model="edit.editForm.age">
+    <input type="text" class="form-control" value="{{ edit.info.age}}" ng-model="edit.editForm.age">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Phone</label>
-    <input type="text" class="form-control" value="{{ editee.info.phone}}" ng-model="edit.editForm.phone">
+    <input type="text" class="form-control" value="{{ edit.info.phone}}" ng-model="edit.editForm.phone">
   </div>
 
   <button type="submit" class="btn btn-default">Submit</button>

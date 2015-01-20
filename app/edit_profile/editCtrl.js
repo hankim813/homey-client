@@ -1,14 +1,16 @@
 angular
   .module('homey')
 
-  .controller('EditController', ['user', 'userService', function (user, userService) {
+  .controller('EditController', ['$state','user', 'userService', 'editFactory', function ($state,user, userService, editFactory) {
 
     var vm = this;
     vm.editForm = {};
+    vm.info = userService.user;
+    console.log(vm.info.name);
 
-    vm.edit = function () {
+    vm.editUser = function () {
       console.log(vm.editForm);
-      EditFactory.edit(vm.editForm).then(function () {
+      editFactory.edit(vm.editForm).then(function () {
         vm.editForm = {};
         $state.go('profile');
       });

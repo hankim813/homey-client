@@ -8,7 +8,7 @@ angular
       edit: function(editForm) {
         var d = $q.defer();
 
-        $http.put('http://localhost:3000/api/edit', {
+        $http.put('http://localhost:3000/api/users/edit', {
           email: editForm.email,
           first_name: editForm.first_name,
           last_name: editForm.last_name,
