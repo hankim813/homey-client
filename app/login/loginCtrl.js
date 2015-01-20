@@ -1,4 +1,6 @@
-angular.module('homey')
+angular
+  .module('homey')
+
   .controller('LoginController',['$state', 'LoginFactory', function ($state,LoginFactory) {
 
   	var vm = this;

@@ -12,8 +12,21 @@ angular
 					})
 					.error(function (response) {
 						d.reject(response);
-					}); 
+					});
+					return d.promise;
+			},
+
+			deleteUser: function () {
+				var d = $q.defer();
+				$http.delete('http://localhost:3000/api/users/delete')
+					.success(function (response) {
+						d.resolve(response);
+					})
+					.error(function (response) {
+						d.reject(response);
+					});
 					return d.promise;
 			}
-		}
+
+		};
 	}]);
