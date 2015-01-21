@@ -8,6 +8,8 @@
  * Controller of the homey
  */
 angular.module('homey')
-  .controller('MainController', function () {
-    
-  });
+  .controller('MainController', ['fbFactory', function (fbFactory) {
+    var vm = this;
+
+    vm.fbLogin = fbFactory.fbLogin;
+  }]);

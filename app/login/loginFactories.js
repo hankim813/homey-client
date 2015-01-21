@@ -38,10 +38,26 @@ angular.
 			logout: function () {
 				delete $localStorage.token;
 				delete $localStorage.userId;
+				AuthFactory.isLogged = false;
 
 				userService.user = {};
 
 				$state.go('/');
+			},
+
+			fbLogin: function (user) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/fb', user)
+				.success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response.user);
+				}).error(function (response) {
+					console.log(response.error);
+					d.reject(response.error);
+				});
+				return d.promise;
 			}
 		};
 	}]);
