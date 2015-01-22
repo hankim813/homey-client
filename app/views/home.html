@@ -1,6 +1,14 @@
 <h1>Home</h1>
 
-<button class="btn btn-default" ng-click="home.logout()">logout</button>
+<button class="btn btn-danger" ng-click="home.logout()">logout</button>
 <a ui-sref="profile">
 	<button class="btn btn-default">profile</button>
+</a>
+
+<a ui-sref="newAppointment">
+	<button class="btn btn-primary">Book a new appointment</button>
+</a>
+
+<a ui-sref="appointments">
+	<button class="btn btn-info">View my appointments</button>
 </a>

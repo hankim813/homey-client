@@ -11,5 +11,9 @@ angular.module('homey')
   .controller('MainController', ['fbFactory', function (fbFactory) {
     var vm = this;
 
+    // Initialize FB javascript SDK
+    fbFactory.initialize();
+    
     vm.fbLogin = fbFactory.fbLogin;
+
   }]);

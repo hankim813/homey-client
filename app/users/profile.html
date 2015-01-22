@@ -1,7 +1,7 @@
 <h1> {{ user.info.first_name + ' ' + user.info.last_name}}'s profile</h1>
 
 <p>{{user.info.email}}</p>
-<p>{{user.info.gender}}</p>
+<p>{{user.info.genderType}}</p>
 <p>{{user.info.phone}}</p>
 <p>{{user.info.age}}</p>
 
@@ -9,3 +9,7 @@
   <button class="btn btn-warning">Edit</button>
 </a>
 <button class="btn btn-danger" ng-click="user.delete()">Delete</button>
+
+<a ui-sref="home">
+  <button class="btn btn-primary">Home</button>
+</a>

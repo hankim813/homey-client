@@ -42,6 +42,7 @@ angular
 			    phone: editForm.phone
 			  })
 			  .success(function (response) {
+					userService.user = response;
 			    d.resolve(response.user);
 			  }).error(function (response) {
 			    d.reject(response.error);

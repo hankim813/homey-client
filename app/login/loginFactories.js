@@ -40,7 +40,7 @@ angular.
 				delete $localStorage.userId;
 				AuthFactory.isLogged = false;
 
-				userService.user = {};
+				userService = {};
 
 				$state.go('/');
 			},

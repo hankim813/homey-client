@@ -45,6 +45,25 @@ angular
 
     .state('home', {
       url: '/home',
+      resolve: {
+        fetchUser: function (userFactory, userService, $localStorage) {
+          return userService.user || userFactory.saveUserToService($localStorage.userId)
+            .then(function (response) {
+              return userService.user;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchAppointments: function (apptFactory, apptService, $localStorage) {
+          return apptService.appointments || apptFactory.saveApptsToService($localStorage.userId)
+            .then(function (resposne) {
+              return apptService.appointments;
+            }, function (error) {
+              console.log(error);
+            });
+        }
+      },
       templateUrl: 'views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
@@ -53,23 +72,6 @@ angular
   }])
 
   .run(['$rootScope', '$location', 'AuthFactory', function ($rootScope, $location, AuthFactory) {
-
-    // FB Login Initialize
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '836908086372942',
-        xfbml      : true,
-        version    : 'v2.2'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
 
     AuthFactory.check();
 

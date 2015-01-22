@@ -8,8 +8,8 @@ angular
 		.state('profile', {
       url: '/profile',
       resolve: {
-        user: function (userFactory, userService, $localStorage) {
-          return userFactory.saveUserToService($localStorage.userId);
+        user: function (userService) {
+          return userService.user;
         }
       },
       templateUrl: 'users/profile.html',
@@ -20,8 +20,8 @@ angular
     .state('edit', {
       url: '/edit',
       resolve: {
-        user: function (userFactory, userService, $localStorage) {
-          return userFactory.saveUserToService($localStorage.userId);
+        user: function (userService) {
+          return userService.user;
         }
       },
       templateUrl: 'users/edit.html',
