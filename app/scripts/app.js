@@ -45,6 +45,11 @@ angular
 
     .state('home', {
       url: '/home',
+      resolve: {
+        user: function (userFactory) {
+          return userFactory.saveUserToService($localStorage.userId);
+        }
+      },
       templateUrl: 'views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
