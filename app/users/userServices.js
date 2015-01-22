@@ -3,6 +3,5 @@ angular
 
 	.factory('userService', [function () {
 		return {
-			user: {}
 		}
 	}]);

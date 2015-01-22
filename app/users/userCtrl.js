@@ -4,8 +4,8 @@ angular
 	.controller('UserController', ['$state', 'user', 'userService', 'userFactory', function ($state, user, userService, userFactory) {
 
 		var vm = this;
-		vm.info = userService.user;
-		vm.info.gender === 0 ? vm.info.gender = 'Male' : vm.info.gender = 'Female';
+		vm.info = user;
+		vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.delete = function () {
       userFactory.deleteUser(vm.info.id)
@@ -22,7 +22,7 @@ angular
 	.controller('EditController', ['$state','user', 'userService', 'userFactory', function ($state, user, userService, userFactory) {
 
 	  var vm = this;
-	  vm.editForm = userService.user;
+	  vm.editForm = user;
 
 	  vm.editUser = function () {
 	    userFactory.edit(vm.editForm)
