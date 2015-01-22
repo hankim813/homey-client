@@ -46,8 +46,22 @@ angular
     .state('home', {
       url: '/home',
       resolve: {
-        user: function (userFactory) {
-          return userFactory.saveUserToService($localStorage.userId);
+        fetchUser: function (userFactory, userService, $localStorage) {
+          return userService.user || userFactory.saveUserToService($localStorage.userId)
+            .then(function (response) {
+              return userService.user;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchAppointments: function (apptFactory, apptService, $localStorage) {
+          return apptService.appointments || apptFactory.saveApptsToService($localStorage.userId)
+            .then(function (resposne) {
+              return apptService.appointments;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: 'views/home.html',
