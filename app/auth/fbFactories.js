@@ -8,7 +8,7 @@ angular.
 				FB.login(function (response) {
 					if (response.status === 'connected') {
 					    // Logged into your app and Facebook.
-					    console.log(response.authResponse.accessToken);
+					    // console.log(response.authResponse.accessToken);
 					    FB.api('/me', function (response) {
 					    	// A) Check their email in our DB, and log them in if it exists
 						    // B) If not, then create a user, fill in all the shits, and then log them in.
@@ -18,7 +18,7 @@ angular.
 					    		}, function (error) {
 					    			console.log(error);
 					    		});
-					        console.log(JSON.stringify(response));
+					        // console.log(JSON
 					    });
 					  } else if (response.status === 'not_authorized') {
 					    // The person is logged into Facebook, but not your app.
