@@ -5,31 +5,31 @@ angular
 
 		$stateProvider
 
-		.state('login', {
-		  url: '/login',
-		  templateUrl: 'login/login.html',
-		  controller: 'LoginController',
+		.state('userLogin', {
+		  url: '/users/login',
+		  templateUrl: 'login/userLogin.html',
+		  controller: 'UserLoginController',
 		  controllerAs: 'auth'
 		})
 
-		.state('register', {
-			url: '/register',
-			templateUrl: 'login/register.html',
-			controller: 'LoginController',
+		.state('userRegister', {
+			url: '/users/register',
+			templateUrl: 'login/userRegister.html',
+			controller: 'UserLoginController',
 			controllerAs: 'auth'
 		})
 
-		.state('homey_login', {
-		  url: '/homey_login',
-		  templateUrl: 'login/homey_login.html',
-		  controller: 'HomeyLoginController',
+		.state('serviceProviderLogin', {
+		  url: '/serviceProviders/login',
+		  templateUrl: 'login/serviceProviderLogin.html',
+		  controller: 'ServiceProviderLoginController',
 		  controllerAs: 'auth'
 		})
 
-		.state('homey_register', {
-			url: '/homey_register',
-			templateUrl: 'login/homey_register.html',
-			controller: 'HomeyLoginController',
+		.state('serviceProviderRegister', {
+			url: '/serviceProviders/register',
+			templateUrl: 'login/serviceProviderRegister.html',
+			controller: 'ServiceProviderLoginController',
 			controllerAs: 'auth'
 		});
 	});

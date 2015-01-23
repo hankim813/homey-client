@@ -28,13 +28,13 @@ angular
       }
     };
   }])
-  
+
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider 
+    $stateProvider
 
     .state('/', {
       url: '/',
@@ -67,6 +67,16 @@ angular
       templateUrl: 'views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
+    })
+
+    .state('spDashboard', {
+      url: '/sp/dashboard',
+      resolve: {
+        // fetch data for sp and save it to service
+      },
+      templateUrl: 'serviceProviders/dashboard.html',
+      controller: 'ServiceProviderController',
+      controllerAs: 'sp'
     });
 
   }])
@@ -89,4 +99,4 @@ angular
       }
     })
   }]);
-  
+

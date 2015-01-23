@@ -5,7 +5,13 @@ angular.
 		return {
 			set: function (data) {
 				$localStorage.token = data.token;
-				$localStorage.userId = data.user;
+				if (data.user) {
+					$localStorage.userId = data.userId;
+				} else if (data.service_provider) {
+					$localStorage.spId = data.spId;
+				} else {
+					$localStorage.adminId = data.adminId;
+				}
 			},
 
 			get: function () {

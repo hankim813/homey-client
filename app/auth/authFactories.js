@@ -6,11 +6,13 @@ angular.
 			isLogged: false,
 
 			check: function () {
-				if ($localStorage.token && $localStorage.userId) {
+				if ($localStorage.token && ($localStorage.userId || $localStorage.spId || $localStorage.adminId)) {
 					this.isLogged = true;
 				} else {
-					this.isLogged = false; 
-					delete $localStorage.user;
+					this.isLogged = false;
+					if ($localStorage.userId) { delete $localStorage.userId; }
+					if ($localStorage.spId) { delete $localStorage.spId; }
+					if ($localStorage.adminId) { delete $localStorage.adminId; }
 					delete $localStorage.token;
 				}
 			}

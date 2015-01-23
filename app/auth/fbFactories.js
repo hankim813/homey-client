@@ -1,7 +1,7 @@
 angular.
 	module('homey')
 
-	.factory('fbFactory', ['LoginFactory', '$state', function (LoginFactory, $state) {
+	.factory('fbFactory', ['userLoginFactory', '$state', function (userLoginFactory, $state) {
 		return {
 
 			initialize: function () {
@@ -30,7 +30,7 @@ angular.
 					    FB.api('/me', function (response) {
 					    	// A) Check their email in our DB, and log them in if it exists
 						    // B) If not, then create a user, fill in all the shits, and then log them in.
-					    	LoginFactory.fbLogin(response)
+					    	userLoginFactory.fbLogin(response)
 					    		.then(function (response) {
 					    			$state.go('home');
 					    		}, function (error) {

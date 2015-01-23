@@ -38,6 +38,7 @@ angular
 			    email: editForm.email,
 			    first_name: editForm.first_name,
 			    last_name: editForm.last_name,
+			    gender: editForm.gender,
 			    age: editForm.age,
 			    phone: editForm.phone
 			  })
