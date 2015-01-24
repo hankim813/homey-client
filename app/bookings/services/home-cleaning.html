@@ -1,0 +1,52 @@
+<div class="row">
+	<label>Number of Bedrooms:</label>
+	<input type="number" ng-model="hc.formData.bedrooms">
+</div>
+
+<div class="row">
+	<label>Number of Bathrooms:</label>
+	<input type="number" ng-model="hc.formData.bathrooms">
+</div>
+
+<div class="row">
+	<label>Number of Kitchens:</label>
+	<input type="number" ng-model="hc.formData.kitchens">
+</div>
+
+<div class="row">
+	<label>Number of Living Rooms:</label>
+	<input type="number" ng-model="hc.formData.livingrooms">
+</div>
+
+<div class="row">
+	<button class="btn btn-info" ng-hide="hc.laundry" ng-click="hc.showLaundry()">
+		Laundry?
+	</button>
+
+	<div ng-show="hc.laundry">
+		<label>Number of Loads:</label>
+		<input type="number" ng-model="hc.formData.loads">
+
+		<label>Number of Ironed Loads:</label>
+		<input type="number" ng-model="hc.formData.ironed">
+
+		<button class="btn btn-danger" ng-click="hc.cancelLaundry()">Cancel Laundry</button>
+	</div>
+
+	<div class="row">
+		<label>Number of Service Providers:</label>
+		<input type="number" ng-model="hc.formData.providers">
+	</div>
+
+	<div class="row">
+		<label>notes:</label>
+		<input type="textarea" rows="5" ng-model="hc.formData.notes">
+	</div>
+</div>
+
+<div class="row">
+	<label>Desired Date Time for Service:</label>
+	<!-- <input type="datetime" ng-model="hc.formData.serviceDate"> -->
+</div>
+
+<button class="btn btn-primary" ng-click="hc.submitData()">Book!</button>
