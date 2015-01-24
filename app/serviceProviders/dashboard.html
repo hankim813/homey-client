@@ -1,0 +1,16 @@
+
+<h1> {{ serviceProvider.info.first_name + ' ' + serviceProvider.info.last_name}}'s profile</h1>
+
+<p>{{serviceProvider.info.email}}</p>
+<p>{{serviceProvider.info.service}}</p>
+<p>{{serviceProvider.info.phone}}</p>
+<p>{{serviceProvider.info.address}}</p>
+
+<a ui-sref="edit">
+  <button class="btn btn-warning">Edit</button>
+</a>
+<button class="btn btn-danger" ng-click="serviceProvider.delete()">Delete</button>
+
+<a ui-sref="home">
+  <button class="btn btn-primary">Home</button>
+</a>
