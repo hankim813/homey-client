@@ -35,7 +35,7 @@ angular
     vm.spForm = {};
 
     vm.register = function () {
-      serviceProviderLoginFactory.register(vm.spForm)
+      spLoginFactory.register(vm.spForm)
         .then(function () {
           vm.spForm = {};
           $state.go('home');
@@ -46,7 +46,7 @@ angular
     };
 
     vm.login = function () {
-      serviceProviderLoginFactory.login(vm.spForm)
+      spLoginFactory.login(vm.spForm)
         .then(function () {
           vm.spForm = {};
           $state.go('home');

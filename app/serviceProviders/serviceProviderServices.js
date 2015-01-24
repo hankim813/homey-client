@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .factory('serviceProviderService', [function () {
+  .factory('spService', [function () {
     return {
     };
   }]);

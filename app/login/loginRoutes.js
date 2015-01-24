@@ -23,13 +23,13 @@ angular
 		  url: '/serviceProviders/login',
 		  templateUrl: 'login/serviceProviderLogin.html',
 		  controller: 'ServiceProviderLoginController',
-		  controllerAs: 'auth'
+		  controllerAs: 'spAuth'
 		})
 
 		.state('serviceProviderRegister', {
 			url: '/serviceProviders/register',
 			templateUrl: 'login/serviceProviderRegister.html',
 			controller: 'ServiceProviderLoginController',
-			controllerAs: 'auth'
+			controllerAs: 'spAuth'
 		});
 	});

@@ -69,7 +69,7 @@ angular.
 			register: function(spForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/register', spForm)
+				$http.post('http://localhost:3000/api/serviceProviders/register', spForm)
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
@@ -83,7 +83,7 @@ angular.
 			login: function (spForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/login', {
+				$http.post('http://localhost:3000/api/serviceProviders/login', {
 					email: spForm.email,
 					password: spForm.password
 				}).success(function (response) {
