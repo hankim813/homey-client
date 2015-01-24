@@ -19,16 +19,16 @@ angular
       };
   }])
 
-  .controller('EditController', ['$state','serviceProvider', 'serviceProviderService', 'serviceProviderFactory', function ($state, serviceProvider, serviceProviderService, serviceProviderFactory) {
+  .controller('serviceProviderEditController', ['$state','serviceProvider', 'serviceProviderService', 'serviceProviderFactory', function ($state, serviceProvider, serviceProviderService, serviceProviderFactory) {
 
     var vm = this;
-    vm.editForm = serviceProvider;
+    vm.spEditForm = serviceProvider;
 
     vm.editserviceProvider = function () {
-      console.log(vm.editForm);
-      serviceProviderFactory.edit(vm.editForm)
+      console.log(vm.spEditForm);
+      serviceProviderFactory.edit(vm.spEditForm)
         .then(function () {
-          vm.editForm = {};
+          vm.spEditForm = {};
 
           $state.go('profile');
       }, function (error) {

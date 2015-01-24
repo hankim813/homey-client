@@ -17,15 +17,15 @@ angular
       controllerAs: 'serviceProvider'
     })
 
-    .state('edit', {
-      url: '/edit',
+    .state('editServiceProvider', {
+      url: '/serviceProvider/edit',
       resolve: {
         serviceProvider: function (spProviderService) {
-          return spProviderService.serviceProvider;
+          return serviceProviderService.serviceProvider;
         }
       },
       templateUrl: 'serviceProviders/edit.html',
-      controller: 'spEditController',
+      controller: 'serviceProviderEditController',
       controllerAs: 'spEdit'
     });
   })

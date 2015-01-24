@@ -31,4 +31,29 @@ angular
 
   .controller('ServiceProviderLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
 
+    var vm = this;
+    vm.spForm = {};
+
+    vm.register = function () {
+      serviceProviderLoginFactory.register(vm.spForm)
+        .then(function () {
+          vm.spForm = {};
+          $state.go('home');
+        }, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
+    };
+
+    vm.login = function () {
+      serviceProviderLoginFactory.login(vm.spForm)
+        .then(function () {
+          vm.spForm = {};
+          $state.go('home');
+        }, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
+    }
+
   }]);

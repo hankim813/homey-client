@@ -47,6 +47,9 @@ angular
       url: '/home',
       resolve: {
         fetchUser: function (userFactory, userService, $localStorage) {
+          console.log("user", $localStorage.user);
+          console.log("userid", $localStorage.userId);
+
           return userService.user || userFactory.saveUserToService($localStorage.userId)
             .then(function (response) {
               return userService.user;
