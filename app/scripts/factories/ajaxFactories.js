@@ -3,7 +3,7 @@ angular
 
 	.factory('ajaxFactory', ['$http', '$q', function ($http, $q) {
 		return {
-			request: function (uri, type) {
+			request: function (uri, type, data) {
 				var d = $q.defer();
 
 				switch (type) {
@@ -14,7 +14,7 @@ angular
 						break;
 					case 'post':
 						(function () {
-							$http.post(uri).success(function (response) {d.resolve(response);}).error(function (response) {d.reject(response.error);})
+							$http.post(uri, data).success(function (response) {d.resolve(response);}).error(function (response) {d.reject(response.error);})
 						})();
 						break;
 					case 'put':
