@@ -1,9 +1,9 @@
 angular
 	.module('homey')
-	
-  .controller('HomeController',['$state', 'LoginFactory', function ($state, LoginFactory) {
+
+  .controller('HomeController',['$state', 'userLoginFactory', function ($state, userLoginFactory) {
 
   	var home = this;
 
-  	home.logout = LoginFactory.logout;
+  	home.logout = userLoginFactory.logout;
   }]);

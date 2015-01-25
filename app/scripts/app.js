@@ -28,13 +28,13 @@ angular
       }
     };
   }])
-  
+
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider 
+    $stateProvider
 
     .state('/', {
       url: '/',
@@ -71,22 +71,27 @@ angular
 
   }])
 
-  .run(['$rootScope', '$location', 'AuthFactory', function ($rootScope, $location, AuthFactory) {
+  .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', function ($rootScope, $location, $localStorage, AuthFactory) {
+    var sp = $localStorage.spId;
+    var user = $localStorage.userId;
 
     AuthFactory.check();
 
     if (AuthFactory.isLogged) {
-      $location.path('/home');
+      if (user) {$location.path('/home');}
+      if (sp) {$location.path('/dashboard');}
     } else {
       $location.path('/');
-    };
+    }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      if (AuthFactory.isLogged === true && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
+      if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
         $location.path('/home');
+      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/')) {
+        $location.path('/dashboard');
       } else if (AuthFactory.isLogged === false) {
         $location.path('/');
       }
     })
   }]);
-  
+

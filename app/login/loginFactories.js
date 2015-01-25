@@ -1,7 +1,7 @@
 angular.
 	module('homey')
 
-	.factory('LoginFactory', ['$http', '$q', '$localStorage', '$state', 'AuthToken', 'AuthFactory', 'userService', function($http, $q, $localStorage, $state, AuthToken, AuthFactory, userService) {
+	.factory('userLoginFactory', ['$http', '$q', '$localStorage', '$state', 'AuthToken', 'AuthFactory', 'userService', function($http, $q, $localStorage, $state, AuthToken, AuthFactory, userService) {
 
 		return {
 
@@ -60,4 +60,50 @@ angular.
 				return d.promise;
 			}
 		};
-	}]);
+	}])
+
+	.factory('spLoginFactory', ['$http', '$q', '$localStorage', '$state', 'AuthToken', 'AuthFactory', 'spService', function($http, $q, $localStorage, $state, AuthToken, AuthFactory, spService) {
+
+		return {
+
+			register: function(spForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/serviceProviders/register', spForm)
+				.success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response.sp);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			login: function (spForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/serviceProviders/login', {
+					email: spForm.email,
+					password: spForm.password
+				}).success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response.sp);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			logout: function () {
+				delete $localStorage.token;
+				delete $localStorage.spId;
+				AuthFactory.isLogged = false;
+
+				spService = {};
+
+				$state.go('/');
+			}
+		};
+	}])

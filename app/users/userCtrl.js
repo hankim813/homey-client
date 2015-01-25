@@ -25,6 +25,7 @@ angular
 	  vm.editForm = user;
 
 	  vm.editUser = function () {
+      console.log(vm.editForm);
 	    userFactory.edit(vm.editForm)
 	    	.then(function () {
 	      	vm.editForm = {};
