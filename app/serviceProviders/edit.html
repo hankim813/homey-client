@@ -1,6 +1,6 @@
 <h1> {{ spEdit.editForm.first_name + ' ' + spEdit.editForm.last_name}}'s profile</h1>
 
-<form ng-submit="spEdit.editUser()">
+<form ng-submit="spEdit.submitData()">
   <div class="form-group">
     <label for="exampleInputPassword1">First Name</label>
     <input type="text" class="form-control" ng-model="spEdit.editForm.first_name">

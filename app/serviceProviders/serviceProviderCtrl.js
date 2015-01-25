@@ -8,7 +8,7 @@ angular
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.delete = function () {
-      spFactory.deleteServiceProvider(vm.info.id)
+      spFactory.delete(vm.info.id)
         .then(
           function () {
             $state.go('/');
@@ -25,14 +25,12 @@ angular
 
     var vm = this;
     vm.editForm = spService.sp;
-    console.log(vm.editForm);
-    vm.editserviceProvider = function () {
-      console.log(vm.editForm);
+    vm.submitData = function () {
       spFactory.edit(vm.editForm)
         .then(function () {
           vm.editForm = {};
 
-          $state.go('profile');
+          $state.go('dashboard');
       }, function (error) {
         // handle error redirection
         console.log(error);

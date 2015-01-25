@@ -16,7 +16,7 @@ angular
           return d.promise;
       },
 
-      deleteServiceProvider: function (_id) {
+      delete: function (_id) {
         var d = $q.defer();
         $http.delete('http://localhost:3000/api/serviceProviders/' + _id + '/delete')
           .success(function (response) {
@@ -30,7 +30,7 @@ angular
           return d.promise;
       },
 
-      editServiceProvider: function(spEditForm) {
+      edit: function(spEditForm) {
         var d = $q.defer();
 
         $http.put('http://localhost:3000/api/serviceProviders/' + spEditForm.id + '/edit', {
