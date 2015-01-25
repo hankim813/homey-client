@@ -47,9 +47,6 @@ angular
       url: '/home',
       resolve: {
         fetchUser: function (userFactory, userService, $localStorage) {
-          console.log("user", $localStorage.user);
-          console.log("userid", $localStorage.userId);
-
           return userService.user || userFactory.saveUserToService($localStorage.userId)
             .then(function (response) {
               return userService.user;
@@ -70,33 +67,28 @@ angular
       templateUrl: 'views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
-    })
-
-    .state('spDashboard', {
-      url: '/sp/dashboard',
-      resolve: {
-        // fetch data for sp and save it to service
-      },
-      templateUrl: 'serviceProviders/dashboard.html',
-      controller: 'ServiceProviderController',
-      controllerAs: 'sp'
     });
 
   }])
 
-  .run(['$rootScope', '$location', 'AuthFactory', function ($rootScope, $location, AuthFactory) {
+  .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', function ($rootScope, $location, $localStorage, AuthFactory) {
+    var sp = $localStorage.spId;
+    var user = $localStorage.userId;
 
     AuthFactory.check();
 
     if (AuthFactory.isLogged) {
-      $location.path('/home');
+      if (user) {$location.path('/home');}
+      if (sp) {$location.path('/dashboard');}
     } else {
       $location.path('/');
-    };
+    }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      if (AuthFactory.isLogged === true && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
+      if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
         $location.path('/home');
+      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/')) {
+        $location.path('/dashboard');
       } else if (AuthFactory.isLogged === false) {
         $location.path('/');
       }

@@ -8,22 +8,22 @@ angular
     .state('dashboard', {
       url: '/dashboard',
       resolve: {
-        serviceProvider: function (spProviderService) {
-          return spProviderService.serviceProvider;
+        fetchServiceProvider: function (spFactory, spService, $localStorage) {
+          return spService.sp || spFactory.saveSPToService($localStorage.spId)
+            .then(function (response) {
+              return spService.sp;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: 'serviceProviders/dashboard.html',
       controller: 'serviceProviderController',
-      controllerAs: 'serviceProvider'
+      controllerAs: 'sp'
     })
 
     .state('editServiceProvider', {
       url: '/serviceProvider/edit',
-      resolve: {
-        serviceProvider: function (spProviderService) {
-          return serviceProviderService.serviceProvider;
-        }
-      },
       templateUrl: 'serviceProviders/edit.html',
       controller: 'serviceProviderEditController',
       controllerAs: 'spEdit'

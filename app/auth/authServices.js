@@ -7,7 +7,7 @@ angular.
 				$localStorage.token = data.token;
 				if (data.userId) {
 					$localStorage.userId = data.userId;
-				} else if (data.service_provider) {
+				} else if (data.spId) {
 					$localStorage.spId = data.spId;
 				} else {
 					$localStorage.adminId = data.adminId;
