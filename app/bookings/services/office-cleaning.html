@@ -1,0 +1,21 @@
+<div class="row">
+	<label>Number of Sqft:</label>
+	<input type="number" ng-model="oc.formData.sqft">
+</div>
+
+<div class="row">
+	<label>Number of Service Providers:</label>
+	<input type="number" ng-model="oc.formData.providers">
+</div>
+
+<div class="row">
+	<label>notes:</label>
+	<input type="textarea" rows="5" ng-model="oc.formData.notes">
+</div>
+
+<div class="row">
+	<label>Desired Date Time for Service:</label>
+	<!-- <input type="datetime" ng-model="oc.formData.serviceDate"> -->
+</div>
+
+<button class="btn btn-primary" ng-click="oc.submitData()">Book!</button>

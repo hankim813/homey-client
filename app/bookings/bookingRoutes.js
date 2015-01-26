@@ -15,4 +15,15 @@ angular
 				}
 			}
 		})
+
+		.state('newAppointment.officeCleaning', {
+			url: '/office-cleaning',
+			views: {
+				'officeCleaning': {
+					templateUrl: 'bookings/services/office-cleaning.html',
+					controller: 'OfficeCleaningController',
+					controllerAs: 'oc'
+				}
+			}
+		});
 	}]);

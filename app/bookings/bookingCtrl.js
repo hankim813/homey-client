@@ -10,7 +10,7 @@ angular
 		vm.laundry = false;
 
 		vm.submitData = function () {
-			bookingFactory.create(vm.formData);
+			bookingFactory.create(vm.formData, 'homeCleanings');
 		};
 
 		vm.showLaundry = function () {
@@ -24,3 +24,16 @@ angular
 		};
 
 	}])
+
+	.controller('OfficeCleaningController', ['bookingFactory', function (bookingFactory) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z' // placeholder
+		};
+
+		vm.submitData = function () {
+			console.log('formData', vm.formData);
+			bookingFactory.create(vm.formData, 'officeCleanings');
+		};
+	}]);
