@@ -9,7 +9,7 @@ angular
 			url: '/home-cleaning',
 			views: {
 				'homeCleaning': {
-					templateUrl: 'bookings/services/home-cleaning.html',
+					templateUrl: '/app/bookings/services/home-cleaning.html',
 					controller: 'HomeCleaningController',
 					controllerAs: 'hc'
 				}
