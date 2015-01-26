@@ -10,7 +10,7 @@ angular
 		vm.laundry = false;
 
 		vm.submitData = function () {
-			bookingFactory.create(vm.formData, 'homeCleanings');
+			bookingFactory.create(vm.formData, 'home-cleanings');
 		};
 
 		vm.showLaundry = function () {
@@ -25,7 +25,7 @@ angular
 
 	}])
 
-	.controller('OfficeCleaningController', ['bookingFactory', function (bookingFactory) {
+	.controller('BookingController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
 
 		vm.formData = {
@@ -33,7 +33,6 @@ angular
 		};
 
 		vm.submitData = function () {
-			console.log('formData', vm.formData);
-			bookingFactory.create(vm.formData, 'officeCleanings');
+			bookingFactory.create(vm.formData, serviceType);
 		};
 	}]);

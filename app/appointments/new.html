@@ -9,11 +9,17 @@
 <a ui-sref="newAppointment.homeCleaning">
 	<button class="btn btn-success">Home Cleaning</button>
 </a>
+
 <a ui-sref="newAppointment.officeCleaning">
 	<button class="btn btn-success">Office Cleaning</button>
+</a>
+
+<a ui-sref="newAppointment.carWash">
+	<button class="btn btn-success">Car Wash</button>
 </a>
 
 <div class="container">
 	<div ui-view="homeCleaning"></div>
 	<div ui-view="officeCleaning"></div>
+	<div ui-view="carWash"></div>
 </div>

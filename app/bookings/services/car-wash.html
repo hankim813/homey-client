@@ -1,6 +1,13 @@
 <div class="row">
-	<label>Number of Sqft:</label>
-	<input type="number" ng-model="book.formData.sqft">
+	<label>Number of Cars:</label>
+	<input type="number" ng-model="book.formData.cars">
+</div>
+
+<div class="row">
+	<label>Water provided?:</label>
+	<input type="radio" class="form-control" ng-model="book.formData.water_provided" ng-value="true"> Yes
+	<br>
+	<input type="radio" class="form-control" ng-model="book.formData.water_provided" ng-value="false"> No
 </div>
 
 <div class="row">
