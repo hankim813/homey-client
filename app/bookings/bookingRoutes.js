@@ -13,8 +13,8 @@ angular
 				}
 			},
 			views: {
-				'homeCleaning': {
-					templateUrl: '/bookings/services/home-cleaning.html',
+				'service': {
+					templateUrl: 'bookings/services/home-cleaning.html',
 					controller: 'HomeCleaningController',
 					controllerAs: 'hc'
 				}
@@ -29,7 +29,7 @@ angular
 				}
 			},
 			views: {
-				'officeCleaning': {
+				'service': {
 					templateUrl: 'bookings/services/office-cleaning.html',
 					controller: 'BookingController',
 					controllerAs: 'book'
@@ -45,7 +45,7 @@ angular
 				}
 			},
 			views: {
-				'carWash': {
+				'service': {
 					templateUrl: 'bookings/services/car-wash.html',
 					controller: 'BookingController',
 					controllerAs: 'book'
@@ -61,7 +61,7 @@ angular
 				}
 			},
 			views: {
-				'driver': {
+				'service': {
 					templateUrl: 'bookings/services/driver.html',
 					controller: 'DriverController',
 					controllerAs: 'driver'
@@ -77,7 +77,7 @@ angular
 				}
 			},
 			views: {
-				'security':  {
+				'service':  {
 					templateUrl: 'bookings/services/security.html',
 					controller: 'SecurityController',
 					controllerAs: 'security'
@@ -93,10 +93,26 @@ angular
 				}
 			},
 			views: {
-				'security':  {
+				'service':  {
 					templateUrl: 'bookings/services/chef.html',
 					controller: 'ChefController',
 					controllerAs: 'chef'
+				}
+			}
+		})
+
+		.state('newAppointment.gardening', {
+			url: '/gardening',
+			resolve: {
+				serviceType: function () {
+					return 'gardenings';
+				}
+			},
+			views: {
+				'service':  {
+					templateUrl: 'bookings/services/gardening.html',
+					controller: 'GardeningController',
+					controllerAs: 'gardening'
 				}
 			}
 		});

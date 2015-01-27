@@ -10,6 +10,7 @@ angular
 		vm.laundry = false;
 
 		vm.submitData = function () {
+			// vm.formData.time_required = calculate
 			bookingFactory.create(vm.formData, serviceType);
 		};
 
@@ -116,6 +117,45 @@ angular
 
 			bookingFactory.create(vm.formData, serviceType);
 		};
+	}])
+
+	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z', // placeholder
+			acres: 0.0,
+			type: ''
+		};
+
+		vm.Math = $window.Math;
+
+		vm.services = [
+			{name: 'Grass Cutting', checked: false},
+			{name:'Hedge Trimming', checked: false},
+			{name:'Pruning', checked: false}, 
+			{name:'Plant Watering', checked: false}, 
+			{name:'Other (Please specify in notes)', checked: false}
+		];
+
+		function pruneType () {
+			vm.formData.type = vm.formData.type.trim();
+			if (vm.formData.type.slice(-1) === ',') {
+				return vm.formData.type = vm.formData.type.slice(0,-1);
+			}
+		}
+
+		vm.addService = function (index) {
+			vm.formData.type += (vm.services[index].name + ', '); 
+			vm.services[index].checked = true;
+		};
+
+		vm.submitData = function () {
+			vm.formData.time_required = vm.formData.acres * 4.00;
+			vm.formData.providers = Math.ceil(vm.formData.acres / 1.0);
+			pruneType();
+			bookingFactory.create(vm.formData, serviceType);
+		}
 	}])
 
 	.controller('BookingController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
