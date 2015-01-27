@@ -67,5 +67,21 @@ angular
 					controllerAs: 'driver'
 				}
 			}
+		})
+
+		.state('newAppointment.security', {
+			url: '/security',
+			resolve: {
+				serviceType: function () {
+					return 'securities';
+				}
+			},
+			views: {
+				'security':  {
+					templateUrl: 'bookings/services/security.html',
+					controller: 'SecurityController',
+					controllerAs: 'security'
+				}
+			}
 		});
 	}]);

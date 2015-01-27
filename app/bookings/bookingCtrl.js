@@ -40,7 +40,6 @@ angular
 				vm.formData.cars.push({})
 			}
 			vm.ifCars = true;
-			console.log('cars', vm.formData.cars);
 		};
 
 		vm.removeCar = function (index) {
@@ -49,6 +48,47 @@ angular
 		};
 
 		vm.submitData = function () {
+			bookingFactory.create(vm.formData, serviceType);
+		};
+	}])
+
+	.controller('SecurityController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z',
+			guards: []
+		};
+
+		vm.ifGuards = false;
+
+		function findMax () {
+			var max = 0;
+
+			for (var i = 0; i < vm.formData.guards.length; i++) {
+				if (vm.formData.guards[i].hours_required > max) {
+					max = vm.formData.guards[i].hours_required;
+				}
+			}
+			return max;
+		}
+
+		vm.addGuards = function	() {
+			for (var i = 0; i < vm.formData.providers; i++) {
+				vm.formData.guards.push({})
+			}
+			vm.ifGuards = true;
+			console.log('guards', vm.formData.guards);
+		};
+
+		vm.removeGuard = function(index) {
+			vm.formData.guards.splice(index, 1);
+			vm.formData.providers = vm.formData.guards.length;
+		};
+
+		vm.submitData = function () {
+			// set the booking's overall time required as the highest required number of hours for a request guard
+			vm.formData.time_required = findMax();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 	}])
@@ -64,3 +104,8 @@ angular
 			bookingFactory.create(vm.formData, serviceType);
 		};
 	}]);
+
+
+
+
+
