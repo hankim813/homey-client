@@ -38,7 +38,7 @@ angular
 
     .state('/', {
       url: '/',
-      templateUrl: '/partials/main.html',
+      templateUrl: '/views/main.html',
       controller: 'MainController',
       controllerAs: 'app'
     })
@@ -64,7 +64,7 @@ angular
             });
         }
       },
-      templateUrl: '/partials/home.html',
+      templateUrl: '/views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
     });
