@@ -1,7 +1,12 @@
 {
   "name": "homeyclient",
   "version": "0.0.0",
-  "dependencies": {},
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "ejs": "^2.2.3"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -35,8 +40,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "grunt test"
   }
 }
