@@ -1,5 +1,9 @@
 <h1>Your Appointments</h1>
 
+<a ui-sref="home">
+	<button class="btn btn-primary">Home</button>
+</a>
+
 <div ng-repeat="appointment in appt.appointments" style="border: 1px solid black; margin-top: 3px;">
 	<p><strong>appointment id:</strong> {{appointment.id}}</p>
 	<p><strong>made by:</strong> {{appt.user.first_name}}</p>
@@ -13,7 +17,3 @@
 	<button class="btn btn-info" ng-click="appt.complete(appointment.id)">Mark as Completed</button>
 	<button class="btn btn-danger" ng-click="appt.cancel(appointment.id)">Cancel Appointment</button>
 </div>
-
-<a ui-sref="home">
-	<button class="btn btn-primary">Home</button>
-</a>

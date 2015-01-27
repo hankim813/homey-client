@@ -115,5 +115,21 @@ angular
 					controllerAs: 'gardening'
 				}
 			}
+		})
+
+		.state('newAppointment.contractor', {
+			url: '/contractor',
+			resolve: {
+				serviceType: function () {
+					return 'contractors';
+				}
+			},
+			views: {
+				'service':  {
+					templateUrl: 'bookings/services/contractor.html',
+					controller: 'BookingController',
+					controllerAs: 'book'
+				}
+			}
 		});
 	}]);

@@ -11,6 +11,7 @@ angular
 
 		vm.submitData = function () {
 			// vm.formData.time_required = calculate
+			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 
@@ -22,6 +23,10 @@ angular
 			vm.laundry = false;
 			delete vm.formData.loads
 			delete vm.formData.ironed
+		};
+
+		function calculateProvidersRequired () {
+			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
 		};
 
 	}])
@@ -99,21 +104,18 @@ angular
 		vm.formData = {
 			serviceDate: '1990-12-31T23:59:60Z', // placeholder
 			time_required: 8,
-			providers: 1,
 			serving_size: 0
 		};
 
 		vm.Math = $window.Math;
 
 		function calculateChefNumber () {
-			return vm.needed = Math.ceil((vm.formData.serving_size / 10));
+			return vm.formData.providers = Math.ceil(vm.formData.serving_size / 10);
 		};
 
 		vm.submitData = function () {
 			// Adds a chef per 10 people required to serve, minimum 1 chef.
-			if (calculateChefNumber() > 1) {
-				vm.formData.providers = vm.needed;
-			}
+			calculateChefNumber();
 
 			bookingFactory.create(vm.formData, serviceType);
 		};
@@ -143,6 +145,14 @@ angular
 			if (vm.formData.type.slice(-1) === ',') {
 				return vm.formData.type = vm.formData.type.slice(0,-1);
 			}
+		};
+
+		function calculateTimeRequired () {
+			vm.formData.time_required = vm.formData.acres * 4.00;
+		};
+
+		function calculateGardenersRequired () {
+			vm.formData.providers = Math.ceil((vm.formData.acres / 1.0));
 		}
 
 		vm.addService = function (index) {
@@ -151,23 +161,50 @@ angular
 		};
 
 		vm.submitData = function () {
-			vm.formData.time_required = vm.formData.acres * 4.00;
-			vm.formData.providers = Math.ceil(vm.formData.acres / 1.0);
 			pruneType();
+			calculateGardenersRequired();
+			calculateTimeRequired();
 			bookingFactory.create(vm.formData, serviceType);
-		}
+		};
 	}])
 
 	.controller('BookingController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
+
+		vm.services = [
+			{name: 'Home Cleaning', state: 'newAppointment.homeCleaning'},
+			{name: 'Office Cleaning', state: 'newAppointment.officeCleaning'},
+			{name: 'Car Wash', state: 'newAppointment.carWash'},
+			{name: 'Driver', state: 'newAppointment.driver'},
+			{name: 'Security', state: 'newAppointment.security'},
+			{name: 'Personal Chef', state: 'newAppointment.chef'},
+			{name: 'Gardening', state: 'newAppointment.gardening'},
+			{name: 'Contractor Job', state: 'newAppointment.contractor'},
+		];
 
 		vm.formData = {
 			serviceDate: '1990-12-31T23:59:60Z' // placeholder
 		};
 
 		vm.submitData = function () {
+			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
+
+		function calculateProvidersRequired () {
+			switch (serviceType) {
+				case 'office-cleanings':
+					vm.formData.providers = Math.ceil(vm.formData.sqft / 500);
+					break;
+				case 'car-washes':
+					vm.formData.providers = vm.formData.cars;
+					break;
+				case 'contractors':
+					vm.formData.providers = 1;
+					break;
+			}
+		};
+
 	}]);
 
 
