@@ -7,6 +7,11 @@ angular
 
 		.state('newAppointment.homeCleaning', {
 			url: '/home-cleaning',
+			resolve: {
+				serviceType: function () {
+					return 'home-cleanings';
+				}
+			},
 			views: {
 				'homeCleaning': {
 					templateUrl: '/bookings/services/home-cleaning.html',
@@ -44,6 +49,22 @@ angular
 					templateUrl: 'bookings/services/car-wash.html',
 					controller: 'BookingController',
 					controllerAs: 'book'
+				}
+			}
+		})
+
+		.state('newAppointment.driver', {
+			url: '/driver',
+			resolve: {
+				serviceType: function () {
+					return 'drivers';
+				}
+			},
+			views: {
+				'driver': {
+					templateUrl: 'bookings/services/driver.html',
+					controller: 'DriverController',
+					controllerAs: 'driver'
 				}
 			}
 		});

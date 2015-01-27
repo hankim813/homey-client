@@ -10,11 +10,4 @@ angular
 		vm.pay					= apptFactory.pay;
 		vm.cancel				= apptFactory.cancel;
 		vm.complete			= apptFactory.complete;
-	}])
-
-	.controller('NewAppointmentController', ['apptFactory', 'userService', function (apptFactory, userService) {
-		var vm 					= this;
-
-		vm.user 				= userService.user;
-		vm.book					= apptFactory.book;
 	}]);

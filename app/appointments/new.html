@@ -1,6 +1,5 @@
 <h1>Book a new appointment</h1>
 
-<!-- <button class="btn btn-primary" ng-click="appt.book(appt.user.id)">Book!</button> -->
 <a ui-sref="home">
 	<button class="btn btn-default">Home</button>
 </a>
@@ -18,8 +17,13 @@
 	<button class="btn btn-success">Car Wash</button>
 </a>
 
+<a ui-sref="newAppointment.driver">
+	<button class="btn btn-success">Drivers</button>
+</a>
+
 <div class="container">
 	<div ui-view="homeCleaning"></div>
 	<div ui-view="officeCleaning"></div>
 	<div ui-view="carWash"></div>
+	<div ui-view="driver"></div>
 </div>
