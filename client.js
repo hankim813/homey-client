@@ -14,14 +14,15 @@
     next();
   });
 
-  app.set('views', __dirname + '/views');
-  app.engine('html', require('ejs').renderFile);
-  app.set('view engine', 'ejs');
-  app.use("/app", express.static(path.join(__dirname, 'app')));
+  // app.set('views', __dirname + '/views');
+  // app.engine('html', require('ejs').renderFile);
+  // app.set('view engine', 'ejs');
+  app.use(express.static(path.join(__dirname, 'app')));
+  // app.use("/app", express.static(path.join(__dirname, 'app')));
   app.use("/bower_components", express.static(path.join(__dirname, 'bower_components')));
 
-  app.get("/", function(req, res) {
-    res.render("index.html");
-  });
+  // app.get("/", function(req, res) {
+  //   res.render("index.html");
+  // });
 
   app.listen(app.get('port'));

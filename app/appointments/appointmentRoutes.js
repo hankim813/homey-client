@@ -12,14 +12,14 @@ angular
 					return apptService.appointments;
 				}
 			},
-			templateUrl: '/app/appointments/index.html',
+			templateUrl: '/appointments/index.html',
 			controller: 'AppointmentController',
 			controllerAs: 'appt'
 		})
 
 		.state('newAppointment', {
 			url: '/appointments/new',
-			templateUrl: '/app/appointments/new.html',
+			templateUrl: '/appointments/new.html',
 			controller: 'NewAppointmentController',
 			controllerAs: 'appt'
 		})

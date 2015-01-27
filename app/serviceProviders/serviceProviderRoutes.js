@@ -17,14 +17,14 @@ angular
             });
         }
       },
-      templateUrl: '/app/serviceProviders/dashboard.html',
+      templateUrl: '/serviceProviders/dashboard.html',
       controller: 'serviceProviderController',
       controllerAs: 'sp'
     })
 
     .state('editServiceProvider', {
       url: '/serviceProvider/edit',
-      templateUrl: '/app/serviceProviders/edit.html',
+      templateUrl: '/serviceProviders/edit.html',
       controller: 'serviceProviderEditController',
       controllerAs: 'spEdit'
     });
