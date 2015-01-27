@@ -83,5 +83,21 @@ angular
 					controllerAs: 'security'
 				}
 			}
+		})
+
+		.state('newAppointment.chef', {
+			url: '/chef',
+			resolve: {
+				serviceType: function () {
+					return 'chefs';
+				}
+			},
+			views: {
+				'security':  {
+					templateUrl: 'bookings/services/chef.html',
+					controller: 'ChefController',
+					controllerAs: 'chef'
+				}
+			}
 		});
 	}]);

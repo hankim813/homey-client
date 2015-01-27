@@ -78,7 +78,6 @@ angular
 				vm.formData.guards.push({})
 			}
 			vm.ifGuards = true;
-			console.log('guards', vm.formData.guards);
 		};
 
 		vm.removeGuard = function(index) {
@@ -89,6 +88,32 @@ angular
 		vm.submitData = function () {
 			// set the booking's overall time required as the highest required number of hours for a request guard
 			vm.formData.time_required = findMax();
+			bookingFactory.create(vm.formData, serviceType);
+		};
+	}])
+
+	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z', // placeholder
+			time_required: 8,
+			providers: 1,
+			serving_size: 0
+		};
+
+		vm.Math = $window.Math;
+
+		function calculateChefNumber () {
+			return vm.needed = Math.ceil((vm.formData.serving_size / 10));
+		};
+
+		vm.submitData = function () {
+			// Adds a chef per 10 people required to serve, minimum 1 chef.
+			if (calculateChefNumber() > 1) {
+				vm.formData.providers = vm.needed;
+			}
+
 			bookingFactory.create(vm.formData, serviceType);
 		};
 	}])

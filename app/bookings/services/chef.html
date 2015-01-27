@@ -1,0 +1,25 @@
+<div class="row">
+	<label>How many people do you need to cook for?</label>
+	<input type="number" ng-model="chef.formData.serving_size">
+</div>
+
+<div class="row">
+	<label>What type of cuisine?:</label>
+	<input type="text" ng-model="chef.formData.cuisine">
+</div>
+
+<div class="row">
+	<p>Number of Service Providers: {{ chef.Math.ceil(chef.formData.serving_size / 10) }}</p>
+</div>
+
+<div class="row">
+	<label>notes:</label>
+	<input type="textarea" rows="5" ng-model="chef.formData.notes">
+</div>
+
+<div class="row">
+	<label>Desired Date Time for Service:</label>
+	<!-- <input type="datetime" ng-model="chef.formData.serviceDate"> -->
+</div>
+
+<button class="btn btn-primary" ng-click="chef.submitData()">Book!</button>
