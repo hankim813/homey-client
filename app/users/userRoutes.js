@@ -12,7 +12,7 @@ angular
           return userService.user;
         }
       },
-      templateUrl: 'users/profile.html',
+      templateUrl: '/users/profile.html',
       controller: 'UserController',
       controllerAs: 'user'
     })
@@ -24,7 +24,7 @@ angular
           return userService.user;
         }
       },
-      templateUrl: 'users/edit.html',
+      templateUrl: '/users/edit.html',
       controller: 'EditController',
       controllerAs: 'edit'
     });
