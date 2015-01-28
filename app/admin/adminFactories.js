@@ -9,6 +9,7 @@ angular
         $http.get('http://localhost:3000/api/admin/' + id)
           .success(function (response) {
             adminService.admin = response;
+            adminService.admin.birthday = new Date(response.birthday);
             d.resolve(response);
           })
           .error(function (response) {
