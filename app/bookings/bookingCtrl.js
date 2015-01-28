@@ -25,6 +25,20 @@ angular
 			delete vm.formData.ironed
 		};
 
+		vm.flatRate = function (type) {
+			if (type === 1) {
+				vm.formData.bedrooms 			= 2;
+				vm.formData.bathrooms 		= 2;
+				vm.formData.kitchens 			= 1;
+				vm.formData.livingrooms 	= 1;
+			} else if (type === 2) {
+				vm.formData.bedrooms			= 3;
+				vm.formData.bathrooms 		= 3;
+				vm.formData.kitchens 			= 1;
+				vm.formData.livingrooms 	= 1;
+			}
+		};
+
 		function calculateProvidersRequired () {
 			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
 		};
