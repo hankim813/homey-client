@@ -31,8 +31,8 @@ angular
 			views: {
 				'service': {
 					templateUrl: 'bookings/services/office-cleaning.html',
-					controller: 'BookingController',
-					controllerAs: 'book'
+					controller: 'OfficeCleaningController',
+					controllerAs: 'oc'
 				}
 			}
 		})

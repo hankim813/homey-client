@@ -21,8 +21,8 @@ angular
 		vm.flatRate = flatRate;
 
 		function submitData () {
-			calculateTimeRequired();
 			calculateQuote();
+			calculateTimeRequired();
 			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
@@ -51,17 +51,17 @@ angular
 			}
 		};
 
-		function calculateProvidersRequired () {
-			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
-		};
-
 		function calculateQuote () {
 			var total = 0;
 
 			if (vm.formData.bedrooms === 2 && vm.formData.bathrooms === 2 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
 				total = 800;
+				total += vm.formData.loads * 350;
+				total += vm.formData.ironed * 300;
 			} else if (vm.formData.bedrooms === 3 && vm.formData.bathrooms === 3 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
-				total = 800;
+				total = 1000;
+				total += vm.formData.loads * 350;
+				total += vm.formData.ironed * 300;
 			} else {
 				total += vm.formData.bedrooms * 300;
 				total += vm.formData.bathrooms * 200;
@@ -87,6 +87,43 @@ angular
 			return vm.formData.time_required = total;
 		};
 
+		function calculateProvidersRequired () {
+			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
+		};
+	}])
+
+	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z',
+		};
+
+		vm.submitData = submitData;
+
+		function submitData () {
+			calculateQuote();
+			calculateTimeRequired();
+			calculateProvidersRequired();
+			bookingFactory.create(vm.formData, serviceType);
+		};
+
+		function calculateQuote () {
+			var total = 1000;
+			total += vm.formData.sqft;
+			if (vm.formData.kitchen) {
+				total += 250;
+			}
+			return vm.formData.quote = total;
+		};
+
+		function calculateTimeRequired () {
+			return vm.formData.time_required = vm.formData.sqft / 250.00;
+		};
+
+		function calculateProvidersRequired () {
+			vm.formData.providers = Math.ceil(vm.formData.sqft / 500);
+		};
 	}])
 
 	.controller('DriverController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
@@ -245,22 +282,7 @@ angular
 		};
 
 		vm.submitData = function () {
-			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
-		};
-
-		function calculateProvidersRequired () {
-			switch (serviceType) {
-				case 'office-cleanings':
-					vm.formData.providers = Math.ceil(vm.formData.sqft / 500);
-					break;
-				case 'car-washes':
-					vm.formData.providers = vm.formData.cars;
-					break;
-				case 'contractors':
-					vm.formData.providers = 1;
-					break;
-			}
 		};
 
 	}]);
