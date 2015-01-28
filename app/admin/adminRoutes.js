@@ -8,8 +8,13 @@ angular
     .state('adminDashboard', {
       url: '/admin/dashboard',
       resolve: {
-        fetchAdmin: function (adminService) {
-          return adminService.admin;
+        fetchAdmin: function (adminFactory, adminService, $localStorage) {
+          return adminService.admin || adminFactory.saveAdminToService($localStorage.adminId)
+            .then(function (response) {
+              return adminService.admin;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: '/admin/dashboard.html',
@@ -17,15 +22,10 @@ angular
       controllerAs: 'admin'
     })
 
-    .state('edit', {
+    .state('editAdmin', {
       url: '/admin/edit',
-      resolve: {
-        fetchAdmin: function (adminService) {
-          return adminService.admin;
-        }
-      },
       templateUrl: '/admin/edit.html',
       controller: 'AdminEditController',
       controllerAs: 'adminEdit'
     });
-  })
+  });

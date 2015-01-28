@@ -9,7 +9,7 @@ angular.
 					$localStorage.userId = data.userId;
 				} else if (data.spId) {
 					$localStorage.spId = data.spId;
-				} else {
+				} else if (data.adminId) {
 					$localStorage.adminId = data.adminId;
 				}
 			},

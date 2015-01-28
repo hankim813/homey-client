@@ -31,7 +31,7 @@ angular
 			templateUrl: '/login/serviceProviderRegister.html',
 			controller: 'ServiceProviderLoginController',
 			controllerAs: 'spAuth'
-		});
+		})
 
 		.state('adminLogin', {
 		  url: '/admin/login',
@@ -43,7 +43,7 @@ angular
 		.state('adminRegister', {
 			url: '/admin/register',
 			templateUrl: '/login/adminRegister.html',
-			controller: 'AdminController',
+			controller: 'AdminLoginController',
 			controllerAs: 'adminAuth'
 		});
 	});
