@@ -8,6 +8,7 @@ angular
         $http.get('http://localhost:3000/api/serviceProviders/' + id)
           .success(function (response) {
             spService.sp = response;
+            spService.sp.birthday = new Date(response.birthday);
             d.resolve(response);
           })
           .error(function (response) {

@@ -8,6 +8,7 @@ angular
 				$http.get('http://localhost:3000/api/users/' + id)
 					.success(function (response) {
 						userService.user = response;
+						userService.user.birthday = new Date(response.birthday);
 						d.resolve(response);
 					})
 					.error(function (response) {
