@@ -1,0 +1,17 @@
+
+<h1> {{ admin.info.first_name + ' ' + admin.info.last_name}}'s profile</h1>
+
+<p>{{admin.info.email}}</p>
+<p>{{admin.info.service}}</p>
+<p>{{admin.info.phone}}</p>
+<p>{{admin.info.address}}</p>
+
+<button class="btn btn-info" ng-click="admin.logout()">Logout</button>
+<a ui-sref="editServiceProvider">
+  <button class="btn btn-warning">Edit</button>
+</a>
+<button class="btn btn-danger" ng-click="admin.delete()">Delete</button>
+
+<a ui-sref="dashboard">
+  <button class="btn btn-primary">dashboard</button>
+</a>
