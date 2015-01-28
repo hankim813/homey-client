@@ -32,4 +32,18 @@ angular
 			controller: 'ServiceProviderLoginController',
 			controllerAs: 'spAuth'
 		});
+
+		.state('adminLogin', {
+		  url: '/admin/login',
+		  templateUrl: '/login/adminLogin.html',
+		  controller: 'AdminLoginController',
+		  controllerAs: 'adminAuth'
+		})
+
+		.state('adminRegister', {
+			url: '/admin/register',
+			templateUrl: '/login/adminRegister.html',
+			controller: 'AdminController',
+			controllerAs: 'adminAuth'
+		});
 	});
