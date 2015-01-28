@@ -12,7 +12,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -28,7 +28,7 @@ angular.
 				}).success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -40,7 +40,7 @@ angular.
 				delete $localStorage.userId;
 				AuthFactory.isLogged = false;
 
-				userService = {};
+				delete userService.user;
 
 				$state.go('/');
 			},
@@ -52,7 +52,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					console.log(response.error);
 					d.reject(response.error);
@@ -73,7 +73,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.sp);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -89,7 +89,7 @@ angular.
 				}).success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.sp);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -101,7 +101,7 @@ angular.
 				delete $localStorage.spId;
 				AuthFactory.isLogged = false;
 
-				spService = {};
+				delete spService.sp;
 
 				$state.go('/');
 			}
@@ -119,7 +119,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.admin);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -135,7 +135,7 @@ angular.
 				}).success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.admin);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -148,9 +148,9 @@ angular.
 				delete $localStorage.adminId;
 				AuthFactory.isLogged = false;
 
-				adminService = {};
+				delete adminService.admin;
 
 				$state.go('/');
 			}
 		};
-	}])
+	}]);

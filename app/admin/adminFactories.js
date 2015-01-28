@@ -44,7 +44,7 @@ angular
         })
         .success(function (response) {
           adminService.admin = response;
-          d.resolve(response.admin);
+          d.resolve(response);
         }).error(function (response) {
           d.reject(response.error);
         });
