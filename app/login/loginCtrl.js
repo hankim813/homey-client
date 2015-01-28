@@ -56,4 +56,33 @@ angular
       });
     }
 
+  }])
+
+  .controller('AdminLoginController', ['$state', 'adminLoginFactory', function ($state, adminLoginFactory) {
+
+    var vm = this;
+    vm.adminForm = {};
+
+    vm.register = function () {
+      adminLoginFactory.register(vm.adminForm)
+        .then(function () {
+          vm.adminForm = {};
+          $state.go('adminDashboard');
+        }, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
+    };
+
+    vm.login = function () {
+      adminLoginFactory.login(vm.adminForm)
+        .then(function () {
+          vm.adminForm = {};
+          $state.go('adminDashboard');
+        }, function (error) {
+          // handle error redirection
+          console.log(error);
+      });
+    }
+
   }]);
