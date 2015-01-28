@@ -5,7 +5,9 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "ejs": "^2.2.3"
+    "ejs": "^2.2.3",
+    "express": "^4.11.1",
+    "morgan": "^1.5.1"
   },
   "devDependencies": {
     "grunt": "^0.4.1",
