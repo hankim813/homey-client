@@ -5,27 +5,39 @@ angular
 		var vm = this;
 
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z' // placeholder
+			serviceDate: '1990-12-31T23:59:60Z', // placeholder
+			bedrooms: 0,
+			bathrooms: 0,
+			kitchens: 0,
+			livingrooms: 0,
+			loads: 0,
+			ironed: 0
 		};
-		vm.laundry = false;
 
-		vm.submitData = function () {
-			// vm.formData.time_required = calculate
+		vm.laundry = false;
+		vm.submitData = submitData;
+		vm.showLaundry = showLaundry;
+		vm.cancelLaundry = cancelLaundry;
+		vm.flatRate = flatRate;
+
+		function submitData () {
+			calculateTimeRequired();
+			calculateQuote();
 			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 
-		vm.showLaundry = function () {
+		function showLaundry () {
 			vm.laundry = true;
 		};
 
-		vm.cancelLaundry = function () {
+		function cancelLaundry () {
 			vm.laundry = false;
 			delete vm.formData.loads
 			delete vm.formData.ironed
 		};
 
-		vm.flatRate = function (type) {
+		function flatRate (type) {
 			if (type === 1) {
 				vm.formData.bedrooms 			= 2;
 				vm.formData.bathrooms 		= 2;
@@ -41,6 +53,38 @@ angular
 
 		function calculateProvidersRequired () {
 			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
+		};
+
+		function calculateQuote () {
+			var total = 0;
+
+			if (vm.formData.bedrooms === 2 && vm.formData.bathrooms === 2 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
+				total = 800;
+			} else if (vm.formData.bedrooms === 3 && vm.formData.bathrooms === 3 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
+				total = 800;
+			} else {
+				total += vm.formData.bedrooms * 300;
+				total += vm.formData.bathrooms * 200;
+				total += vm.formData.kitchens * 250;
+				total += vm.formData.livingrooms * 250;
+				total += vm.formData.loads * 350;
+				total += vm.formData.ironed * 300;
+			}
+
+			return vm.formData.quote = total;
+		};
+
+		function calculateTimeRequired () {
+			var total = 0;
+
+			total += vm.formData.bedrooms * 0.50;
+			total += vm.formData.bathrooms * 0.50;
+			total += vm.formData.kitchens * 1.00;
+			total += vm.formData.livingrooms * 0.50;
+			total += vm.formData.loads * 4.00;
+			total += vm.formData.ironed * 4.00;
+
+			return vm.formData.time_required = total;
 		};
 
 	}])
