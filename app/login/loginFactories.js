@@ -107,3 +107,49 @@ angular.
 			}
 		};
 	}])
+
+	.factory('adminLoginFactory', ['$http', '$q', '$localStorage', '$state', 'AuthToken', 'AuthFactory', 'adminService', function($http, $q, $localStorage, $state, AuthToken, AuthFactory, adminService) {
+
+		return {
+
+			register: function(adminForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/admin/register', adminForm)
+				.success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response.admin);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			login: function (adminForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/admin/login', {
+					email: adminForm.email,
+					password: adminForm.password
+				}).success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response.admin);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			logout: function () {
+				delete $localStorage.token;
+				delete $localStorage.adminId;
+				AuthFactory.isLogged = false;
+
+				adminService = {};
+
+				$state.go('/');
+			}
+		};
+	}])
