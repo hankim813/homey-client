@@ -74,12 +74,14 @@ angular
   .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', function ($rootScope, $location, $localStorage, AuthFactory) {
     var sp = $localStorage.spId;
     var user = $localStorage.userId;
+    var admin = $localStorage.adminId;
 
     AuthFactory.check();
 
     if (AuthFactory.isLogged) {
       if (user) {$location.path('/home');}
-      if (sp) {$location.path('/dashboard');}
+      if (sp) {$location.path('/sp/dashboard');}
+      if (admin) {$location.path('/admin/dashboard');}
     } else {
       $location.path('/');
     }
@@ -88,10 +90,12 @@ angular
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
         $location.path('/home');
       } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/')) {
-        $location.path('/dashboard');
+        $location.path('/sp/dashboard');
+      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/')) {
+        $location.path('/admin/dashboard');
       } else if (AuthFactory.isLogged === false) {
         $location.path('/');
       }
-    })
+    });
   }]);
 

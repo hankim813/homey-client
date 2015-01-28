@@ -12,7 +12,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -28,7 +28,7 @@ angular.
 				}).success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -40,7 +40,7 @@ angular.
 				delete $localStorage.userId;
 				AuthFactory.isLogged = false;
 
-				userService = {};
+				delete userService.user;
 
 				$state.go('/');
 			},
@@ -52,7 +52,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.user);
+					d.resolve(response);
 				}).error(function (response) {
 					console.log(response.error);
 					d.reject(response.error);
@@ -73,7 +73,7 @@ angular.
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.sp);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -89,7 +89,7 @@ angular.
 				}).success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
-					d.resolve(response.sp);
+					d.resolve(response);
 				}).error(function (response) {
 					d.reject(response.error);
 				});
@@ -101,9 +101,56 @@ angular.
 				delete $localStorage.spId;
 				AuthFactory.isLogged = false;
 
-				spService = {};
+				delete spService.sp;
 
 				$state.go('/');
 			}
 		};
 	}])
+
+	.factory('adminLoginFactory', ['$http', '$q', '$localStorage', '$state', 'AuthToken', 'AuthFactory', 'adminService', function($http, $q, $localStorage, $state, AuthToken, AuthFactory, adminService) {
+
+		return {
+
+			register: function(adminForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/admin/register', adminForm)
+				.success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			login: function (adminForm) {
+				var d = $q.defer();
+
+				$http.post('http://localhost:3000/api/admin/login', {
+					email: adminForm.email,
+					password: adminForm.password
+				}).success(function (response) {
+					AuthToken.set(response);
+					AuthFactory.isLogged = true;
+					d.resolve(response);
+				}).error(function (response) {
+					d.reject(response.error);
+				});
+				return d.promise;
+			},
+
+			logout: function () {
+				console.log("logging out");
+				delete $localStorage.token;
+				delete $localStorage.adminId;
+				AuthFactory.isLogged = false;
+
+				delete adminService.admin;
+
+				$state.go('/');
+			}
+		};
+	}]);
