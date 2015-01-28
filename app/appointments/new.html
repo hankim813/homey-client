@@ -1,15 +1,16 @@
 <h1>Book a new appointment</h1>
 
-<!-- <button class="btn btn-primary" ng-click="appt.book(appt.user.id)">Book!</button> -->
 <a ui-sref="home">
 	<button class="btn btn-default">Home</button>
 </a>
 
 <h2>Choose a service</h2>
-<a ui-sref="newAppointment.homeCleaning">
-	<button class="btn btn-success">Home Cleaning</button>
-</a>
+<div ng-repeat="service in book.services" style="display: inline-block;">
+	<a ui-sref="{{service.state}}">
+		<button class="btn btn-success">{{service.name}}</button>
+	</a>
+</div>
 
 <div class="container">
-	<div ui-view="homeCleaning"></div>
+	<div ui-view="service"></div>
 </div>

@@ -19,8 +19,13 @@ angular
 
 		.state('newAppointment', {
 			url: '/appointments/new',
-			templateUrl: '/appointments/new.html',
-			controller: 'NewAppointmentController',
-			controllerAs: 'appt'
+			resolve: {
+				serviceType: function () {
+					return '';
+				}
+			},
+			templateUrl: 'appointments/new.html',
+			controller: 'BookingController',
+			controllerAs: 'book'
 		})
 	}])

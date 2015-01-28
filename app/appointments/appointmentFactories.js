@@ -3,7 +3,6 @@ angular
 
 	.factory('apptFactory', ['$http', '$q', '$localStorage', 'ajaxFactory', 'apptService', function ($http, $q, $localStorage, ajaxFactory, apptService) {
 		 function saveApptsToService (userId) {
-		 		console.log('saving....')
 				var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
 				return apptService.appointments = ajaxFactory.request(uri, 'get');
 			};
