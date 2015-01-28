@@ -38,12 +38,8 @@ angular
           first_name: adminEditForm.first_name,
           last_name: adminEditForm.last_name,
           gender: adminEditForm.gender,
-          age: adminEditForm.age,
-          phone: adminEditForm.phone,
           birthday: adminEditForm.birthday,
-          address: adminEditForm.address,
-          service: adminEditForm.service,
-          years_experience: adminEditForm.years_experience
+          phone: adminEditForm.phone,
         })
         .success(function (response) {
           adminService.admin = response;
