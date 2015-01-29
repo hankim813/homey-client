@@ -21,9 +21,6 @@ angular
 		vm.flatRate = flatRate;
 
 		function submitData () {
-			calculateQuote();
-			calculateTimeRequired();
-			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 
@@ -49,46 +46,6 @@ angular
 				vm.formData.kitchens 			= 1;
 				vm.formData.livingrooms 	= 1;
 			}
-		};
-
-		function calculateQuote () {
-			var total = 0;
-
-			if (vm.formData.bedrooms === 2 && vm.formData.bathrooms === 2 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
-				total = 800;
-				total += vm.formData.loads * 350;
-				total += vm.formData.ironed * 300;
-			} else if (vm.formData.bedrooms === 3 && vm.formData.bathrooms === 3 && vm.formData.kitchens === 1 && vm.formData.livingrooms === 1) {
-				total = 1000;
-				total += vm.formData.loads * 350;
-				total += vm.formData.ironed * 300;
-			} else {
-				total += vm.formData.bedrooms * 300;
-				total += vm.formData.bathrooms * 200;
-				total += vm.formData.kitchens * 250;
-				total += vm.formData.livingrooms * 250;
-				total += vm.formData.loads * 350;
-				total += vm.formData.ironed * 300;
-			}
-
-			return vm.formData.quote = total;
-		};
-
-		function calculateTimeRequired () {
-			var total = 0;
-
-			total += vm.formData.bedrooms * 0.50;
-			total += vm.formData.bathrooms * 0.50;
-			total += vm.formData.kitchens * 1.00;
-			total += vm.formData.livingrooms * 0.50;
-			total += vm.formData.loads * 4.00;
-			total += vm.formData.ironed * 4.00;
-
-			return vm.formData.time_required = total;
-		};
-
-		function calculateProvidersRequired () {
-			vm.formData.providers = Math.ceil(vm.formData.bedrooms / 3);
 		};
 	}])
 
