@@ -59,28 +59,9 @@ angular
 		vm.submitData = submitData;
 
 		function submitData () {
-			calculateQuote();
-			calculateTimeRequired();
-			calculateProvidersRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 
-		function calculateQuote () {
-			var total = 1000;
-			total += vm.formData.sqft;
-			if (vm.formData.kitchen) {
-				total += 250;
-			}
-			return vm.formData.quote = total;
-		};
-
-		function calculateTimeRequired () {
-			return vm.formData.time_required = vm.formData.sqft / 250.00;
-		};
-
-		function calculateProvidersRequired () {
-			vm.formData.providers = Math.ceil(vm.formData.sqft / 500);
-		};
 	}])
 
 	.controller('DriverController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
