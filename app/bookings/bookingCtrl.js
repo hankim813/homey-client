@@ -106,34 +106,21 @@ angular
 		};
 
 		vm.ifGuards = false;
+		vm.serviceType = serviceType;
+		vm.addGuards = addGuards;
+		vm.removeGuard = removeGuard;
+		vm.submitData = bookingFactory.create;
 
-		function findMax () {
-			var max = 0;
-
-			for (var i = 0; i < vm.formData.guards.length; i++) {
-				if (vm.formData.guards[i].hours_required > max) {
-					max = vm.formData.guards[i].hours_required;
-				}
-			}
-			return max;
-		}
-
-		vm.addGuards = function	() {
+		function addGuards	() {
 			for (var i = 0; i < vm.formData.providers; i++) {
 				vm.formData.guards.push({})
 			}
 			vm.ifGuards = true;
 		};
 
-		vm.removeGuard = function(index) {
+		function removeGuard (index) {
 			vm.formData.guards.splice(index, 1);
 			vm.formData.providers = vm.formData.guards.length;
-		};
-
-		vm.submitData = function () {
-			// set the booking's overall time required as the highest required number of hours for a request guard
-			vm.formData.time_required = findMax();
-			bookingFactory.create(vm.formData, serviceType);
 		};
 	}])
 

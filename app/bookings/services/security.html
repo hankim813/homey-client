@@ -1,33 +1,33 @@
 <div class="row">
-	<label>How many gaurds do you need?</label>
-	<input type="number" ng-model="security.formData.providers">
+	<label>How many guards do you need?</label>
+	<input type="number" ng-model="sc.formData.providers">
 </div>
-	<button class="btn btn-info" ng-show="security.formData.providers" ng-click="security.addGuards()">Add Guards</button>
+	<button class="btn btn-info" ng-show="sc.formData.providers" ng-click="sc.addGuards()">Add Guards</button>
 
 <div class="row">
-	<div ng-show="security.ifGuards">
-		<div class="row" ng-repeat="guard in security.formData.guards">
+	<div ng-show="sc.ifGuards">
+		<div class="row" ng-repeat="guard in sc.formData.guards">
 			<label>Guard Type:</label>
 			<input type="radio" ng-model="guard.type" value="0">Askari
 			<br>
 			<input type="radio" ng-model="guard.type" value="1">Bodyguard
 
 			<label>For how many hours?</label>
-			<input type="number" ng-model="guard.hours_required"> 
+			<input type="number" ng-model="guard.hours"> 
 
-			<button class="btn btn-danger" ng-click="security.removeGuard($index)">Remove Guard</button>
+			<button class="btn btn-danger" ng-click="sc.removeGuard($index)">Remove Guard</button>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<label>notes:</label>
-	<input type="textarea" rows="5" ng-model="security.formData.notes">
+	<input type="textarea" rows="5" ng-model="sc.formData.notes">
 </div>
 
 <div class="row">
 	<label>Desired Date Time for Service:</label>
-	<!-- <input type="datetime" ng-model="security.formData.serviceDate"> -->
+	<!-- <input type="datetime" ng-model="sc.formData.serviceDate"> -->
 </div>
 
-<button class="btn btn-primary" ng-click="security.submitData()">Book!</button>
+<button class="btn btn-primary" ng-click="sc.submitData(sc.formData, sc.serviceType)">Book!</button>

@@ -80,7 +80,7 @@ angular
 				'service':  {
 					templateUrl: 'bookings/services/security.html',
 					controller: 'SecurityController',
-					controllerAs: 'security'
+					controllerAs: 'sc'
 				}
 			}
 		})
