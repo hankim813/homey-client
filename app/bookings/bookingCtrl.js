@@ -13,16 +13,12 @@ angular
 			loads: 0,
 			ironed: 0
 		};
-
 		vm.laundry = false;
-		vm.submitData = submitData;
+		vm.flatRate = flatRate;
 		vm.showLaundry = showLaundry;
 		vm.cancelLaundry = cancelLaundry;
-		vm.flatRate = flatRate;
-
-		function submitData () {
-			bookingFactory.create(vm.formData, serviceType);
-		};
+		vm.serviceType = serviceType;
+		vm.submitData = bookingFactory.create;
 
 		function showLaundry () {
 			vm.laundry = true;
@@ -56,11 +52,20 @@ angular
 			serviceDate: '1990-12-31T23:59:60Z',
 		};
 
-		vm.submitData = submitData;
+		vm.serviceType = serviceType;
+		vm.submitData = bookingFactory.create;
 
-		function submitData () {
-			bookingFactory.create(vm.formData, serviceType);
+	}])
+
+	.controller('CarWashController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+		var vm = this;
+
+		vm.formData = {
+			serviceDate: '1990-12-31T23:59:60Z'
 		};
+
+		vm.serviceType = serviceType;
+		vm.submitData = bookingFactory.create;
 
 	}])
 
@@ -73,22 +78,23 @@ angular
 		};
 
 		vm.ifCars = false;
+		vm.addCars = addCars;
+		vm.removeCar = removeCar;
+		vm.serviceType = serviceType;
+		vm.submitData = bookingFactory.create;
 
-		vm.addCars = function () {
+		function addCars () {
 			for (var i = 0; i < vm.formData.providers; i++) {
 				vm.formData.cars.push({})
 			}
 			vm.ifCars = true;
 		};
 
-		vm.removeCar = function (index) {
+		function removeCar (index) {
 			vm.formData.cars.splice(index, 1);
 			vm.formData.providers = vm.formData.cars.length;
 		};
 
-		vm.submitData = function () {
-			bookingFactory.create(vm.formData, serviceType);
-		};
 	}])
 
 	.controller('SecurityController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {

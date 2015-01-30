@@ -47,8 +47,8 @@ angular
 			views: {
 				'service': {
 					templateUrl: 'bookings/services/car-wash.html',
-					controller: 'BookingController',
-					controllerAs: 'book'
+					controller: 'CarWashController',
+					controllerAs: 'car'
 				}
 			}
 		})
