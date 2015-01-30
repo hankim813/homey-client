@@ -1,23 +1,23 @@
 <div class="row">
 	<label>Number of Cars:</label>
-	<input type="number" ng-model="book.formData.cars">
+	<input type="number" ng-model="car.formData.cars">
 </div>
 
 <div class="row">
 	<label>Water provided?:</label>
-	<input type="radio" class="form-control" ng-model="book.formData.water_provided" ng-value="true"> Yes
+	<input type="radio" class="form-control" ng-model="car.formData.water_provided" ng-value="true"> Yes
 	<br>
-	<input type="radio" class="form-control" ng-model="book.formData.water_provided" ng-value="false"> No
+	<input type="radio" class="form-control" ng-model="car.formData.water_provided" ng-value="false"> No
 </div>
 
 <div class="row">
 	<label>notes:</label>
-	<input type="textarea" rows="5" ng-model="book.formData.notes">
+	<input type="textarea" rows="5" ng-model="car.formData.notes">
 </div>
 
 <div class="row">
 	<label>Desired Date Time for Service:</label>
-	<!-- <input type="datetime" ng-model="book.formData.serviceDate"> -->
+	<!-- <input type="datetime" ng-model="car.formData.serviceDate"> -->
 </div>
 
-<button class="btn btn-primary" ng-click="book.submitData()">Book!</button>
+<button class="btn btn-primary" ng-click="car.submitData(car.formData, car.serviceType)">Book!</button>

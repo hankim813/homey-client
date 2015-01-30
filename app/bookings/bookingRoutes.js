@@ -31,8 +31,8 @@ angular
 			views: {
 				'service': {
 					templateUrl: 'bookings/services/office-cleaning.html',
-					controller: 'BookingController',
-					controllerAs: 'book'
+					controller: 'OfficeCleaningController',
+					controllerAs: 'oc'
 				}
 			}
 		})
@@ -47,8 +47,8 @@ angular
 			views: {
 				'service': {
 					templateUrl: 'bookings/services/car-wash.html',
-					controller: 'BookingController',
-					controllerAs: 'book'
+					controller: 'CarWashController',
+					controllerAs: 'car'
 				}
 			}
 		})
@@ -80,7 +80,7 @@ angular
 				'service':  {
 					templateUrl: 'bookings/services/security.html',
 					controller: 'SecurityController',
-					controllerAs: 'security'
+					controllerAs: 'sc'
 				}
 			}
 		})

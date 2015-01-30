@@ -2,10 +2,12 @@
 	<label>How many drivers do you need?</label>
 	<input type="number" ng-model="driver.formData.providers">
 </div>
-	<button class="btn btn-info" ng-show="driver.formData.providers" ng-click="driver.addCars()">Add Cars</button>
+	<button class="btn btn-info" ng-show="driver.formData.providers" ng-click="driver.addCars()">Assign Cars</button>
 
 <div class="row">
 	<div ng-show="driver.ifCars">
+		<h2>Tell us about what car they should drive</h2>
+
 		<div class="row" ng-repeat="car in driver.formData.cars">
 			<label>Car Model:</label>
 			<input type="text" ng-model="car.model">
@@ -16,9 +18,17 @@
 			<input type="radio" ng-model="car.wheel_type" value="1">4wd
 
 			<label>Do you own this car?</label>
-			<input type="radio" ng-model="car.owned" value="1"> Yes
+			<input type="radio" ng-model="car.owned" value="true"> Yes
 			<br>
-			<input type="radio" ng-model="car.owned" value="0"> No
+			<input type="radio" ng-model="car.owned" value="false"> No
+
+			<label>For how many hours?:</label>
+			<input type="number" ng-model="car.hours">
+
+			<label>Daytime or Night Time?:</label>
+			<input type="radio" ng-model="car.day_or_night" value="1"> Day
+			<br>
+			<input type="radio" ng-model="car.day_or_night" value="0"> Night
 
 			<button class="btn btn-danger" ng-click="driver.removeCar($index)">Remove Car</button>
 		</div>
@@ -31,20 +41,8 @@
 </div>
 
 <div class="row">
-	<label>For how many hours?:</label>
-	<input type="number" ng-model="driver.formData.time_required">
-</div>
-
-<div class="row">
-	<label>Daytime or Night Time?:</label>
-	<input type="radio" ng-model="driver.formData.day_or_night" value="1"> Day
-	<br>
-	<input type="radio" ng-model="driver.formData.day_or_night" value="0"> Night
-</div>
-
-<div class="row">
 	<label>Desired Date Time for Service:</label>
 	<!-- <input type="datetime" ng-model="driver.formData.serviceDate"> -->
 </div>
 
-<button class="btn btn-primary" ng-click="driver.submitData()">Book!</button>
+<button class="btn btn-primary" ng-click="driver.submitData(driver.formData, driver.serviceType)">Book!</button>

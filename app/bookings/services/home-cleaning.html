@@ -43,5 +43,10 @@
 	<label>Desired Date Time for Service:</label>
 	<!-- <input type="datetime" ng-model="hc.formData.serviceDate"> -->
 </div>
+<button class="btn btn-info" ng-click="hc.flatRate(1)">1000/= Flat Rate</button>
+<button class="btn btn-info" ng-click="hc.flatRate(2)">1500/= Flat Rate</button>
 
-<button class="btn btn-primary" ng-click="hc.submitData()">Book!</button>
+<!-- <h1>Price: {{ hc.formData.bedrooms * 300 + hc.formData.bathrooms * 200 + hc.formData.kitchens * 250 + hc.formData.livingrooms * 250 + hc.formData.loads * 350 + hc.formData.ironed * 300 }} ksh</h1>  -->
+<!-- FIX THESE -->
+<!-- <h1>Estimated Duration of Service: {{ hc.formData.bedrooms * 0.50 + hc.formData.bathrooms * 0.50 + hc.formData.kitchens * 1.00 + hc.formData.livingrooms * 0.50 + hc.formData.loads * 4.00 + hc.formData.ironed * 4.00 }} hours </h1> -->
+<button class="btn btn-primary" ng-click="hc.submitData(hc.formData, hc.serviceType)">Book!</button>
