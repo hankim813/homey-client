@@ -142,7 +142,7 @@ angular
 
 		vm.formData = {
 			serviceDate: '1990-12-31T23:59:60Z', // placeholder
-			acres: 0.0,
+			acres: 0.00,
 			type: ''
 		};
 
@@ -156,6 +156,9 @@ angular
 			{name:'Other (Please specify in notes)', checked: false}
 		];
 
+		vm.submitData = submitData;
+		vm.addService = addService;
+
 		function pruneType () {
 			vm.formData.type = vm.formData.type.trim();
 			if (vm.formData.type.slice(-1) === ',') {
@@ -163,23 +166,13 @@ angular
 			}
 		};
 
-		function calculateTimeRequired () {
-			vm.formData.time_required = vm.formData.acres * 4.00;
-		};
-
-		function calculateGardenersRequired () {
-			vm.formData.providers = Math.ceil((vm.formData.acres / 1.0));
-		}
-
-		vm.addService = function (index) {
+		function addService (index) {
 			vm.formData.type += (vm.services[index].name + ', '); 
 			vm.services[index].checked = true;
 		};
 
-		vm.submitData = function () {
+		function submitData () {
 			pruneType();
-			calculateGardenersRequired();
-			calculateTimeRequired();
 			bookingFactory.create(vm.formData, serviceType);
 		};
 	}])
