@@ -129,22 +129,12 @@ angular
 
 		vm.formData = {
 			serviceDate: '1990-12-31T23:59:60Z', // placeholder
-			time_required: 8,
 			serving_size: 0
 		};
 
 		vm.Math = $window.Math;
-
-		function calculateChefNumber () {
-			return vm.formData.providers = Math.ceil(vm.formData.serving_size / 10);
-		};
-
-		vm.submitData = function () {
-			// Adds a chef per 10 people required to serve, minimum 1 chef.
-			calculateChefNumber();
-
-			bookingFactory.create(vm.formData, serviceType);
-		};
+		vm.serviceType = serviceType;
+		vm.submitData = bookingFactory.create;
 	}])
 
 	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
