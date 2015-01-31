@@ -4,7 +4,6 @@ angular
   .factory('adminFactory', ['$http', '$q', '$localStorage', 'adminService', function ($http, $q, $localStorage, adminService) {
     return {
       saveAdminToService: function (id) {
-        console.log(id);
         var d = $q.defer();
         $http.get('http://localhost:3000/api/admin/' + id)
           .success(function (response) {

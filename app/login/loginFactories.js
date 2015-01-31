@@ -143,7 +143,6 @@ angular.
 			},
 
 			logout: function () {
-				console.log("logging out");
 				delete $localStorage.token;
 				delete $localStorage.adminId;
 				AuthFactory.isLogged = false;
