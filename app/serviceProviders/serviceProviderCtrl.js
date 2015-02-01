@@ -30,7 +30,7 @@ angular
         .then(function () {
           vm.editForm = {};
 
-          $state.go('dashboard');
+          $state.go('spDashboard');
       }, function (error) {
         // handle error redirection
         console.log(error);

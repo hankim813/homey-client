@@ -5,8 +5,6 @@ angular
 
     var vm = this;
     vm.info = adminService.admin;
-    console.log(adminService.admin);
-    console.log(vm.info);
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.delete = function () {

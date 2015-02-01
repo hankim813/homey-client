@@ -38,7 +38,7 @@ angular
       spLoginFactory.register(vm.spForm)
         .then(function () {
           vm.spForm = {};
-          $state.go('dashboard');
+          $state.go('spDashboard');
         }, function (error) {
           // handle error redirection
           console.log(error);
@@ -49,7 +49,7 @@ angular
       spLoginFactory.login(vm.spForm)
         .then(function () {
           vm.spForm = {};
-          $state.go('dashboard');
+          $state.go('spDashboard');
         }, function (error) {
           // handle error redirection
           console.log(error);

@@ -5,7 +5,7 @@ angular
 
     $stateProvider
 
-    .state('dashboard', {
+    .state('spDashboard', {
       url: '/sp/dashboard',
       resolve: {
         fetchServiceProvider: function (spFactory, spService, $localStorage) {
