@@ -3,9 +3,7 @@ angular
 
 	.controller('HomeCleaningController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z', // placeholder
 			bedrooms: 0,
 			bathrooms: 0,
 			kitchens: 0,
@@ -47,36 +45,21 @@ angular
 
 	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
-		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z',
-		};
-
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
-
 	}])
 
 	.controller('CarWashController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
-		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z'
-		};
-
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
-
 	}])
 
 	.controller('DriverController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z',
 			cars: []
 		};
-
 		vm.ifCars = false;
 		vm.addCars = addCars;
 		vm.removeCar = removeCar;
@@ -94,17 +77,13 @@ angular
 			vm.formData.cars.splice(index, 1);
 			vm.formData.providers = vm.formData.cars.length;
 		};
-
 	}])
 
 	.controller('SecurityController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z',
 			guards: []
 		};
-
 		vm.ifGuards = false;
 		vm.serviceType = serviceType;
 		vm.addGuards = addGuards;
@@ -126,28 +105,21 @@ angular
 
 	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
 		var vm = this;
-
+		vm.Math = $window.Math;
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z', // placeholder
 			serving_size: 0
 		};
-
-		vm.Math = $window.Math;
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
 	}])
 
 	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
 		var vm = this;
-
+		vm.Math = $window.Math;
 		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z', // placeholder
 			acres: 0.00,
 			type: ''
 		};
-
-		vm.Math = $window.Math;
-
 		vm.services = [
 			{name: 'Grass Cutting', checked: false},
 			{name:'Hedge Trimming', checked: false},
@@ -155,7 +127,6 @@ angular
 			{name:'Plant Watering', checked: false}, 
 			{name:'Other (Please specify in notes)', checked: false}
 		];
-
 		vm.submitData = submitData;
 		vm.addService = addService;
 
@@ -179,7 +150,6 @@ angular
 
 	.controller('BookingController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
 		var vm = this;
-
 		vm.services = [
 			{name: 'Home Cleaning', state: 'newAppointment.homeCleaning'},
 			{name: 'Office Cleaning', state: 'newAppointment.officeCleaning'},
@@ -190,15 +160,9 @@ angular
 			{name: 'Gardening', state: 'newAppointment.gardening'},
 			{name: 'Contractor Job', state: 'newAppointment.contractor'},
 		];
-
-		vm.formData = {
-			serviceDate: '1990-12-31T23:59:60Z' // placeholder
-		};
-
 		vm.submitData = function () {
 			bookingFactory.create(vm.formData, serviceType);
 		};
-
 	}]);
 
 
