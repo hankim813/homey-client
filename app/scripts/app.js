@@ -12,7 +12,9 @@ angular
   .module('homey', [
     'ngAnimate',
     'ui.router',
-    'ngStorage'
+    'ngStorage',
+    'ui.bootstrap.datetimepicker',
+    'angularMoment'
   ])
 
   .factory('AuthInterceptor', ['$q', '$injector', function ($q, $injector) {
