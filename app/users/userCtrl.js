@@ -8,7 +8,7 @@ angular
 		vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.delete = function () {
-      userFactory.deleteUser(vm.info.id)
+      userFactory.deleteUser()
       	.then(
 	        function () {
 	          $state.go('/');
@@ -25,7 +25,6 @@ angular
 	  vm.editForm = user;
 
 	  vm.editUser = function () {
-      console.log(vm.editForm);
 	    userFactory.edit(vm.editForm)
 	    	.then(function () {
 	      	vm.editForm = {};

@@ -1,14 +1,11 @@
 angular
 	.module('homey')
 
-	.controller('DiscountController', ['$localStorage', 'discountFactory', function ($localStorage, discountFactory) {
+	.controller('DiscountController', ['discountFactory', function (discountFactory) {
 		var vm = this;
-		vm.formData = {
-			admin_id: $localStorage.adminId
-		};
 		vm.submitData = submitData;
 
 		function submitData () {
 			discountFactory.generateDiscountCode(vm.formData);
-		}
+		};
 	}]);
