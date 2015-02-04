@@ -33,6 +33,16 @@
 	</div>
 </div>
 
+<label>choose address:</label>	
+<div ng-repeat="address in gardening.addresses">
+	<input type="radio" ng-model="gardening.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="gardening.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.gardening.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.gardening">close</a>
+
 <div class="row">
 	<label>Promotional Code:</label>
 	<input type="text" ng-model="gardening.formData.code">

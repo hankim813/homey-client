@@ -1,7 +1,7 @@
 angular
 	.module('homey')
 
-	.factory('apptFactory', ['$http', '$q', '$localStorage', 'ajaxFactory', 'apptService', function ($http, $q, $localStorage, ajaxFactory, apptService) {
+	.factory('apptFactory', ['$localStorage', 'ajaxFactory', 'apptService', function ($localStorage, ajaxFactory, apptService) {
 		 function saveApptsToService (userId) {
 				// var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
 				var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';

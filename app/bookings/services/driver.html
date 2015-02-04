@@ -53,6 +53,16 @@
 	</div>
 </div>
 
+<label>choose address:</label>	
+<div ng-repeat="address in driver.addresses">
+	<input type="radio" ng-model="driver.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="driver.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.driver.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.driver">close</a>
+
 <div class="row">
 	<label>Promotional Code:</label>
 	<input type="text" ng-model="driver.formData.code">

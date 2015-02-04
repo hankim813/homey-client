@@ -19,7 +19,12 @@ angular
 						break;
 					case 'put':
 						(function () {
-							$http.put(uri).success(function (response) {d.resolve(response);}).error(function (response) {d.reject(response.error);})
+							$http.put(uri, data).success(function (response) {d.resolve(response);}).error(function (response) {d.reject(response.error);})
+						})();
+						break;
+					case 'delete':
+						(function () {
+							$http.delete(uri).success(function (response) {d.resolve(response);}).error(function (response) {d.reject(response.error);})
 						})();
 						break;
 				}

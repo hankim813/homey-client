@@ -38,6 +38,16 @@
 	</div>
 </div>
 
+<label>choose address:</label>	
+<div ng-repeat="address in sc.addresses">
+	<input type="radio" ng-model="sc.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="sc.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.security.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.security">close</a>
+
 <div class="row">
 	<label>Promotional Code:</label>
 	<input type="text" ng-model="sc.formData.code">

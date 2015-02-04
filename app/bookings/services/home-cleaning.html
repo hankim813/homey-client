@@ -51,8 +51,21 @@
 	  </ul>
 	</div>
 </div>
-<button class="btn btn-info" ng-click="hc.flatRate(1)">1000/= Flat Rate</button>
-<button class="btn btn-info" ng-click="hc.flatRate(2)">1500/= Flat Rate</button>
+
+<label>choose address:</label>	
+<div ng-repeat="address in hc.addresses">
+	<input type="radio" ng-model="hc.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="hc.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.homeCleaning.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.homeCleaning">close</a>
+
+<div>
+	<button class="btn btn-info" ng-click="hc.flatRate(1)">1000/= Flat Rate</button>
+	<button class="btn btn-info" ng-click="hc.flatRate(2)">1500/= Flat Rate</button>
+</div>
 
 <div class="row">
 	<label>Promotional Code:</label>
