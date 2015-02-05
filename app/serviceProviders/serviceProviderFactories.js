@@ -21,7 +21,7 @@ angular
       delete: function (id) {
         var d = $q.defer();
         // $http.delete('http://localhost:3000/api/serviceProviders/' + id + '/delete')
-        $http.delete('https://homey-api.herokuapp.com/api/serviceProviders/' + id '/delete')
+        $http.delete('https://homey-api.herokuapp.com/api/serviceProviders/' + id + '/delete')
           .success(function (response) {
             delete $localStorage.token;
             delete $localStorage.spId;
