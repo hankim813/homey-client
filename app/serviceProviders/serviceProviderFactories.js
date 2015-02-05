@@ -5,7 +5,8 @@ angular
     return {
       saveSPToService: function (id) {
         var d = $q.defer();
-        $http.get('http://localhost:3000/api/serviceProviders/' + id)
+        // $http.get('http://localhost:3000/api/serviceProviders/' + id)
+        $http.get('https://homey-api.herokuapp.com/api/serviceProviders/' + id)
           .success(function (response) {
             spService.sp = response;
             spService.sp.birthday = new Date(response.birthday);
@@ -17,9 +18,10 @@ angular
           return d.promise;
       },
 
-      delete: function (_id) {
+      delete: function (id) {
         var d = $q.defer();
-        $http.delete('http://localhost:3000/api/serviceProviders/' + _id + '/delete')
+        // $http.delete('http://localhost:3000/api/serviceProviders/' + id + '/delete')
+        $http.delete('https://homey-api.herokuapp.com/api/serviceProviders/' + id '/delete')
           .success(function (response) {
             delete $localStorage.token;
             delete $localStorage.spId;
@@ -34,7 +36,8 @@ angular
       edit: function(spEditForm) {
         var d = $q.defer();
 
-        $http.put('http://localhost:3000/api/serviceProviders/' + spEditForm.id + '/edit', {
+        // $http.put('http://localhost:3000/api/serviceProviders/' + spEditForm.id + '/edit', {
+        $http.put('https://homey-api.herokuapp.com/api/serviceProviders/' + spEditForm.id + '/edit', {
           email: spEditForm.email,
           first_name: spEditForm.first_name,
           last_name: spEditForm.last_name,

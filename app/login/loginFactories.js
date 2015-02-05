@@ -8,7 +8,8 @@ angular.
 			register: function(userForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/register', userForm)
+				// $http.post('http://localhost:3000/api/register', userForm)
+				$http.post('https://homey-api.herokuapp.com/api/register', userForm)
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
@@ -22,7 +23,8 @@ angular.
 			login: function (userForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/login', {
+				// $http.post('http://localhost:3000/api/login', {
+				$http.post('https://homey-api.herokuapp.com/api/login', {
 					email: userForm.email,
 					password: userForm.password
 				}).success(function (response) {
@@ -48,7 +50,8 @@ angular.
 			fbLogin: function (user) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/fb', user)
+				// $http.post('http://localhost:3000/api/fb', user)
+				$http.post('https://homey-api.herokuapp.com/api/fb', user)
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
@@ -69,7 +72,8 @@ angular.
 			register: function(spForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/serviceProviders/register', spForm)
+				// $http.post('http://localhost:3000/api/serviceProviders/register', spForm)
+				$http.post('https://homey-api.herokuapp.com/api/serviceProviders/register', spForm)
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
@@ -83,7 +87,8 @@ angular.
 			login: function (spForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/serviceProviders/login', {
+				// $http.post('http://localhost:3000/api/serviceProviders/login', {
+				$http.post('https://homey-api.herokuapp.com/api/serviceProviders/login', {
 					email: spForm.email,
 					password: spForm.password
 				}).success(function (response) {
@@ -115,7 +120,8 @@ angular.
 			register: function(adminForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/admin/register', adminForm)
+				// $http.post('http://localhost:3000/api/admin/register', adminForm)
+				$http.post('https://homey-api.herokuapp.com/api/admin/register', adminForm)
 				.success(function (response) {
 					AuthToken.set(response);
 					AuthFactory.isLogged = true;
@@ -129,7 +135,8 @@ angular.
 			login: function (adminForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/admin/login', {
+				// $http.post('http://localhost:3000/api/admin/login', {
+				$http.post('https://homey-api.herokuapp.com/api/admin/login', {
 					email: adminForm.email,
 					password: adminForm.password
 				}).success(function (response) {

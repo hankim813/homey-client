@@ -3,12 +3,14 @@ angular
 
 	.factory('apptFactory', ['$http', '$q', '$localStorage', 'ajaxFactory', 'apptService', function ($http, $q, $localStorage, ajaxFactory, apptService) {
 		 function saveApptsToService (userId) {
-				var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
+				// var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
+				var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
 				return apptService.appointments = ajaxFactory.request(uri, 'get');
 			};
 
 			function book (userId) {
-				var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
+				// var uri = 'http://localhost:3000/api/users/' + userId + '/appointments';
+				var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
 				ajaxFactory.request(uri, 'post').then(function (response) {
 					saveApptsToService($localStorage.userId);
 				}, function (error) {
@@ -17,7 +19,8 @@ angular
 			};
 
 			function pay (id) {
-				var uri = 'http://localhost:3000/api/appointments/' + id + '/pay';
+				// var uri = 'http://localhost:3000/api/appointments/' + id + '/pay';
+				var uri = 'https://homey-api.herokuapp.com/api/appointments/' + id + '/pay';
 				ajaxFactory.request(uri, 'put').then(function (response) {
 					saveApptsToService($localStorage.userId);
 				}, function (error) {
@@ -26,7 +29,8 @@ angular
 			};
 
 			function complete (id) {
-				var uri = 'http://localhost:3000/api/appointments/' + id + '/complete';
+				// var uri = 'http://localhost:3000/api/appointments/' + id + '/complete';
+				var uri = 'https://homey-api.herokuapp.com/api/appointments/' + id + '/complete';
 				ajaxFactory.request(uri, 'put').then(function (response) {
 					saveApptsToService($localStorage.userId);
 				}, function (error) {
@@ -36,7 +40,8 @@ angular
 			};
 
 			function cancel (id) {
-				var uri = 'http://localhost:3000/api/appointments/' + id + '/cancel';
+				// var uri = 'http://localhost:3000/api/appointments/' + id + '/cancel';
+				var uri = 'https://homey-api.herokuapp.com/api/appointments/' + id + '/cancel';
 				ajaxFactory.request(uri, 'put').then(function (response) {
 					saveApptsToService($localStorage.userId);
 				}, function (error) {
