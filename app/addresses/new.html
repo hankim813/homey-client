@@ -10,6 +10,14 @@
 	<input type="text" ng-model="newAddress.formData.po_box">
 
 	<label>Neighborhood:</label>
-	<input type="text" ng-model="newAddress.formData.neighborhood">
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="0"> Kilimani
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="1"> Lavington
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="2"> Westlands
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="3"> CBD
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="4"> Upperhill
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="5"> Karen
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="6"> Runda
+	<input type="radio" ng-model="newAddress.formData.neighborhood" value="7"> Eastlands
+
 	<button class="btn btn-primary" type="submit">Add</button>
 </form>
