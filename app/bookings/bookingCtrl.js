@@ -136,8 +136,8 @@ angular
 		vm.services = [
 			{name: 'Grass Cutting', checked: false},
 			{name:'Hedge Trimming', checked: false},
-			{name:'Pruning', checked: false}, 
-			{name:'Plant Watering', checked: false}, 
+			{name:'Pruning', checked: false},
+			{name:'Plant Watering', checked: false},
 			{name:'Other (Please specify in notes)', checked: false}
 		];
 		vm.submitData = submitData;
@@ -152,7 +152,7 @@ angular
 		};
 
 		function addService (index) {
-			vm.formData.type += (vm.services[index].name + ', '); 
+			vm.formData.type += (vm.services[index].name + ', ');
 			vm.services[index].checked = true;
 		};
 
@@ -173,7 +173,7 @@ angular
 			{name: 'Security', state: 'newAppointment.security'},
 			{name: 'Personal Chef', state: 'newAppointment.chef'},
 			{name: 'Gardening', state: 'newAppointment.gardening'},
-			{name: 'Contractor Job', state: 'newAppointment.contractor'},
+			{name: 'Contractor Job', state: 'newAppointment.contractor'}
 		];
 		vm.destroyAddy = addressFactory.destroy;
 		vm.submitData = function () {

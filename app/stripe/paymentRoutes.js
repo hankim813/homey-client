@@ -1,18 +1,16 @@
-// angular
-//   .module('homey', [
-//     'angular-stripe'
-//   ])
+angular
+  .module('homey')
 
-//   .config(['$stateProvider', function ($stateProvider, stripeProvider) {
+  .config(['$stateProvider', function ($stateProvider) {
 
-//     stripeProvider.setPublishableKey('pk_test_4ermEO8C5fZ2IBBaVq8kyhIq')
+    // stripeProvider.setPublishableKey('pk_test_4ermEO8C5fZ2IBBaVq8kyhIq')
 
-//     $stateProvider
+    $stateProvider
 
-//     .state('payments', {
-//       url: '/payments',
-//       templateUrl: '/stripe/payment.html',
-//       controller: 'PaymentController',
-//       controllerAs: 'payment'
-//     });
-//   }]);
+    .state('payments', {
+      url: '/payments',
+      templateUrl: '/stripe/new.html',
+      controller: 'PaymentController',
+      controllerAs: 'payment'
+    });
+  }]);

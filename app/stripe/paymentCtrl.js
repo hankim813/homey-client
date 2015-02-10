@@ -1,28 +1,23 @@
-// angular
-//   .module('homey', [
-//     'angular-stripe'
-//   ])
+angular
+  .module('homey')
 
-//   .controller ('PaymentController', function ($scope, $http, stripe) {
-//   $scope.charge = function () {
-//     return stripe.card.createToken($scope.payment.card)
-//       .then(function (token) {
-//         console.log('token created for card ending in ', token.card.last4);
-//         var payment = angular.copy($scope.payment);
-//         payment.card = void 0;
-//         payment.token = token.id;
-//         return $http.post('http://localhost:3000/payments', payment);
-//       })
-//       .then(function (payment) {
-//         console.log('successfully submitted payment for $', payment.amount);
-//       })
-//       .catch(function (err) {
-//         if (err.type && /^Stripe/.test(err.type)) {
-//           console.log('Stripe error: ', err.message);
-//         }
-//         else {
-//           console.log('Other error occurred, possibly with your API', err.message);
-//         }
-//       });
-//   };
-// });
+  .controller ('PaymentController', ['stripeFactory', function (stripeFactory) {
+    var vm = this;
+    var $form = $('#payment-form');
+    vm.createStripeToken = createStripeToken;
+    function stripeResponseHandler (status, response) {
+      if (status == 200) {
+        stripeFactory.chargeCustomer(response.id);
+      } else {
+        console.log('response', response.error.message);
+        console.log('status', status);
+        console.log('failure');
+      }
+    };
+
+    function createStripeToken () {
+      Stripe.setPublishableKey('pk_test_SsvcyhcsuSKId0jiGDw2Odxc');
+      Stripe.card.createToken($form, stripeResponseHandler);
+    };
+
+  }]);
