@@ -11,9 +11,9 @@ angular
 				}, function (error) {
 					console.log(error);
 				});
-		}
+		};
 
 		return {
 			generateDiscountCode: generateDiscountCode
-		}
+		};
 	}]);

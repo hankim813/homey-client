@@ -22,6 +22,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return '';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			templateUrl: 'appointments/new.html',

@@ -8,7 +8,7 @@ angular
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.delete = function () {
-      adminFactory.delete(vm.info.id)
+      adminFactory.delete()
         .then(
           function () {
             $state.go('/');

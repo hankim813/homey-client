@@ -28,6 +28,16 @@
 	</div>
 </div>
 
+<label>choose address:</label>	
+<div ng-repeat="address in car.addresses">
+	<input type="radio" ng-model="car.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="car.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.carWash.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.carWash">close</a>
+
 <div class="row">
 	<label>Promotional Code:</label>
 	<input type="text" ng-model="car.formData.code">

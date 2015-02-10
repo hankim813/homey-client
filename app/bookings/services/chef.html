@@ -30,6 +30,16 @@
 	</div>
 </div>
 
+<label>choose address:</label>	
+<div ng-repeat="address in chef.addresses">
+	<input type="radio" ng-model="chef.formData.address_id" ng-value="address.id"> {{address.street}}
+	<a href="#" ng-click="chef.destroyAddy(address.id)">delete</a>
+</div>
+
+<a href="#" ui-sref="newAppointment.chef.newAddress">add new address</a>
+<div ui-view="newAddress"></div>
+<a href="#" ui-sref="newAppointment.chef">close</a>
+
 <div class="row">
 	<label>Promotional Code:</label>
 	<input type="text" ng-model="chef.formData.code">

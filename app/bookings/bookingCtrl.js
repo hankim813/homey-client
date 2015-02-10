@@ -1,8 +1,10 @@
 angular
 	.module('homey')
 
-	.controller('HomeCleaningController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('HomeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
+		vm.destroyAddy = addressFactory.destroy;
 		vm.formData = {
 			bedrooms: 0,
 			bathrooms: 0,
@@ -43,20 +45,25 @@ angular
 		};
 	}])
 
-	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',  function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
+		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('CarWashController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('CarWashController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',  function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
+		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('DriverController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('DriverController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.formData = {
 			cars: []
 		};
@@ -65,6 +72,7 @@ angular
 		vm.removeCar = removeCar;
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
+		vm.destroyAddy = addressFactory.destroy;
 
 		function addCars () {
 			for (var i = 0; i < vm.formData.providers; i++) {
@@ -79,8 +87,9 @@ angular
 		};
 	}])
 
-	.controller('SecurityController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('SecurityController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.formData = {
 			guards: []
 		};
@@ -89,6 +98,7 @@ angular
 		vm.addGuards = addGuards;
 		vm.removeGuard = removeGuard;
 		vm.submitData = bookingFactory.create;
+		vm.destroyAddy = addressFactory.destroy;
 
 		function addGuards	() {
 			for (var i = 0; i < vm.formData.providers; i++) {
@@ -103,18 +113,21 @@ angular
 		};
 	}])
 
-	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
+	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, $window, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.Math = $window.Math;
 		vm.formData = {
 			serving_size: 0
 		};
 		vm.serviceType = serviceType;
 		vm.submitData = bookingFactory.create;
+		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', function (bookingFactory, serviceType, $window) {
+	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, $window, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.Math = $window.Math;
 		vm.formData = {
 			acres: 0.00,
@@ -129,6 +142,7 @@ angular
 		];
 		vm.submitData = submitData;
 		vm.addService = addService;
+		vm.destroyAddy = addressFactory.destroy;
 
 		function pruneType () {
 			vm.formData.type = vm.formData.type.trim();
@@ -148,8 +162,9 @@ angular
 		};
 	}])
 
-	.controller('BookingController', ['bookingFactory', 'serviceType', function (bookingFactory, serviceType) {
+	.controller('BookingController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
 		var vm = this;
+		vm.addresses = addresses;
 		vm.services = [
 			{name: 'Home Cleaning', state: 'newAppointment.homeCleaning'},
 			{name: 'Office Cleaning', state: 'newAppointment.officeCleaning'},
@@ -160,6 +175,7 @@ angular
 			{name: 'Gardening', state: 'newAppointment.gardening'},
 			{name: 'Contractor Job', state: 'newAppointment.contractor'},
 		];
+		vm.destroyAddy = addressFactory.destroy;
 		vm.submitData = function () {
 			bookingFactory.create(vm.formData, serviceType);
 		};

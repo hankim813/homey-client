@@ -10,6 +10,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'home-cleanings';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -26,6 +30,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'office-cleanings';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -42,6 +50,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'car-washes';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -58,6 +70,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'drivers';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -74,6 +90,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'securities';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -90,6 +110,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'chefs';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -106,6 +130,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'gardenings';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
@@ -122,6 +150,10 @@ angular
 			resolve: {
 				serviceType: function () {
 					return 'contractors';
+				},
+
+				addresses: function (addressService) {
+					return addressService.addresses;
 				}
 			},
 			views: {
