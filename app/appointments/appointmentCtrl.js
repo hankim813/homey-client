@@ -1,4 +1,4 @@
-angular	
+angular
 	.module('homey')
 
 	.controller('AppointmentController', ['appointments', 'apptFactory', 'userService', function (appointments, apptFactory, userService) {
