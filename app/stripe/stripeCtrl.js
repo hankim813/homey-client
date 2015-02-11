@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .controller ('PaymentController', ['stripeFactory', function (stripeFactory) {
+  .controller ('StripeController', ['stripeFactory', function (stripeFactory) {
     var vm = this;
     var $form = $('#payment-form');
     vm.createStripeToken = createStripeToken;
@@ -21,3 +21,4 @@ angular
     };
 
   }]);
+

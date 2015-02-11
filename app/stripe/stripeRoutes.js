@@ -10,7 +10,7 @@ angular
     .state('payments', {
       url: '/payments',
       templateUrl: '/stripe/new.html',
-      controller: 'PaymentController',
-      controllerAs: 'payment'
+      controller: 'StripeController',
+      controllerAs: 'stripe'
     });
   }]);
