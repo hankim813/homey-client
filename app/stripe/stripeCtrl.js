@@ -16,7 +16,7 @@ angular
     };
 
     function createStripeToken () {
-      Stripe.setPublishableKey('pk_test_SsvcyhcsuSKId0jiGDw2Odxc');
+      Stripe.setPublishableKey('pk_live_n41TBlX0lvSs04xM9Kh983ai');
       Stripe.card.createToken($form, stripeResponseHandler);
     };
 
