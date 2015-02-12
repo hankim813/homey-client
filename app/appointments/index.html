@@ -16,4 +16,9 @@
 	<button class="btn btn-success" ng-click="appt.pay(appointment.id)">Make a Payment</button>
 	<button class="btn btn-info" ng-click="appt.complete(appointment.id)">Mark as Completed</button>
 	<button class="btn btn-danger" ng-click="appt.cancel(appointment.id)">Cancel Appointment</button>
+
+	<a ui-sref="payments">
+		<button class="btn btn-primary">Pay now</button>
+	</a>
+
 </div>
