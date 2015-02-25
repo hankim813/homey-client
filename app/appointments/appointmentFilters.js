@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .filter('upcomingApptsFilter', function () {
+  .filter('upcomingFilter',[function () {
 
     return function(appointments) {
       var upcomingAppointments = [];
@@ -11,20 +11,19 @@ angular
 
       // if the appointments are loaded
       if (appointments && appointments.length > 0) {
-        angular.forEach(appointments, function (index, appointment) {
-          var appointmentDate = new Date(appointment.service_date);
-
+        for (var i = 0; i < appointments.length; i++) {
+          var appointmentDate = new Date(appointments[i].service_date);
           if (appointmentDate >= currentDate) {
-            upcomingAppointments.push(appointment);
+            upcomingAppointments.push(appointments[i]);
           }
-        });
+        }
+      };
 
-        return upcomingAppointments;
-      }
+      return upcomingAppointments;
     };
-  })
+  }])
 
-  .filter('pastApptsFilter', function () {
+  .filter('pastFilter', [function () {
 
     return function(appointments) {
       var pastAppointments = [];
@@ -34,15 +33,13 @@ angular
 
       // if the appointments are loaded
       if (appointments && appointments.length > 0) {
-        angular.forEach(appointments, function (index, appointment) {
-          var appointmentDate = new Date(appointment.service_date);
-
+        for (var i = 0; i < appointments.length; i++) {
+          var appointmentDate = new Date(appointments[i].service_date);
           if (appointmentDate <= currentDate) {
-            pastAppointments.push(appointment);
+            pastAppointments.push(appointments[i]);
           }
-        });
-
-        return pastAppointments;
-      }
+        }
+      };
+      return pastAppointments;
     };
-  })
+  }])

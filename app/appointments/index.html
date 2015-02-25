@@ -4,7 +4,7 @@
 	<button class="btn btn-primary">Home</button>
 </a>
 
-<div ng-repeat="appointment in appt.upcomingAppointments" style="border: 1px solid black; margin-top: 3px;">
+<div ng-repeat="appointment in appt.upcoming" style="border: 1px solid black; margin-top: 3px;">
 	<p><strong>appointment id:</strong> {{appointment.id}}</p>
 	<p><strong>made by:</strong> {{appt.user.first_name}}</p>
 	<p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
@@ -25,7 +25,7 @@
 
 <h1>Past Appointments</h1>
 
-<div ng-repeat="appointment in appt.pastAppointments" style="border: 1px solid black; margin-top: 3px;">
+<div ng-repeat="appointment in appt.past" style="border: 1px solid black; margin-top: 3px;">
 	<p><strong>appointment id:</strong> {{appointment.id}}</p>
 	<p><strong>made by:</strong> {{appt.user.first_name}}</p>
 	<p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
