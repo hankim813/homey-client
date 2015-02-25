@@ -1,11 +1,15 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', function ($state, adminService, adminFactory, adminLoginFactory) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptService', function ($state, adminService, adminFactory, adminLoginFactory, adApptService) {
 
     var vm = this;
     vm.info = adminService.admin;
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+
+    vm.upcoming      = adApptService.upcoming;
+    vm.past          = adApptService.past;
+    vm.unassigned    = adApptService.unassigned;
 
     vm.delete = function () {
       adminFactory.delete()

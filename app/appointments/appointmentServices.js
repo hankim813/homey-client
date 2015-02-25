@@ -3,6 +3,11 @@ angular
 
 	.factory('apptService', [function () {
 		return {
-		}
-	}]);
+		};
+	}])
+
+  .factory('adApptService', [function () {
+    return {
+    };
+  }]);
 
