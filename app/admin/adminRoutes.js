@@ -15,6 +15,34 @@ angular
             }, function (error) {
               console.log(error);
             });
+        },
+
+        //Gets all types of appointments from apptService
+        fetchUpcoming: function (adApptFactory, adApptService) {
+          return adApptService.upcoming || adApptFactory.saveUpcomingToService()
+            .then(function (response) {
+              return adApptService.upcoming;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchPast: function (adApptFactory, adApptService) {
+          return adApptService.past || adApptFactory.savePastToService()
+            .then(function (response) {
+              return adApptService.past;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchUnassigned: function (adApptFactory, adApptService) {
+          return adApptService.unassigned || adApptService.saveUnassignedToService()
+            .then(function (response) {
+              return adApptService.unassigned;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: '/admin/dashboard.html',

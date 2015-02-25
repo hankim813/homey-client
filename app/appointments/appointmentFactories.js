@@ -56,4 +56,32 @@ angular
 				complete						: complete,
 				cancel							: cancel
 			}
+	}])
+
+	.factory('adApptFactory', ['$localStorage', 'ajaxFactory', 'adApptService', function ($localStorage, ajaxFactory, adApptService) {
+		 function saveUpcomingToService () {
+				var uri = 'http://localhost:3000/api/admin/appointments/upcoming';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.upcoming = ajaxFactory.request(uri, 'get');
+		 };
+
+		 function savePastToService () {
+				var uri = 'http://localhost:3000/api/admin/appointments/past';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.past = ajaxFactory.request(uri, 'get');
+		 };
+
+		 function saveUnassignedToService () {
+				var uri = 'http://localhost:3000/api/admin/appointments/unassigned';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.unassigned = ajaxFactory.request(uri, 'get');
+		 };
+
+
+			return {
+				saveUpcomingToService	  : saveUpcomingToService,
+				savePastToService	      : savePastToService,
+				saveUnassignedToService	: saveUnassignedToService,
+
+			}
 	}]);

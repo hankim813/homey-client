@@ -1,13 +1,17 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'Middleware', function ($state, adminService, adminFactory, adminLoginFactory, Middleware) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'Middleware', 'adApptService', function ($state, adminService, adminFactory, adminLoginFactory, Middleware, adApptService) {
 
     Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.info = adminService.admin;
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+
+    vm.upcoming      = adApptService.upcoming;
+    vm.past          = adApptService.past;
+    vm.unassigned    = adApptService.unassigned;
 
     vm.delete = function () {
       adminFactory.delete()

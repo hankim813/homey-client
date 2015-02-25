@@ -6,6 +6,7 @@
 <p>{{admin.info.phone}}</p>
 <p>{{admin.info.address}}</p>
 
+
 <button class="btn btn-info" ng-click="admin.logout()">Logout</button>
 <a ui-sref="editAdmin">
   <button class="btn btn-warning">Edit</button>
@@ -19,3 +20,39 @@
 <a ui-sref="discounts">
 	<button class="btn btn-success">new discount</button>
 </a>
+
+
+
+<h1>Appointment Dashboard</h1>
+
+<h1>Past Appointments</h1>
+<div ng-repeat="appointment in appt.past" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong> {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+
+</div>
+
+<h2>Upcoming Appointments</h2>
+<div ng-repeat="appointment in admin.upcoming" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong> {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+</div>
+
+<h2>Unassigned Appointments</h2>
+<div ng-repeat="appointment in admin.unassigned" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong> {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+</div>
+
