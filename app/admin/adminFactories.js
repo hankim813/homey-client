@@ -5,8 +5,8 @@ angular
     return {
       saveAdminToService: function (id) {
         var d = $q.defer();
-        // $http.get('http://localhost:3000/api/admin/' + id)
-        $http.get('https://homey-api.herokuapp.com/api/admin/' + id)
+        $http.get('http://localhost:3000/api/admin/' + id)
+        // $http.get('https://homey-api.herokuapp.com/api/admin/' + id)
           .success(function (response) {
             adminService.admin = response;
             adminService.admin.birthday = new Date(response.birthday);
@@ -20,8 +20,8 @@ angular
 
       delete: function (id) {
         var d = $q.defer();
-        // $http.delete('http://localhost:3000/api/admin/' + id + '/delete')
-        $http.delete('https://homey-api.herokuapp.com/api/admin/' + id + '/delete')
+        $http.delete('http://localhost:3000/api/admin/' + id + '/delete')
+        // $http.delete('https://homey-api.herokuapp.com/api/admin/' + id + '/delete')
           .success(function (response) {
             delete $localStorage.token;
             delete $localStorage.adminId;
@@ -36,8 +36,8 @@ angular
       edit: function(adminEditForm) {
         var d = $q.defer();
 
-        // $http.put('http://localhost:3000/api/admin/' + adminEditForm.id + '/edit', {
-        $http.put('https://homey-api.herokuapp.com/api/admin/' + adminEditForm.id + '/edit', {
+        $http.put('http://localhost:3000/api/admin/' + adminEditForm.id + '/edit', {
+        // $http.put('https://homey-api.herokuapp.com/api/admin/' + adminEditForm.id + '/edit', {
           email: adminEditForm.email,
           first_name: adminEditForm.first_name,
           last_name: adminEditForm.last_name,
