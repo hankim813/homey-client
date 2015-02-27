@@ -21,7 +21,10 @@ angular
     vm.logout = adminLoginFactory.logout;
   }])
 
-  .controller('AdminEditController', ['$state', 'adminService', 'adminFactory', function ($state, adminService, adminFactory) {
+  .controller('AdminEditController', ['$state', 'adminService', 'adminFactory', 'Router', function ($state, adminService, adminFactory, Router) {
+    if (adminService.admin === undefined) {
+      Router.redirectToForbidden();
+    }
 
     var vm = this;
     vm.editForm = adminService.admin;

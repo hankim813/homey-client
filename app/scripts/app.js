@@ -31,6 +31,14 @@ angular
     };
   }])
 
+  .factory('Router', ['$state', function ($state) {
+    return {
+      redirectToForbidden: function() {
+        return $state.go('forbidden')
+      }
+    }
+  }])
+
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
@@ -78,6 +86,11 @@ angular
       templateUrl: '/views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
+    })
+
+    .state('forbidden', {
+      url: '/noAccess',
+      templateUrl: 'views/forbidden.html'
     });
 
   }])
