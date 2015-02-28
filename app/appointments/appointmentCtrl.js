@@ -15,4 +15,6 @@ angular
 		vm.pay           = apptFactory.pay;
 		vm.cancel        = apptFactory.cancel;
 		vm.complete      = apptFactory.complete;
+
 	}]);
+

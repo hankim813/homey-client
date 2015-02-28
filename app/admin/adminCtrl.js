@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'Middleware', 'adApptService', function ($state, adminService, adminFactory, adminLoginFactory, Middleware, adApptService) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptService', 'Middleware', function ($state, adminService, adminFactory, adminLoginFactory, adApptService, Middleware) {
 
     Middleware.redirectToForbidden('admin');
 
