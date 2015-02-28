@@ -3,5 +3,10 @@ angular
 
   .factory('adminService', [function () {
     return {
-    }
+    };
+  }])
+
+  .factory('adApptService', [function () {
+    return {
+    };
   }]);
