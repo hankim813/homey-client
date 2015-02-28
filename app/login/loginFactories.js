@@ -120,7 +120,7 @@ angular.
 			register: function(adminForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/admin/register', adminForm)
+				$http.post('http://localhost:3000/api/admins/register', adminForm)
 				// $http.post('https://homey-api.herokuapp.com/api/admin/register', adminForm)
 				.success(function (response) {
 					AuthToken.set(response);
@@ -135,7 +135,7 @@ angular.
 			login: function (adminForm) {
 				var d = $q.defer();
 
-				$http.post('http://localhost:3000/api/admin/login', {
+				$http.post('http://localhost:3000/api/admins/login', {
 				// $http.post('https://homey-api.herokuapp.com/api/admin/login', {
 					email: adminForm.email,
 					password: adminForm.password

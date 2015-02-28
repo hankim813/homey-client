@@ -37,7 +37,7 @@ angular
         },
 
         fetchUnassigned: function (adApptFactory, adApptService) {
-          return adApptService.unassigned || adApptService.saveUnassignedToService()
+          return adApptService.unassigned || adApptFactory.saveUnassignedToService()
             .then(function (response) {
               return adApptService.unassigned;
             }, function (error) {
