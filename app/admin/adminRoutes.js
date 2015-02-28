@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .config(function ($stateProvider) {
+  .config(['$stateProvider', '$httpProvider', function ($stateProvider, $httpProvider) {
 
     $stateProvider
 
@@ -28,4 +28,4 @@ angular
       controller: 'AdminEditController',
       controllerAs: 'adminEdit'
     });
-  });
+  }]);

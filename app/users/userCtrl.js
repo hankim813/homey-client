@@ -1,7 +1,9 @@
 angular
 	.module('homey')
 
-	.controller('UserController', ['$state', 'user', 'userService', 'userFactory', function ($state, user, userService, userFactory) {
+	.controller('UserController', ['$state', 'user', 'userService', 'userFactory', 'Middleware', function ($state, user, userService, userFactory, Middleware) {
+
+		Middleware.redirectToForbidden('user');
 
 		var vm = this;
 		vm.info = user;
@@ -19,7 +21,9 @@ angular
 	    };
 	}])
 
-	.controller('EditController', ['$state','user', 'userService', 'userFactory', function ($state, user, userService, userFactory) {
+	.controller('EditController', ['$state','user', 'userService', 'userFactory', 'Middleware', function ($state, user, userService, userFactory, Middleware) {
+
+		Middleware.redirectToForbidden('user');
 
 	  var vm = this;
 	  vm.editForm = user;

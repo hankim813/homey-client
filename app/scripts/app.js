@@ -17,20 +17,6 @@ angular
     'angularMoment'
   ])
 
-  .factory('AuthInterceptor', ['$q', '$injector', function ($q, $injector) {
-    return {
-      request: function(config) {
-        var AuthToken = $injector.get("AuthToken");
-        var token = AuthToken.get();
-        config.headers = config.headers || {};
-        if (token) {
-          config.headers.Authorization = "Bearer " + token;
-        }
-        return config || $q.when(config);
-      }
-    };
-  }])
-
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
@@ -78,6 +64,11 @@ angular
       templateUrl: '/views/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
+    })
+
+    .state('forbidden', {
+      url: '/noAccess',
+      templateUrl: 'views/forbidden.html'
     });
 
   }])
