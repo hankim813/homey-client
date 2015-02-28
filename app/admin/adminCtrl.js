@@ -1,7 +1,9 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', function ($state, adminService, adminFactory, adminLoginFactory) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'Middleware', function ($state, adminService, adminFactory, adminLoginFactory, Middleware) {
+
+    Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.info = adminService.admin;
@@ -21,10 +23,9 @@ angular
     vm.logout = adminLoginFactory.logout;
   }])
 
-  .controller('AdminEditController', ['$state', 'adminService', 'adminFactory', 'Router', function ($state, adminService, adminFactory, Router) {
-    if (adminService.admin === undefined) {
-      Router.redirectToForbidden();
-    }
+  .controller('AdminEditController', ['$state', 'adminService', 'adminFactory', 'Middleware', function ($state, adminService, adminFactory, Middleware) {
+
+    Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.editForm = adminService.admin;

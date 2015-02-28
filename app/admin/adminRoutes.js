@@ -1,18 +1,7 @@
 angular
   .module('homey')
 
-  .factory('AdminInterceptor', ['$injector', function ($injector) {
-    return {
-      responseError: function (rejection) {
-        var Router = $injector.get('Router');
-        Router.redirectToForbidden();
-      }
-    }
-  }])
-
   .config(['$stateProvider', '$httpProvider', function ($stateProvider, $httpProvider) {
-
-    $httpProvider.interceptors.push('AdminInterceptor');
 
     $stateProvider
 
