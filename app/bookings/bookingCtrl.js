@@ -1,7 +1,10 @@
 angular
 	.module('homey')
 
-	.controller('HomeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('HomeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.destroyAddy = addressFactory.destroy;
@@ -45,7 +48,10 @@ angular
 		};
 	}])
 
-	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',  function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('OfficeCleaningController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.serviceType = serviceType;
@@ -53,7 +59,10 @@ angular
 		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('CarWashController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',  function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('CarWashController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.serviceType = serviceType;
@@ -61,7 +70,10 @@ angular
 		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('DriverController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('DriverController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.formData = {
@@ -87,7 +99,10 @@ angular
 		};
 	}])
 
-	.controller('SecurityController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('SecurityController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.formData = {
@@ -113,7 +128,10 @@ angular
 		};
 	}])
 
-	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, $window, addresses, addressFactory) {
+	.controller('ChefController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, $window, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.Math = $window.Math;
@@ -125,7 +143,10 @@ angular
 		vm.destroyAddy = addressFactory.destroy;
 	}])
 
-	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, $window, addresses, addressFactory) {
+	.controller('GardeningController', ['bookingFactory', 'serviceType', '$window', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, $window, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.Math = $window.Math;
@@ -162,7 +183,10 @@ angular
 		};
 	}])
 
-	.controller('BookingController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory',   function (bookingFactory, serviceType, addresses, addressFactory) {
+	.controller('BookingController', ['bookingFactory', 'serviceType', 'addresses', 'addressFactory', 'Middleware', function (bookingFactory, serviceType, addresses, addressFactory, Middleware) {
+
+    Middleware.redirectToForbidden('user');
+
 		var vm = this;
 		vm.addresses = addresses;
 		vm.services = [

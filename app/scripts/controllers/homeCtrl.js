@@ -1,7 +1,9 @@
 angular
 	.module('homey')
 
-  .controller('HomeController',['$state', 'userLoginFactory', function ($state, userLoginFactory) {
+  .controller('HomeController',['$state', 'userLoginFactory', 'Middleware', function ($state, userLoginFactory, Middleware) {
+
+  	Middleware.redirectToForbidden('user');
 
   	var home = this;
 

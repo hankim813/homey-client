@@ -4,7 +4,6 @@ angular
   .factory('Middleware', ['$state', 'adminService', 'userService', 'spService', function ($state, adminService, userService, spService) {
     return {
       redirectToForbidden: function(userType) {
-      	console.log('running')
       	switch (userType) {
       		case 'admin':
   			    if (adminService.admin === undefined) {

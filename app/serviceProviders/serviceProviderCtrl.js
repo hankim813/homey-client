@@ -1,7 +1,9 @@
 angular
   .module('homey')
 
-  .controller('serviceProviderController', ['$state', 'spService', 'spFactory', 'spLoginFactory', function ($state, spService, spFactory, spLoginFactory) {
+  .controller('serviceProviderController', ['$state', 'spService', 'spFactory', 'spLoginFactory', 'Middleware', function ($state, spService, spFactory, spLoginFactory, Middleware) {
+
+    Middleware.redirectToForbidden('sp');
 
     var vm = this;
     vm.info = spService.sp;
@@ -21,7 +23,9 @@ angular
     vm.logout = spLoginFactory.logout;
   }])
 
-  .controller('serviceProviderEditController', ['$state', 'spService', 'spFactory', function ($state, spService, spFactory) {
+  .controller('serviceProviderEditController', ['$state', 'spService', 'spFactory', 'Middleware', function ($state, spService, spFactory, Middleware) {
+
+    Middleware.redirectToForbidden('sp');
 
     var vm = this;
     vm.editForm = spService.sp;
