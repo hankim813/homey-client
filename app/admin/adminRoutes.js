@@ -27,23 +27,23 @@ angular
             });
         },
 
-        fetchPast: function (adApptFactory, adApptService) {
-          return adApptService.past || adApptFactory.savePastToService()
-            .then(function (response) {
-              return adApptService.past;
-            }, function (error) {
-              console.log(error);
-            });
-        },
+        // fetchPast: function (adApptFactory, adApptService) {
+        //   return adApptService.past || adApptFactory.savePastToService()
+        //     .then(function (response) {
+        //       return adApptService.past;
+        //     }, function (error) {
+        //       console.log(error);
+        //     });
+        // },
 
-        fetchUnassigned: function (adApptFactory, adApptService) {
-          return adApptService.unassigned || adApptFactory.saveUnassignedToService()
-            .then(function (response) {
-              return adApptService.unassigned;
-            }, function (error) {
-              console.log(error);
-            });
-        }
+        // fetchUnassigned: function (adApptFactory, adApptService) {
+        //   return adApptService.unassigned || adApptFactory.saveUnassignedToService()
+        //     .then(function (response) {
+        //       return adApptService.unassigned;
+        //     }, function (error) {
+        //       console.log(error);
+        //     });
+        // }
       },
       templateUrl: '/admin/dashboard.html',
       controller: 'AdminController',

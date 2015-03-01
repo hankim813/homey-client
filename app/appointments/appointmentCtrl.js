@@ -9,6 +9,7 @@ angular
 		//user appointments
 		vm.user          = userService.user;
 		vm.appointments  = appointments;
+		console.log(vm.appointments);
 		vm.upcoming      = $filter('upcomingFilter')(vm.appointments);
 		vm.past          = $filter('pastFilter')(vm.appointments);
 		// vm.edit					= apptFactory.edit;

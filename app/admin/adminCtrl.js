@@ -3,15 +3,17 @@ angular
 
   .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptService', 'Middleware', function ($state, adminService, adminFactory, adminLoginFactory, adApptService, Middleware) {
 
-    Middleware.redirectToForbidden('admin');
+    // Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.info = adminService.admin;
-    vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+    // vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.upcoming      = adApptService.upcoming;
     vm.past          = adApptService.past;
     vm.unassigned    = adApptService.unassigned;
+
+    console.log(vm.upcoming);
 
     vm.delete = function () {
       adminFactory.delete()
