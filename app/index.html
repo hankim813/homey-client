@@ -21,11 +21,10 @@
     <base href="/">
   </head>
   <body ng-app="homey">
-
-    <!-- Add your site or application content here -->
-    <div class="container-fluid">
+    <nav><navbar></navbar></nav>
+    <main class="container-fluid">
       <div ui-view></div>
-    </div>
+    </main>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -128,6 +127,8 @@
         <!-- Filters -->
         <script src="/appointments/appointmentFilters.js"></script>
 
+        <!-- Directives -->
+        <script src="/scripts/directives/navbar.js"></script>
 
         <!-- endbuild -->
 
