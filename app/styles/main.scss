@@ -2,5 +2,145 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import url(http://fonts.googleapis.com/css?family=Squada+One);
+@import url(http://fonts.googleapis.com/css?family=Exo);
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+/* Resets */
+h1,h2,h3,h4,h5 {
+	margin: 0;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+body {
+	padding-top: 78px;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Links */
+a {
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+a:hover {
+	transition: all 0.3s ease;
+	text-decoration: none;
+	color: inherit;
+}
 
 
+/* Navbar */
+
+.nav-hf {
+	font-family: 'Squada One', cursive;
+	color: #04c2e6;
+	font-size: 3em;
+	text-align: center;
+}
+
+.navi {
+	padding: 15px 0;
+	box-shadow: 1px 1.4px 2px #7A7A7A;
+	border-color: #EEEEEE;
+	border-width: 0 0 1px;
+	border-radius: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	left: 0;
+	min-height: 70px;
+	border: 1px solid transparent;
+	z-index: 5;
+	background-color: #fff;
+}
+
+.navi-links {
+	padding-top: 15px;
+	text-align: center; 
+
+	a {
+		margin-right: 15px;
+		letter-spacing: 1px;
+		color: #2e2e2e;
+		font-family: 'Exo', sans-serif;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #04c2e6;
+	}
+}
+
+/* Jumbo */
+
+.jumbo {
+	padding-top: 10%;
+	text-align: center;
+	height: 698px;
+	background-image: url('../images/homey-kitchen.jpg');
+	background-size: cover;
+
+	h1 {
+		font-family: 'Lily Script One', cursive;
+		font-size: 6em;
+		color: #FFF;
+		margin: 15px 0; 
+	}
+
+	p {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #FFF;
+		font-weight: 200;
+		font-size: 2em;
+		margin: 15px 0; 
+	}
+
+	button {
+		margin: 15px 0;
+	}
+}
+
+/* Buttons */
+
+.primary-btn {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #2566fc;
+	color: #fff;
+	border-radius: 6px;
+	letter-spacing: 1px;
+	border: none;
+	padding: 25px 70px;
+	font-size: 1.5em;
+	transition: all 0.3s ease;
+}
+
+.default-btn {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #fff;
+	color: #000000;
+	border-radius: 6px;
+	letter-spacing: 1px;
+	border: none;
+	padding: 25px 70px;
+	font-size: 1.5em;
+	transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+	background-color: #033EC5;
+	transition: all 0.3s ease;
+}
+
+.default-btn:hover {
+	background-color: #D8D8D8;
+	transition: all 0.3s ease;
+}

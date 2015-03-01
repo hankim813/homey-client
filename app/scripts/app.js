@@ -17,8 +17,10 @@ angular
     'angularMoment'
   ])
 
-  .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
+
+    $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/');
 
@@ -26,7 +28,7 @@ angular
 
     .state('/', {
       url: '/',
-      templateUrl: '/views/main.html',
+      templateUrl: '/views/landing.html',
       controller: 'MainController',
       controllerAs: 'app'
     })
