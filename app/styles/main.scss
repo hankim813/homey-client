@@ -184,3 +184,48 @@ a:hover {
 		}
 	}
 }
+
+/* Process */
+
+.process {
+	background-color: #018EA8;
+	text-align: center;
+	padding: 8% 0 2% 0;
+}
+
+.process-box {
+	text-align: center;
+	margin-bottom: 5%; 
+
+	h2 {
+		color: #FFF;
+		font-size: 1.7em;
+		padding: 0 5%;
+	}
+
+	i {
+		font-size: 13em;
+		color: #73DDF1;
+		margin: 0 8% 5% 8%;
+		transition: all 0.2s ease;
+	}
+
+	i:hover {
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transform: scale(1.1);
+		transition: all 0.2s ease;
+	}
+
+	.step-circle {
+	  border-radius: 50%;
+	  background-color: #FFF;
+	  width: 80px;
+	  height: 80px;
+	  color: #73DDF1;
+	  font-size: 2.3em;
+	  text-align: center;
+	  line-height: 80px;
+	  margin: 0 auto 15px auto;
+	}
+}
