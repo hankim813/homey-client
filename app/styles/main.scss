@@ -37,6 +37,41 @@ a:hover {
 	color: inherit;
 }
 
+/* Buttons */
+
+.primary-btn {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #2566fc;
+	color: #fff;
+	border-radius: 6px;
+	letter-spacing: 1px;
+	border: none;
+	padding: 25px 70px;
+	font-size: 1.5em;
+	transition: all 0.3s ease;
+}
+
+.default-btn {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #fff;
+	color: #000000;
+	border-radius: 6px;
+	letter-spacing: 1px;
+	border: none;
+	padding: 25px 70px;
+	font-size: 1.5em;
+	transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+	background-color: #033EC5;
+	transition: all 0.3s ease;
+}
+
+.default-btn:hover {
+	background-color: #D8D8D8;
+	transition: all 0.3s ease;
+}
 
 /* Navbar */
 
@@ -85,14 +120,15 @@ a:hover {
 
 .jumbo {
 	padding-top: 10%;
+	padding-bottom: 5%;
 	text-align: center;
-	height: 698px;
+	min-height: 698px;
 	background-image: url('../images/homey-kitchen.jpg');
 	background-size: cover;
 
 	h1 {
 		font-family: 'Lily Script One', cursive;
-		font-size: 6em;
+		font-size: 5em;
 		color: #FFF;
 		margin: 15px 0; 
 	}
@@ -101,47 +137,47 @@ a:hover {
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #FFF;
 		font-weight: 200;
-		font-size: 2em;
+		font-size: 1.7em;
 		margin: 15px 0; 
 	}
 
 	button {
-		margin: 15px 0;
+		margin-top: 15px;
 	}
 }
 
-/* Buttons */
+/* Value Boxes */
 
-.primary-btn {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: #2566fc;
-	color: #fff;
-	border-radius: 6px;
-	letter-spacing: 1px;
-	border: none;
-	padding: 25px 70px;
-	font-size: 1.5em;
-	transition: all 0.3s ease;
-}
+.value {
+	padding: 5% 0;
+	word-wrap: break-word;
+	text-align: center;
+	div {
+		padding: 0 3%;
 
-.default-btn {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: #fff;
-	color: #000000;
-	border-radius: 6px;
-	letter-spacing: 1px;
-	border: none;
-	padding: 25px 70px;
-	font-size: 1.5em;
-	transition: all 0.3s ease;
-}
+		h1 {
+			text-transfrom: uppercase;
+			color: #424242;
+		  font-size: 1.5em;
+		}
 
-.primary-btn:hover {
-	background-color: #033EC5;
-	transition: all 0.3s ease;
-}
+		p {
+			font-size: 1.2em;
+			line-height: 1.5em;
+		}
 
-.default-btn:hover {
-	background-color: #D8D8D8;
-	transition: all 0.3s ease;
+		i {
+			font-size: 6em;
+			color: #04C2E6;
+			margin-bottom: 3%;
+			transition: all 0.2s ease;
+		}
+
+		i:hover {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+			transition: all 0.2s ease;
+		}
+	}
 }
