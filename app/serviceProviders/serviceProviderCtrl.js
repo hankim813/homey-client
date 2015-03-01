@@ -1,13 +1,16 @@
 angular
   .module('homey')
 
-  .controller('serviceProviderController', ['$state', 'spService', 'spFactory', 'spLoginFactory', 'Middleware', function ($state, spService, spFactory, spLoginFactory, Middleware) {
+  .controller('serviceProviderController', ['$state', 'spService', 'spFactory', 'spLoginFactory', 'Middleware', 'upcomingAppointments', 'pastAppointments', function ($state, spService, spFactory, spLoginFactory, Middleware, upcomingAppointments, pastAppointments) {
 
-    Middleware.redirectToForbidden('sp');
+    // Middleware.redirectToForbidden('sp');
 
     var vm = this;
     vm.info = spService.sp;
     vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+
+    vm.upcoming = upcomingAppointments;
+    vm.past = pastAppointments;
 
     vm.delete = function () {
       spFactory.delete()

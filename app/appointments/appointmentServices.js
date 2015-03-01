@@ -9,5 +9,10 @@ angular
   .factory('adApptService', [function () {
     return {
     };
+  }])
+
+  .factory('spApptService', [function () {
+    return {
+    };
   }]);
 

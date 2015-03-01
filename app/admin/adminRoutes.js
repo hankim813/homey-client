@@ -18,7 +18,7 @@ angular
         },
 
         //Gets all types of appointments from apptService
-        fetchUpcoming: function (adApptFactory, adApptService) {
+        upcomingAppointments: function (adApptFactory, adApptService) {
           return adApptService.upcoming || adApptFactory.saveUpcomingToService()
             .then(function (response) {
               return adApptService.upcoming;
@@ -27,23 +27,23 @@ angular
             });
         },
 
-        // fetchPast: function (adApptFactory, adApptService) {
-        //   return adApptService.past || adApptFactory.savePastToService()
-        //     .then(function (response) {
-        //       return adApptService.past;
-        //     }, function (error) {
-        //       console.log(error);
-        //     });
-        // },
+        pastAppointments: function (adApptFactory, adApptService) {
+          return adApptService.past || adApptFactory.savePastToService()
+            .then(function (response) {
+              return adApptService.past;
+            }, function (error) {
+              console.log(error);
+            });
+        },
 
-        // fetchUnassigned: function (adApptFactory, adApptService) {
-        //   return adApptService.unassigned || adApptFactory.saveUnassignedToService()
-        //     .then(function (response) {
-        //       return adApptService.unassigned;
-        //     }, function (error) {
-        //       console.log(error);
-        //     });
-        // }
+        unassignedAppointments: function (adApptFactory, adApptService) {
+          return adApptService.unassigned || adApptFactory.saveUnassignedToService()
+            .then(function (response) {
+              return adApptService.unassigned;
+            }, function (error) {
+              console.log(error);
+            });
+        }
       },
       templateUrl: '/admin/dashboard.html',
       controller: 'AdminController',

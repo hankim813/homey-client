@@ -58,7 +58,7 @@ angular
 			}
 	}])
 
-	.factory('adApptFactory', ['$localStorage', 'ajaxFactory', 'adApptService', function ($localStorage, ajaxFactory, adApptService) {
+	.factory('adApptFactory', ['ajaxFactory', 'adApptService', function (ajaxFactory, adApptService) {
 		 function saveUpcomingToService () {
 				var uri = 'http://localhost:3000/api/appointments/upcoming';
 				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
@@ -83,5 +83,24 @@ angular
 				savePastToService	      : savePastToService,
 				saveUnassignedToService	: saveUnassignedToService,
 
+			}
+	}])
+
+	.factory('spApptFactory', ['ajaxFactory', 'spApptService', function (ajaxFactory, spApptService) {
+		 function saveUpcomingToService (spId) {
+				var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/upcoming';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return spApptService.upcoming = ajaxFactory.request(uri, 'get');
+		 }
+
+		 function savePastToService (spId) {
+				var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/past';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return spApptService.past = ajaxFactory.request(uri, 'get');
+		 }
+
+			return {
+				saveUpcomingToService	  : saveUpcomingToService,
+				savePastToService	      : savePastToService
 			}
 	}]);
