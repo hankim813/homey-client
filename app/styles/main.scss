@@ -7,8 +7,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
 
 /* Resets */
+
 h1,h2,h3,h4,h5 {
 	margin: 0;
+}
+
+ul {
+	-webkit-padding-start: 0;
 }
 
 .row {
@@ -296,5 +301,54 @@ a:hover {
 		-ms-transform: scale(1.05);
 		transform: scale(1.05);
 		transition: all 0.2s ease;
+	}
+}
+
+/* Footer */
+
+.footer-container {
+  background-color: #1D1D1D;
+	padding: 5% 0;
+	text-align: left;
+
+	ul {
+		list-style: none;
+		color: #6E6E6E;
+	}
+
+	a {
+		font-size: 1.2em;
+		color: #FFF;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: #ADADAD;
+		cursor: pointer;
+	}
+
+	p {
+		font-size: 1.2em;
+		color: #6E6E6E;
+	}
+
+	i {
+		color: #6E6E6E;
+		font-size: 3em;
+		margin: 0 0 0 10%;
+		padding: 0;
+		transition: all 0.2s ease;
+	}
+
+	i:hover {
+		color: #ADADAD;
+		transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transition: all 0.2s ease;
+	}
+
+	hr {
+		border-top: 1px solid #F2F2F2;
 	}
 }
