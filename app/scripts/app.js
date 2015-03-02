@@ -18,54 +18,23 @@ angular
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+
     $httpProvider.interceptors.push('AuthInterceptor');
 
-    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/landing');
 
-    $urlRouterProvider.otherwise('/');
+    // $locationProvider.html5Mode(true);
 
     $stateProvider
 
-    .state('/', {
-      url: '/',
-      templateUrl: '/views/landing.html',
-      controller: 'MainController',
-      controllerAs: 'app'
+    .state('home', {
+      url: '/landing',
+      templateUrl: '/views/landing.html'
     })
 
-    .state('home', {
-      url: '/home',
-      resolve: {
-        fetchUser: function (userFactory, userService, $localStorage) {
-          return userService.user || userFactory.saveUserToService($localStorage.userId)
-            .then(function (response) {
-              return userService.user;
-            }, function (error) {
-              console.log(error);
-            });
-        },
-
-        fetchAppointments: function (apptFactory, apptService, $localStorage) {
-          return apptService.appointments || apptFactory.saveApptsToService($localStorage.userId)
-            .then(function (response) {
-              return apptService.appointments;
-            }, function (error) {
-              console.log(error);
-            });
-        },
-
-        fetchAddresses: function (addressFactory, addressService, $localStorage) {
-          return addressService.addresses || addressFactory.saveAddressesToService($localStorage.userId)
-            .then(function (response) {
-              return addressService.addresses;
-            }, function (error) {
-              console.log(error);
-            });
-        }
-      },
-      templateUrl: '/views/home.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+    .state('login', {
+      url: '/login',
+      templateUrl: '/views/main-login.html'
     })
 
     .state('forbidden', {
@@ -83,22 +52,29 @@ angular
     AuthFactory.check();
 
     if (AuthFactory.isLogged) {
-      if (user) {$location.path('/home');}
+      if (user) {$location.path('/dashboard');}
       if (sp) {$location.path('/sp/dashboard');}
       if (admin) {$location.path('/admin/dashboard');}
     } else {
-      $location.path('/');
+      $location.path('/landing');
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/')) {
-        $location.path('/home');
-      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/')) {
+      console.log('RUNNINNG', toState);
+      if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
+        $location.path('/dashboard');
+      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/landing')) {
         $location.path('/sp/dashboard');
-      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/')) {
+      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/landing')) {
         $location.path('/admin/dashboard');
+      } else if (AuthFactory.isLogged === false && toState.url === '/login') {
+        console.log('this guy fucking shit up')
+        $location.path('/login');
+      } else if (AuthFactory.isLogged === false && toState.url === '/register') {
+        console.log('in this bitch');
+        $location.path('/register')
       } else if (AuthFactory.isLogged === false) {
-        $location.path('/');
+        $location.path('/landing')
       }
     });
   }]);

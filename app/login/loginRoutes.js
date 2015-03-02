@@ -5,18 +5,11 @@ angular
 
 		$stateProvider
 
-		.state('userLogin', {
-		  url: '/users/login',
-		  templateUrl: '/login/userLogin.html',
-		  controller: 'UserLoginController',
-		  controllerAs: 'auth'
-		})
-
 		.state('userRegister', {
-			url: '/users/register',
+			url: '/register',
 			templateUrl: '/login/userRegister.html',
-			controller: 'UserLoginController',
-			controllerAs: 'auth'
+			controller: 'UserRegisterController',
+			controllerAs: 'userAuth'
 		})
 
 		.state('serviceProviderLogin', {
