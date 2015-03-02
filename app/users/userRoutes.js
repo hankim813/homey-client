@@ -35,9 +35,9 @@ angular
             });
         }
       },
-      templateUrl: '/views/home.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+      templateUrl: '/views/home.html'
+      // controller: 'UserDashboardController',
+      // controllerAs: 'userDB'
     })
 
 		.state('profile', {

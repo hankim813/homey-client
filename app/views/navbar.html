@@ -3,17 +3,17 @@
     <a ui-sref="landing"><h1 class="nav-hf">Homey</h1></a>
   </div>
 
-  <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-5 navi-links" ng-hide="navbar.loggedIn">
+  <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-5 navi-links" ng-hide="navbar.loggedIn()">
     <a ui-sref="login">Login</a>
     <a>Services</a>
     <a>FAQ</a>
     <a>Contact</a>
   </div>
 
-  <div class="col-xs-12 col-md-4 col-md-offset-5 navi-links" ng-show="navbar.loggedIn">
+  <div class="col-xs-12 col-md-4 col-md-offset-5 navi-links" ng-show="navbar.loggedIn()">
     <a><i class="fa fa-plus"></i> Book</a>
     <a>Appointments</a>
     <a>Settings</a>
-    <a>Log Out</a>
+    <a ng-click="navbar.logout()">Log Out</a>
   </div>
 </nav>

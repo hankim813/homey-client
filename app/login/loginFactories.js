@@ -41,10 +41,10 @@ angular.
 				delete $localStorage.token;
 				delete $localStorage.userId;
 				AuthFactory.isLogged = false;
-
+				FB.logout();
 				delete userService.user;
 
-				$state.go('/');
+				$state.go('landing');
 			},
 
 			fbLogin: function (user) {
@@ -108,7 +108,7 @@ angular.
 
 				delete spService.sp;
 
-				$state.go('/');
+				$state.go('landing');
 			}
 		};
 	}])
@@ -156,7 +156,7 @@ angular.
 
 				delete adminService.admin;
 
-				$state.go('/');
+				$state.go('landing');
 			}
 		};
 	}]);

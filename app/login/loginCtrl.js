@@ -16,7 +16,6 @@ angular
     			vm.userForm = {};
     			$state.go('userDashboard');
     		}, function (error) {
-          // handle error redirection
           console.log(error);
       });
   	};
@@ -37,7 +36,6 @@ angular
           vm.userForm = {};
           $state.go('userDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     };
@@ -66,7 +64,6 @@ angular
           vm.spForm = {};
           $state.go('spDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     };
@@ -77,7 +74,6 @@ angular
           vm.spForm = {};
           $state.go('spDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     }
@@ -95,7 +91,6 @@ angular
           vm.adminForm = {};
           $state.go('adminDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     };
@@ -106,7 +101,6 @@ angular
           vm.adminForm = {};
           $state.go('adminDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     }
