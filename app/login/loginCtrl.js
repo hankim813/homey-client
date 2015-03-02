@@ -11,7 +11,7 @@ angular
   		userLoginFactory.login(vm.userForm)
         .then(function () {
     			vm.userForm = {};
-    			$state.go('home');
+    			$state.go('userDashboard');
     		}, function (error) {
           // handle error redirection
           console.log(error);
@@ -23,18 +23,33 @@ angular
 
     var vm = this;
     vm.userForm = {};
+    vm.activeMale = false;
+    vm.activeFemale = false;
     vm.register = register;
-    
+    vm.check = check;
+
     function register () {
       userLoginFactory.register(vm.userForm)
         .then(function () {
           vm.userForm = {};
-          $state.go('home');
+          $state.go('userDashboard');
         }, function (error) {
           // handle error redirection
           console.log(error);
       });
     };
+
+    function check (val) {
+      if (val === 0) {
+        vm.userForm.gender = 0;
+        vm.activeMale = true;
+        vm.activeFemale = false;
+      } else {
+        vm.userForm.gender = 1;
+        vm.activeFemale = true;
+        vm.activeMale = false;
+      }
+    }
   }])
 
   .controller('ServiceProviderLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {

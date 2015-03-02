@@ -1,10 +1,10 @@
 <div class="row main-login">
 	<div class="col-xs-12 col-md-4 col-md-offset-4">
 
-		<div class="login-box" ng-controller="UserLoginController as userAuth">
+		<div class="login-box">
 
 			<div class="panel-head">
-				<h3>Glad to have you back.</h3>
+				<h3>Welcome Back.</h3>
 			</div>
 			
 			<div class="panel-bod">
@@ -20,9 +20,11 @@
 				    <input type="password" class="form-control" placeholder="And your password?" ng-model="userAuth.userForm.password">
 				  </div>
 
-				  <div class="input-group">
-					  <button type="submit" class="btn primary">Login</button>
-					  <button ui-sref="userRegister" class="btn alternate">Register</button>
+				  <div class="row">
+					  <div class="col-xs-8 col-xs-offset-2">
+						  <button type="submit" class="primary">Login</button>
+						  <button ui-sref="userRegister" class="alternate">Register</button>
+					  </div>
 				  </div>
 				</form>
 			</div>

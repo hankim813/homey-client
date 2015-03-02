@@ -27,14 +27,16 @@ angular
 
     $stateProvider
 
-    .state('home', {
+    .state('landing', {
       url: '/landing',
       templateUrl: '/views/landing.html'
     })
 
     .state('login', {
       url: '/login',
-      templateUrl: '/views/main-login.html'
+      templateUrl: '/views/main-login.html',
+      controller: 'UserLoginController',
+      controllerAs: 'userAuth'
     })
 
     .state('forbidden', {
@@ -60,22 +62,58 @@ angular
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      console.log('RUNNINNG', toState);
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
-        $location.path('/dashboard');
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/dashboard').replace();
+        });
+
       } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/landing')) {
-        $location.path('/sp/dashboard');
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/sp/dashboard').replace();
+        });
+
       } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/landing')) {
-        $location.path('/admin/dashboard');
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/admin/dashboard').replace();
+        });
+
       } else if (AuthFactory.isLogged === false && toState.url === '/login') {
-        console.log('this guy fucking shit up')
-        $location.path('/login');
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/login').replace();
+        });
+
       } else if (AuthFactory.isLogged === false && toState.url === '/register') {
-        console.log('in this bitch');
-        $location.path('/register')
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/register').replace();
+        });
+
       } else if (AuthFactory.isLogged === false) {
-        $location.path('/landing')
+
+        event.preventDefault(); 
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/landing').replace();
+          
+        });
+      } else {
+        return;
       }
     });
+
   }]);
 
