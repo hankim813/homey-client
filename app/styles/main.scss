@@ -85,6 +85,16 @@ button {
 	transition: all 0.3s ease;
 }
 
+.fb-color {
+	background-color: #3B5998;
+	transition: all 0.3s ease;
+}
+
+.fb-color:hover {
+	background-color: #6d84b4;
+	transition: all 0.3s ease;
+}
+
 .default-btn {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #fff;
@@ -145,7 +155,7 @@ button {
 	text-align: center; 
 
 	a {
-		margin-right: 15px;
+		margin-right: 10px;
 		letter-spacing: 1px;
 		color: #2e2e2e;
 		font-family: 'Exo', sans-serif;

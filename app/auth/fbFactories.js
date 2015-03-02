@@ -32,11 +32,10 @@ angular.
 						    // B) If not, then create a user, fill in all the shits, and then log them in.
 					    	userLoginFactory.fbLogin(response)
 					    		.then(function (response) {
-					    			$state.go('home');
+					    			$state.go('userDashboard');
 					    		}, function (error) {
 					    			console.log(error);
 					    		});
-					        // console.log(JSON
 					    });
 					  } else if (response.status === 'not_authorized') {
 					    // The person is logged into Facebook, but not your app.

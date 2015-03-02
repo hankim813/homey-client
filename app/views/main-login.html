@@ -8,7 +8,7 @@
 			</div>
 			
 			<div class="panel-bod">
-				<form class="form-group" ng-submit="userAuth.login()">
+				<form class="form-group">
 
 				  <div class="input-group">
 					  <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
@@ -21,9 +21,10 @@
 				  </div>
 
 				  <div class="row">
-					  <div class="col-xs-8 col-xs-offset-2">
-						  <button type="submit" class="primary">Login</button>
+					  <div class="col-xs-10 col-xs-offset-1">
+						  <button ng-click="userAuth.login()" class="primary">Login</button>
 						  <button ui-sref="userRegister" class="alternate">Register</button>
+						  <button ng-click="userAuth.fbLogin()" class="fb-color" style="margin-top: 0px;">Connect with Facebook</button>
 					  </div>
 				  </div>
 				</form>
@@ -33,3 +34,5 @@
 
 	</div>
 </div>
+
+<div id="fb-root"></div>

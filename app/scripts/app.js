@@ -64,15 +64,11 @@ angular
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
 
-        event.preventDefault(); 
-
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
 
       } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/landing')) {
-
-        event.preventDefault(); 
 
         $rootScope.$evalAsync(function() {
           $location.path('/sp/dashboard').replace();
@@ -80,15 +76,11 @@ angular
 
       } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/landing')) {
 
-        event.preventDefault(); 
-
         $rootScope.$evalAsync(function() {
           $location.path('/admin/dashboard').replace();
         });
 
       } else if (AuthFactory.isLogged === false && toState.url === '/login') {
-
-        event.preventDefault(); 
 
         $rootScope.$evalAsync(function() {
           $location.path('/login').replace();
@@ -96,20 +88,16 @@ angular
 
       } else if (AuthFactory.isLogged === false && toState.url === '/register') {
 
-        event.preventDefault(); 
-
         $rootScope.$evalAsync(function() {
           $location.path('/register').replace();
         });
 
       } else if (AuthFactory.isLogged === false) {
 
-        event.preventDefault(); 
-
         $rootScope.$evalAsync(function() {
           $location.path('/landing').replace();
-          
         });
+        
       } else {
         return;
       }

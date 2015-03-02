@@ -1,11 +1,14 @@
 angular
   .module('homey')
 
-  .controller('UserLoginController',['$state', 'userLoginFactory', function ($state,userLoginFactory) {
+  .controller('UserLoginController',['$state', 'userLoginFactory', 'fbFactory', function ($state,userLoginFactory, fbFactory) {
 
-  	var vm = this;
-  	vm.userForm = {};
-  	vm.login = login;
+    fbFactory.initialize();
+    var vm = this;
+    vm.userForm = {};
+    vm.login = login;
+
+    vm.fbLogin = fbFactory.fbLogin;
 
     function login () {
   		userLoginFactory.login(vm.userForm)
