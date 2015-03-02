@@ -39,6 +39,13 @@ angular
       controllerAs: 'userAuth'
     })
 
+    .state('faq', {
+      url: '/faq',
+      templateUrl: '/views/faq.html',
+      controller: 'FaqController',
+      controllerAs: 'faq'
+    })
+
     .state('forbidden', {
       url: '/noAccess',
       templateUrl: 'views/forbidden.html'

@@ -168,6 +168,10 @@ button {
 	}
 }
 
+.navi-active {
+	color: #04c2e6 !important; 
+}
+
 /* Jumbo */
 
 .jumbo {
@@ -403,15 +407,14 @@ button {
 
 /* Login */
 
-.main-login {
+.main {
 	padding: 10% 0 10% 0;
 	text-align: center;
 	background-image: url('../images/sky.jpg');
 	background-size: cover;
-	// background-color: #FAFAFA;
 }
 
-.login-box {
+.box {
 	border-radius: 4px;
 	box-shadow: 2px 2px 2px #A4A4A4;
 
@@ -457,6 +460,52 @@ button {
 					font-weight: bold;
 				}
 			}
+		}
+	}
+}
+
+/* FAQ */
+
+.faq {
+
+	h1 {
+		font-size: 3em;
+		text-align: center;
+		color: #FFF;
+		margin: 1% 0;
+	}
+
+	p {
+		font-size: 1.2em;
+		text-align: center;
+		color: #FAFAFA;
+	}
+
+	a {
+		display: block;
+		font-size: 1.5em;
+		text-align: left;
+	}
+
+	a:hover {
+		cursor: pointer;
+	}
+
+	.panel-bod {
+		padding-bottom: 3%;
+		text-align: left;
+
+		p {
+			color: #585858;
+			font-size: 1.3em;
+			margin: 15px 0;
+			text-align: left;
+		}
+
+		span {
+			display: inline-block;
+			font-size: 1.3em;
+			margin: 15px 0;
 		}
 	}
 }
