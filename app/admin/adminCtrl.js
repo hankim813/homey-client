@@ -1,13 +1,19 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'Middleware', function ($state, adminService, adminFactory, adminLoginFactory, Middleware) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptFactory', 'adApptService', 'Middleware', 'upcomingAppointments', 'pastAppointments', 'unassignedAppointments', 'providers', function ($state, adminService, adminFactory, adminLoginFactory, adApptFactory, adApptService, Middleware, upcomingAppointments, pastAppointments, unassignedAppointments, providers) {
 
-    Middleware.redirectToForbidden('admin');
+    // Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.info = adminService.admin;
-    vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+    vm.providers = providers;
+    console.log(providers);
+    // vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
+
+    vm.upcoming      = upcomingAppointments;
+    vm.past          = pastAppointments;
+    vm.unassigned    = unassignedAppointments;
 
     vm.delete = function () {
       adminFactory.delete()
@@ -19,6 +25,15 @@ angular
           console.log(error);
         });
       };
+
+    vm.assign = function(appt, provider) {
+      adminFactory.assign(appt, provider).then( function() {
+        vm.upcoming = adApptFactory.saveUpcomingToService();
+        vm.unassigned = adApptFactory.saveUnassignedToService();
+      }, function(error) {
+        console.log(error);
+      });
+    };
 
     vm.logout = adminLoginFactory.logout;
   }])

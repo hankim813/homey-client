@@ -56,4 +56,51 @@ angular
 				complete						: complete,
 				cancel							: cancel
 			}
+	}])
+
+	.factory('adApptFactory', ['ajaxFactory', 'adApptService', function (ajaxFactory, adApptService) {
+		 function saveUpcomingToService () {
+				var uri = 'http://localhost:3000/api/appointments/upcoming';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.upcoming = ajaxFactory.request(uri, 'get');
+		 }
+
+		 function savePastToService () {
+				var uri = 'http://localhost:3000/api/appointments/past';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.past = ajaxFactory.request(uri, 'get');
+		 }
+
+		 function saveUnassignedToService () {
+				var uri = 'http://localhost:3000/api/appointments/unassigned';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return adApptService.unassigned = ajaxFactory.request(uri, 'get');
+		 }
+
+
+			return {
+				saveUpcomingToService	  : saveUpcomingToService,
+				savePastToService	      : savePastToService,
+				saveUnassignedToService	: saveUnassignedToService,
+
+			}
+	}])
+
+	.factory('spApptFactory', ['ajaxFactory', 'spApptService', function (ajaxFactory, spApptService) {
+		 function saveUpcomingToService (spId) {
+				var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/upcoming';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return spApptService.upcoming = ajaxFactory.request(uri, 'get');
+		 }
+
+		 function savePastToService (spId) {
+				var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/past';
+				// var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
+				return spApptService.past = ajaxFactory.request(uri, 'get');
+		 }
+
+			return {
+				saveUpcomingToService	  : saveUpcomingToService,
+				savePastToService	      : savePastToService
+			}
 	}]);

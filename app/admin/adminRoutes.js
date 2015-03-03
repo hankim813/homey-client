@@ -15,6 +15,43 @@ angular
             }, function (error) {
               console.log(error);
             });
+        },
+
+        providers: function (spFactory, spService) {
+          return spService.providers || spFactory.saveProvidersToService()
+            .then(function (response) {
+              return spService.providers;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        //Gets all types of appointments from apptService
+        upcomingAppointments: function (adApptFactory, adApptService) {
+          return adApptService.upcoming || adApptFactory.saveUpcomingToService()
+            .then(function (response) {
+              return adApptService.upcoming;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        pastAppointments: function (adApptFactory, adApptService) {
+          return adApptService.past || adApptFactory.savePastToService()
+            .then(function (response) {
+              return adApptService.past;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        unassignedAppointments: function (adApptFactory, adApptService) {
+          return adApptService.unassigned || adApptFactory.saveUnassignedToService()
+            .then(function (response) {
+              return adApptService.unassigned;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: '/admin/dashboard.html',

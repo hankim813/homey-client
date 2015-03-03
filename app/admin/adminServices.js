@@ -3,5 +3,6 @@ angular
 
   .factory('adminService', [function () {
     return {
-    }
+    };
   }]);
+

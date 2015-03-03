@@ -17,6 +17,7 @@ angular
 			controllerAs: 'appt'
 		})
 
+
 		.state('newAppointment', {
 			url: '/appointments/new',
 			resolve: {
@@ -31,5 +32,6 @@ angular
 			templateUrl: 'appointments/new.html',
 			controller: 'BookingController',
 			controllerAs: 'book'
-		})
-	}])
+		});
+
+	}]);

@@ -15,6 +15,24 @@ angular
             }, function (error) {
               console.log(error);
             });
+        },
+
+        upcomingAppointments: function (spApptFactory, spApptService, $localStorage) {
+          return spApptService.appointments || spApptFactory.saveUpcomingToService($localStorage.spId)
+            .then(function (response) {
+              return spApptService.upcoming;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        pastAppointments: function (spApptFactory, spApptService, $localStorage) {
+          return spApptService.appointments || spApptFactory.savePastToService($localStorage.spId)
+            .then(function (response) {
+              return spApptService.past;
+            }, function (error) {
+              console.log(error);
+            });
         }
       },
       templateUrl: '/serviceProviders/dashboard.html',
