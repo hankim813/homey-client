@@ -18,6 +18,20 @@ angular
           return d.promise;
       },
 
+      saveProvidersToService: function () {
+        var d = $q.defer();
+        $http.get('http://localhost:3000/api/serviceProviders')
+        // $http.get('https://homey-api.herokuapp.com/api/serviceProviders')
+          .success(function (response) {
+            spService.providers = response;
+            d.resolve(response);
+          })
+          .error(function (response) {
+            d.reject(response);
+          });
+          return d.promise;
+      },
+
       delete: function (id) {
         var d = $q.defer();
         $http.delete('http://localhost:3000/api/serviceProviders/' + id + '/delete')

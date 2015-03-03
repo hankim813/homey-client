@@ -52,6 +52,22 @@ angular
           d.reject(response.error);
         });
         return d.promise;
+      },
+
+      assign: function(appt, provider) {
+        var d = $q.defer();
+
+        $http.post('http://localhost:3000/api/assignments', {
+          appointment_id: appt.id,
+          service_provider_id: provider.id
+        })
+        .success(function (response) {
+          d.resolve(response);
+        })
+        .error(function (response) {
+          d.reject(response.error);
+        });
+        return d.promise;
       }
 
     };

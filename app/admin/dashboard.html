@@ -55,5 +55,10 @@
   <p><strong>paid status:</strong> {{appointment.paid}}</p>
   <p><strong>completion status:</strong> {{appointment.completed}}</p>
   <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+  <p>Selected Provider: {{selectedProvider.first_name}}</p>
+  <p>Selected Id: {{selectedProvider.id}}</p>
+  <select ng-model="selectedProvider" ng-options="provider.first_name for provider in admin.providers" class="ng-valid ng-dirty">
+  </select>
+  <button class="btn btn-success" ng-click="admin.assign(appointment, selectedProvider)">Assign Provider</button>
 </div>
 

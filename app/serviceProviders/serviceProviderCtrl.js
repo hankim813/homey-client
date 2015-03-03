@@ -11,6 +11,7 @@ angular
 
     vm.upcoming = upcomingAppointments;
     vm.past = pastAppointments;
+    console.log(vm.past);
 
     vm.delete = function () {
       spFactory.delete()

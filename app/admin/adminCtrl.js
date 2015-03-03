@@ -1,12 +1,14 @@
 angular
   .module('homey')
 
-  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptService', 'Middleware', 'upcomingAppointments', 'pastAppointments', 'unassignedAppointments', function ($state, adminService, adminFactory, adminLoginFactory, adApptService, Middleware, upcomingAppointments, pastAppointments, unassignedAppointments) {
+  .controller('AdminController', ['$state', 'adminService', 'adminFactory', 'adminLoginFactory', 'adApptService', 'Middleware', 'upcomingAppointments', 'pastAppointments', 'unassignedAppointments', 'providers', function ($state, adminService, adminFactory, adminLoginFactory, adApptService, Middleware, upcomingAppointments, pastAppointments, unassignedAppointments, providers) {
 
     // Middleware.redirectToForbidden('admin');
 
     var vm = this;
     vm.info = adminService.admin;
+    vm.providers = providers;
+    console.log(providers);
     // vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.upcoming      = upcomingAppointments;
@@ -24,6 +26,7 @@ angular
         });
       };
 
+    vm.assign = adminFactory.assign;
     vm.logout = adminLoginFactory.logout;
   }])
 

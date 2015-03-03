@@ -17,6 +17,15 @@ angular
             });
         },
 
+        providers: function (spFactory, spService) {
+          return spService.providers || spFactory.saveProvidersToService()
+            .then(function (response) {
+              return spService.providers;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
         //Gets all types of appointments from apptService
         upcomingAppointments: function (adApptFactory, adApptService) {
           return adApptService.upcoming || adApptFactory.saveUpcomingToService()
