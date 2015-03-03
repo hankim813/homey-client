@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .factory('adminFactory', ['$http', '$q', '$localStorage', 'adminService', function ($http, $q, $localStorage, adminService) {
+  .factory('adminFactory', ['$http', '$q', '$localStorage', '$state', 'adminService', 'adApptFactory', function ($http, $q, $localStorage, $state, adminService, adApptFactory) {
     return {
       saveAdminToService: function (id) {
         var d = $q.defer();
