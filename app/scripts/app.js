@@ -58,6 +58,11 @@ angular
       templateUrl: '/views/thankyou.html'
     })
 
+    .state('terms', {
+      url: '/terms',
+      templateUrl: '/views/terms.html'
+    })
+
     .state('forbidden', {
       url: '/noAccess',
       templateUrl: 'views/forbidden.html'
@@ -129,6 +134,12 @@ angular
           $location.path('/thankyou').replace();
         });
         
+      } else if (AuthFactory.isLogged === false && toState.url === '/terms') {
+        console.log('FUC YOU')
+        $rootScope.$evalAsync(function() {
+          $location.path('/terms').replace();
+        });
+        
       } else if (AuthFactory.isLogged === false) {
 
         $rootScope.$evalAsync(function() {
@@ -139,6 +150,9 @@ angular
         return;
       }
     });
-
+    
+    $rootScope.$on('$stateChangeSuccess', function() {
+       document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
   }]);
 

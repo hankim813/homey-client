@@ -31,7 +31,11 @@ body {
 }
 
 /* Links */
-a {
+a,
+a:link, 
+a:link:active, 
+a:visited, 
+a:visited:active {
 	transition: all 0.3s ease;
 	text-decoration: none;
 }
@@ -39,7 +43,7 @@ a {
 a:hover {
 	transition: all 0.3s ease;
 	text-decoration: none;
-	color: inherit;
+	color: #017085;
 }
 
 /* Buttons */
@@ -485,7 +489,7 @@ button {
 					color: #FFF;
 					font-weight: bold;
 				}
-				
+
 				.active {
 					background-color: #50CFE7;
 					color: #FFF;

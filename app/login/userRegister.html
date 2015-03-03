@@ -46,6 +46,11 @@
             <input type="password" class="form-control" placeholder="Pick a tough password!" ng-model="userAuth.userForm.password">
           </div>
 
+          <div class="input-group">
+            <input type="checkbox" ng-model="userAuth.userForm.agreement"></span>
+            I agree to Homey's <a ui-sref="terms">Privacy Policy and Terms of Use</a>.
+          </div>
+
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
               <button ng-click="userAuth.register()" class="alternate">Register</button>
