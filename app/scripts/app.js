@@ -46,6 +46,18 @@ angular
       controllerAs: 'faq'
     })
 
+    .state('contact', {
+      url: '/contact',
+      templateUrl: '/views/contact.html',
+      controller: 'ContactController',
+      controllerAs: 'contact'
+    })
+
+    .state('thankyou', {
+      url: '/thankyou',
+      templateUrl: '/views/thankyou.html'
+    })
+
     .state('forbidden', {
       url: '/noAccess',
       templateUrl: 'views/forbidden.html'
@@ -99,6 +111,24 @@ angular
           $location.path('/register').replace();
         });
 
+      } else if (AuthFactory.isLogged === false && toState.url === '/faq') {
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/faq').replace();
+        });
+        
+      } else if (AuthFactory.isLogged === false && toState.url === '/contact') {
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/contact').replace();
+        });
+        
+      } else if (AuthFactory.isLogged === false && toState.url === '/thankyou') {
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/thankyou').replace();
+        });
+        
       } else if (AuthFactory.isLogged === false) {
 
         $rootScope.$evalAsync(function() {

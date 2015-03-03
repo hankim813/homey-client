@@ -405,7 +405,7 @@ button {
 	}
 }
 
-/* Login */
+/* General */
 
 .main {
 	padding: 10% 0 10% 0;
@@ -440,7 +440,7 @@ button {
 
 		.input-group,
 		.form-group {
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 			text-align: center;
 
 			.gender {
@@ -454,6 +454,38 @@ button {
 					color: #000000;
 				}
 
+				/* Colors */
+
+				.happy {
+					background-color: #00D42F;
+					color: #FFF;
+					font-weight: bold;
+				}
+
+				.ecstatic {
+					background-color: #04C2E6;
+					color: #FFF;
+					font-weight: bold;
+				}
+
+				.confused {
+					background-color: #FFB000;
+					color: #FFF;
+					font-weight: bold;
+				}
+
+				.frustrated {
+					background-color: #3660EB;
+					color: #FFF;
+					font-weight: bold;
+				}
+
+				.angry {
+					background-color: #FF1800;
+					color: #FFF;
+					font-weight: bold;
+				}
+				
 				.active {
 					background-color: #50CFE7;
 					color: #FFF;
@@ -464,9 +496,9 @@ button {
 	}
 }
 
-/* FAQ */
+/* Panel */
 
-.faq {
+.panel-settings {
 
 	h1 {
 		font-size: 3em;
@@ -508,4 +540,13 @@ button {
 			margin: 15px 0;
 		}
 	}
+}
+
+/* Contact */
+
+.contact {
+	padding: 10% 0 10% 0;
+	text-align: center;
+	background-image: url('../images/contact.jpg');
+	background-size: cover;
 }
