@@ -578,6 +578,7 @@ button {
 
 	a {
 		display: inline-block;
+		padding-top: 50px;
 		width: 100%;
 		height: 100%;
 		border-radius: 5px;
@@ -641,4 +642,24 @@ button {
 
 .security {
   background-image: url('../images/security-gate.jpg');
+}
+
+.office {
+  background-image: url('../images/office.jpg');
+}
+
+.driver {
+	background-image: url('../images/driver.jpg')
+}
+
+.gardening {
+	background-image: url('../images/gardening.jpg')
+}
+
+.mechanical {
+	background-image: url('../images/mechanical.jpg')
+}
+
+.contractor {
+	background-image: url('../images/contractor.jpg')
 }
