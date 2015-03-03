@@ -39,6 +39,13 @@ angular
       controllerAs: 'userAuth'
     })
 
+    .state('services', {
+      url: '/services',
+      templateUrl: '/views/services.html',
+      controller: 'ServiceController',
+      controllerAs: 'service'
+    })
+
     .state('faq', {
       url: '/faq',
       templateUrl: '/views/faq.html',
