@@ -135,7 +135,6 @@ angular
         });
         
       } else if (AuthFactory.isLogged === false && toState.url === '/terms') {
-        console.log('FUC YOU')
         $rootScope.$evalAsync(function() {
           $location.path('/terms').replace();
         });
