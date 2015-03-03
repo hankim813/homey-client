@@ -65,7 +65,7 @@ angular
 		vm.platform = [
 			{	
 				q: 'Can I book a regularly scheduled Homey service?', 
-				a: 'Not at this time. But this is a feature we are looking add soon!'
+				a: 'Not at this time. But this is a feature we are looking to add soon!'
 			},
 			{
 				q: 'What happens after I make a booking?',

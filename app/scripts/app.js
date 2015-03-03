@@ -77,7 +77,7 @@ angular
 
   }])
 
-  .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', function ($rootScope, $location, $localStorage, AuthFactory) {
+  .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', '$state', function ($rootScope, $location, $localStorage, AuthFactory, $state) {
     var sp = $localStorage.spId;
     var user = $localStorage.userId;
     var admin = $localStorage.adminId;
@@ -94,19 +94,19 @@ angular
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
-
+        event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
 
       } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/landing')) {
-
+        event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/sp/dashboard').replace();
         });
 
       } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/landing')) {
-
+        event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/admin/dashboard').replace();
         });
@@ -121,6 +121,12 @@ angular
 
         $rootScope.$evalAsync(function() {
           $location.path('/register').replace();
+        });
+
+      } else if (AuthFactory.isLogged === false && toState.url === '/services') {
+
+        $rootScope.$evalAsync(function() {
+          $location.path('/services').replace();
         });
 
       } else if (AuthFactory.isLogged === false && toState.url === '/faq') {
