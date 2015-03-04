@@ -93,8 +93,11 @@ angular
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      var whitelist = ['login', 'register', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
+
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
         event.preventDefault();
+        console.log('redirect to dashboard')
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
@@ -111,54 +114,15 @@ angular
           $location.path('/admin/dashboard').replace();
         });
 
-      } else if (AuthFactory.isLogged === false && toState.url === '/login') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/login').replace();
-        });
-
-      } else if (AuthFactory.isLogged === false && toState.url === '/register') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/register').replace();
-        });
-
-      } else if (AuthFactory.isLogged === false && toState.url === '/services') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/services').replace();
-        });
-
-      } else if (AuthFactory.isLogged === false && toState.url === '/faq') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/faq').replace();
-        });
-        
-      } else if (AuthFactory.isLogged === false && toState.url === '/contact') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/contact').replace();
-        });
-        
-      } else if (AuthFactory.isLogged === false && toState.url === '/thankyou') {
-
-        $rootScope.$evalAsync(function() {
-          $location.path('/thankyou').replace();
-        });
-        
-      } else if (AuthFactory.isLogged === false && toState.url === '/terms') {
-        $rootScope.$evalAsync(function() {
-          $location.path('/terms').replace();
-        });
-        
-      } else if (AuthFactory.isLogged === false) {
-
+      } else if (AuthFactory.isLogged === false && (whitelist.indexOf('/' + toState.url) !== -1)) {
+        console.log('redirecting')
+        event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/landing').replace();
         });
         
       } else {
+        console.log('not redirecting')
         return;
       }
     });
