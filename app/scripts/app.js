@@ -93,11 +93,10 @@ angular
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      var whitelist = ['login', 'register', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
+      var whitelist = ['login', 'register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
 
       if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
         event.preventDefault();
-        console.log('redirect to dashboard')
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
@@ -115,14 +114,12 @@ angular
         });
 
       } else if (AuthFactory.isLogged === false && (whitelist.indexOf('/' + toState.url) !== -1)) {
-        console.log('redirecting')
         event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/landing').replace();
         });
         
       } else {
-        console.log('not redirecting')
         return;
       }
     });

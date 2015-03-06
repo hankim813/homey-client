@@ -6,6 +6,8 @@ angular
 
 		.state('homeCleaning', {
 			url: '/services/home-cleaning',
-			templateUrl: '/services/views/home-cleaning.html'
+			templateUrl: '/services/views/home-cleaning.html',
+			controller: 'HomeCleaningController',
+			controllerAs: 'hc'
 		})
 	}]);
