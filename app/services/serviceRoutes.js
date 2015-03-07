@@ -10,4 +10,12 @@ angular
 			controller: 'HomeCleaningController',
 			controllerAs: 'hc'
 		})
+
+		.state('officeCleaning', {
+			url: '/services/office-cleaning',
+			templateUrl: '/services/views/office-cleaning.html',
+			controller: 'OfficeCleaningController',
+			controllerAs: 'oc'
+		})
+
 	}]);

@@ -1,7 +1,7 @@
 angular
 	.module('homey')
 
-	.controller('HomeCleaningController', [function () {
+	.controller('HomeCleaningController', ['Neighborhoods', function (Neighborhoods) {
 		var vm = this;
 
 		vm.price 				= 1000;
@@ -12,16 +12,7 @@ angular
 		vm.laundry 			= 0;
 		vm.ironed 			= 0;
 		vm.neighborhood = 'Neighborhood';
-		vm.hoods 				= [
-			{id: 0, name: 'Kilimani'},
-			{id: 1, name: 'Lavington'},
-			{id: 2, name: 'Westlands'},
-			{id: 3, name: 'CBD'},
-			{id: 4, name: 'Upperhill'},
-			{id: 5, name: 'Karen'},
-			{id: 6, name: 'Runda'},
-			{id: 7, name: 'Eastlands'}
-		];
+		vm.hoods 				= Neighborhoods.list;
 
 		vm.addRoom 			= addRoom;
 		vm.removeRoom 	= removeRoom;

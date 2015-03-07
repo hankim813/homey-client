@@ -7,7 +7,7 @@ angular
 		vm.list = [
 			{title: 'Home Cleaning', class: 'cleaning', icon: 'cleaning-icon.png', state: 'homeCleaning'},
 			{title: 'Car Wash', class: 'carwash', icon: 'car-wash.png', state: 'carWash'},
-			{title: 'Office Cleaning', class: 'office', icon: 'office-icon.png', state: 'office'},
+			{title: 'Office Cleaning', class: 'office', icon: 'office-icon.png', state: 'officeCleaning'},
 			{title: 'Personal Chefs', class: 'chefs', icon: 'cooking-icon.png', state: 'chef'},
 			{title: 'Painting', class: 'painting', icon: 'painting-icon.png', state: 'painting'},
 			{title: 'Electrical', class: 'electric', icon: 'electric-icon.png', state: 'electric'},
