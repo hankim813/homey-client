@@ -37,17 +37,17 @@
 				<form class="form-group signup row">
 					<div class="col-xs-10 col-xs-offset-1">
 						<div class="btn-group">
-						  <button class="btn btn-default counter" ng-click="oc.removeRoom('bedrooms')">-</button>
+						  <button class="btn btn-default counter" ng-click="oc.changeFt(0)">-</button>
 						  <button class="btn btn-default desc">{{oc.sqft}} sqft</button>
-						  <button class="btn btn-default counter" ng-click="oc.addRoom('bedrooms')">+</button>
+						  <button class="btn btn-default counter" ng-click="oc.changeFt(1)">+</button>
 						</div>
 					</div>
 				
 					<div class="col-xs-10 col-xs-offset-1">
 						<div class="btn-group">
-						  <button class="btn btn-default counter" ng-click="oc.removeRoom('kitchens')">-</button>
-						  <button class="btn btn-default desc">{{oc.kitchen}} Kitchens</button>
-						  <button class="btn btn-default counter" ng-click="oc.addRoom('kitchens')">+</button>
+						  <button class="btn btn-default counter" ng-click="oc.toggleKitchen(0)" ng-class="{'chosen': !oc.kitchen}">No</button>
+						  <button class="btn btn-default desc">Kitchen?</button>
+						  <button class="btn btn-default counter" ng-click="oc.toggleKitchen(1)" ng-class="{'chosen': oc.kitchen}">Yes</button>
 					  </div>
 					</div>
 
@@ -84,6 +84,7 @@
 				<div class="row pb-md">
 					<div class="col-xs-10 col-xs-offset-1 ta-c">
 						<h2>Price: {{oc.price}} ksh</h2>
+						<h4 style="color: #6E6E6E;">Required Time: {{oc.time}} hours</h4>
 						<button class="primary-btn" style="padding: 10px 55px; font-size: 1.4em;" ui-sref="login">Book Appointment!</button>
 					</div>
 				</div>

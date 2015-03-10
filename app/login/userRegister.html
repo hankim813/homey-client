@@ -25,7 +25,7 @@
             <input type="text" class="form-control" placeholder="And your last name?" ng-model="userAuth.userForm.lastName">
           </div>
 
-          <div class="input-group gender">
+          <div class="input-group selector">
             <span class="input-group-addon" style="border-right: 1px solid #ccc;">Gender</span>
             <button style="margin-left: 4px;" ng-model="userAuth.userForm.gender" ng-click="userAuth.check(0)" ng-class="{'active': userAuth.activeMale}">Male</button>
             <button ng-model="userAuth.userForm.gender" ng-click="userAuth.check(1)" ng-class="{'active': userAuth.activeFemale}">Female</button>
