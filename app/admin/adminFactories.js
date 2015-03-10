@@ -35,8 +35,9 @@ angular
 
       edit: function(adminEditForm) {
         var d = $q.defer();
+        var id = adminEditForm.id;
 
-        $http.put('http://localhost:3000/api/admins/' + adminEditForm.id + '/edit', {
+        $http.put('http://localhost:3000/api/admins/' + id + '/edit', {
         // $http.put('https://homey-api.herokuapp.com/api/admin/' + adminEditForm.id + '/edit', {
           email: adminEditForm.email,
           first_name: adminEditForm.first_name,

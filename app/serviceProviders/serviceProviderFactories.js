@@ -49,8 +49,9 @@ angular
 
       edit: function(spEditForm) {
         var d = $q.defer();
+        var id = spEditForm.id;
 
-        $http.put('http://localhost:3000/api/serviceProviders/' + spEditForm.id + '/edit', {
+        $http.put('http://localhost:3000/api/serviceProviders/' + id + '/edit', {
         // $http.put('https://homey-api.herokuapp.com/api/serviceProviders/' + spEditForm.id + '/edit', {
           email: spEditForm.email,
           first_name: spEditForm.first_name,
