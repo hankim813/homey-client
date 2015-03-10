@@ -35,10 +35,10 @@ angular
 
 			edit: function(editForm) {
 			  var d = $q.defer();
+			  var id = editForm.id;
 
-			  $http.put('http://localhost:3000/api/users/edit', {
+			  $http.put('http://localhost:3000/api/users/' + id + '/edit', {
 		  	// $http.put('https://homey-api.herokuapp.com/api/users/edit', {
-			  	id: editForm.id,
 			    email: editForm.email,
 			    first_name: editForm.first_name,
 			    last_name: editForm.last_name,
