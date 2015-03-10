@@ -18,4 +18,11 @@ angular
 			controllerAs: 'oc'
 		})
 
+		.state('carWash', {
+			url: '/services/car-wash',
+			templateUrl: '/services/views/car-wash.html',
+			controller: 'CarWashController',
+			controllerAs: 'cw'
+		})
+
 	}]);

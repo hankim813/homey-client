@@ -27,9 +27,7 @@ angular
 
 		function applyTransportFee (hood) {
 			vm.neighborhood = hood;
-			if (vm.neighborhood === 'Karen' || vm.neighborhood === 'Runda' || vm.neighborhood === 'Eastlands') {
-				vm.price += 250;
-			}
+			calculateQuote();
 		}
 
 		function calculateQuote () {
@@ -54,7 +52,9 @@ angular
 				vm.price += vm.ironed * 300;
 				vm.price += (providers - 1) * 300;
 			}
-			applyTransportFee(vm.neighborhood);
+			if (vm.neighborhood === 'Karen' || vm.neighborhood === 'Runda' || vm.neighborhood === 'Eastlands') {
+				vm.price += 250;
+			}
 			calculateTime();
 		};
 
