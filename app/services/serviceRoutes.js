@@ -25,4 +25,11 @@ angular
 			controllerAs: 'cw'
 		})
 
+		.state('chef', {
+			url: '/services/personal-chef',
+			templateUrl: '/services/views/personal-chef.html',
+			controller: 'ChefController', 
+			controllerAs: 'chef'
+		})
+
 	}]);
