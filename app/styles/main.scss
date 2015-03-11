@@ -478,47 +478,47 @@ button {
 					background-color: #FFF;
 					color: #000000;
 				}
-
-				/* Colors */
-
-				.happy {
-					background-color: #00D42F;
-					color: #FFF;
-					font-weight: bold;
-				}
-
-				.ecstatic {
-					background-color: #04C2E6;
-					color: #FFF;
-					font-weight: bold;
-				}
-
-				.confused {
-					background-color: #FFB000;
-					color: #FFF;
-					font-weight: bold;
-				}
-
-				.frustrated {
-					background-color: #3660EB;
-					color: #FFF;
-					font-weight: bold;
-				}
-
-				.angry {
-					background-color: #FF1800;
-					color: #FFF;
-					font-weight: bold;
-				}
-
-				.active {
-					background-color: #50CFE7;
-					color: #FFF;
-					font-weight: bold;
-				}
 			}
 		}
 	}
+}
+
+/* Colors */
+
+.happy {
+	background-color: #00D42F !important;
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+.ecstatic {
+	background-color: #04C2E6 !important;
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+.confused {
+	background-color: #FFB000 !important;
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+.frustrated {
+	background-color: #3660EB !important;
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+.angry {
+	background-color: #FF1800 !important;
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+.active {
+	background-color: #50CFE7 !important;
+	color: #FFF !important;
+	font-weight: bold;
 }
 
 /* Panel */
@@ -578,6 +578,22 @@ button {
 
 /* Services */
 
+.car-label {
+	background-color: #04C2E6;
+	color: #FFF;
+	padding: 5px 0;
+}
+
+.carbox {
+	border: 1px solid #04C2E6; 
+	border-radius: 2px;
+	margin: 3% 0;
+	padding-bottom: 10px;
+
+	label {
+		margin-top: 5px;
+	}
+}
 .service-bg {
 	background-size: cover;
 	padding: 5% 0;
@@ -604,6 +620,7 @@ button {
 		color: #04c2e6;
 		font-size: 1.2em;
 		font-weight: bold;
+		margin: 4% 0;
 	}
 
 	.value {
@@ -787,4 +804,28 @@ button {
 
 .chef-bg {
 	background-image: url('../images/african-food-bg.jpg')
+}
+
+.pt-bg {
+	background-image: url('../images/painting-bg.jpg')
+}
+
+.ec-bg {
+	background-image: url('../images/light-bg.jpg')
+}
+
+.pb-bg {
+	background-image: url('../images/bathroom-bg.jpg')
+}
+
+.mc-bg {
+	background-image: url('../images/mechanic-bg.jpg')
+}
+
+.ct-bg {
+	background-image: url('../images/contractor-bg.jpg')
+}
+
+.dr-bg {
+	background-image: url('../images/driver-bg.jpg')
 }

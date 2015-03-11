@@ -32,4 +32,35 @@ angular
 			controllerAs: 'chef'
 		})
 
+		.state('painting', {
+			url: '/services/painting',
+			templateUrl: '/services/views/painting.html'
+		})
+
+		.state('electric', {
+			url: '/services/electrical',
+			templateUrl: '/services/views/electric.html'
+		})
+
+		.state('plumbing', {
+			url: '/services/plumbing',
+			templateUrl: '/services/views/plumbing.html'
+		})
+
+		.state('mechanical', {
+			url: '/services/mechanical',
+			templateUrl: '/services/views/mechanical.html'
+		})
+
+		.state('contractor', {
+			url: '/services/contractor',
+			templateUrl: '/services/views/contractor.html'
+		})
+
+		.state('driver', {
+			url: '/services/chauffeur',
+			templateUrl: '/services/views/driver.html',
+			controller: 'DriverController',
+			controllerAs: 'cf'
+		})
 	}]);
