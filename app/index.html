@@ -18,15 +18,18 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="/styles/main.css">
     <!-- endbuild -->
+    <!-- <base href="/"> -->
   </head>
   <body ng-app="homey">
 
-    <!-- Add your site or application content here -->
-    <div class="container">
+    <navbar class="row" ng-controller="NavbarController as navbar"></navbar>
+
+    <main class="container-fluid">
       <div ui-view></div>
-    </div>
+    </main>
 
-
+    <navi-footer></navi-footer>
+    <div id="fb-root"></div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <!--      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -85,20 +88,29 @@
         <script src="/discounts/discountRoutes.js"></script>
         <script src="/addresses/addressRoutes.js"></script>
         <script src="/stripe/stripeRoutes.js"></script>
+        <script src="/services/serviceRoutes.js"></script>
 
 
         <!-- Controllers -->
-        <script src="/scripts/controllers/mainCtrl.js"></script>
-        <script src="/scripts/controllers/homeCtrl.js"></script>
         <script src="/login/loginCtrl.js"></script>
         <script src="/users/userCtrl.js"></script>
         <script src="/appointments/appointmentCtrl.js"></script>
-        <script src="/bookings/bookingCtrl.js"></script>
         <script src="/serviceProviders/serviceProviderCtrl.js"></script>
         <script src="/admin/adminCtrl.js"></script>
         <script src="/discounts/discountCtrl.js"></script>
         <script src="/addresses/addressCtrl.js"></script>
         <script src="/stripe/stripeCtrl.js"></script>
+        <script src="/scripts/controllers/navbarCtrl.js"></script>
+        <script src="/scripts/controllers/faqCtrl.js"></script>
+        <script src="/scripts/controllers/contactCtrl.js"></script>
+        <script src="/scripts/controllers/servicesCtrl.js"></script>
+        <script src="/services/controllers/homeCleaningCtrl.js"></script>
+        <script src="/services/controllers/officeCleaningCtrl.js"></script>
+        <script src="/services/controllers/carWashCtrl.js"></script>
+        <script src="/services/controllers/chefCtrl.js"></script>
+        <script src="/services/controllers/driverCtrl.js"></script>
+        <script src="/services/controllers/securityCtrl.js"></script>
+        <script src="/services/controllers/gardeningCtrl.js"></script>
 
         <!-- Factories -->
         <script src="/scripts/factories/ajaxFactories.js"></script>
@@ -115,6 +127,7 @@
         <script src="/discounts/discountFactories.js"></script>
         <script src="/addresses/addressFactories.js"></script>
         <script src="/stripe/stripeFactories.js"></script>
+        <script src="/scripts/factories/mailerFactories.js"></script>
 
         <!-- Services -->
         <script src="/auth/authServices.js"></script>
@@ -123,10 +136,14 @@
         <script src="/serviceProviders/serviceProviderServices.js"></script>
         <script src="/admin/adminServices.js"></script>
         <script src="/addresses/addressServices.js"></script>
+        <script src="/scripts/services/neighborhoods.js"></script>
 
         <!-- Filters -->
         <script src="/appointments/appointmentFilters.js"></script>
 
+        <!-- Directives -->
+        <script src="/scripts/directives/navbar.js"></script>
+        <script src="/scripts/directives/footer.js"></script>
 
         <!-- endbuild -->
 

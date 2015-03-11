@@ -5,6 +5,41 @@ angular
 
 		$stateProvider
 
+    .state('userDashboard', {
+      url: '/dashboard',
+      resolve: {
+        fetchUser: function (userFactory, userService, $localStorage) {
+          return userService.user || userFactory.saveUserToService($localStorage.userId)
+            .then(function (response) {
+              return userService.user;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchAppointments: function (apptFactory, apptService, $localStorage) {
+          return apptService.appointments || apptFactory.saveApptsToService($localStorage.userId)
+            .then(function (response) {
+              return apptService.appointments;
+            }, function (error) {
+              console.log(error);
+            });
+        },
+
+        fetchAddresses: function (addressFactory, addressService, $localStorage) {
+          return addressService.addresses || addressFactory.saveAddressesToService($localStorage.userId)
+            .then(function (response) {
+              return addressService.addresses;
+            }, function (error) {
+              console.log(error);
+            });
+        }
+      },
+      templateUrl: '/views/home.html'
+      // controller: 'UserDashboardController',
+      // controllerAs: 'userDB'
+    })
+
 		.state('profile', {
       url: '/profile',
       resolve: {

@@ -1,0 +1,13 @@
+<section class="row main-no-bg">
+	<div class="col-xs-12 col-md-10 col-md-offset-1">
+		<h1>Choose a Service</h1>
+		<div class="row services">
+			<div ng-repeat="service in service.list" class="service-box col-xs-12 col-md-4">
+				<a ui-sref="{{service.state}}" class="ng-class:service.class">
+					<img ng-src="images/{{service.icon}}">
+					<h1>{{service.title}}</h1>
+				</a>
+			</div>
+		</div>	
+	</div>
+</section>

@@ -1,32 +1,56 @@
 angular
   .module('homey')
 
-  .controller('UserLoginController',['$state', 'userLoginFactory', function ($state,userLoginFactory) {
+  .controller('UserLoginController',['$state', 'userLoginFactory', 'fbFactory', function ($state,userLoginFactory, fbFactory) {
 
-  	var vm = this;
-  	vm.userForm = {};
+    fbFactory.initialize();
+    var vm = this;
+    vm.userForm = {};
+    vm.login = login;
 
-  	vm.register = function () {
-  		userLoginFactory.register(vm.userForm)
-        .then(function () {
-    			vm.userForm = {};
-    			$state.go('home');
-    		}, function (error) {
-          // handle error redirection
-          console.log(error);
-      });
-  	};
+    vm.fbLogin = fbFactory.fbLogin;
 
-  	vm.login = function () {
+    function login () {
   		userLoginFactory.login(vm.userForm)
         .then(function () {
     			vm.userForm = {};
-    			$state.go('home');
+    			$state.go('userDashboard');
     		}, function (error) {
-          // handle error redirection
           console.log(error);
       });
-  	}
+  	};
+  }])
+
+  .controller('UserRegisterController',['$state', 'userLoginFactory', function ($state,userLoginFactory) {
+
+    var vm = this;
+    vm.userForm = {};
+    vm.activeMale = false;
+    vm.activeFemale = false;
+    vm.register = register;
+    vm.check = check;
+
+    function register () {
+      userLoginFactory.register(vm.userForm)
+        .then(function () {
+          vm.userForm = {};
+          $state.go('userDashboard');
+        }, function (error) {
+          console.log(error);
+      });
+    };
+
+    function check (val) {
+      if (val === 0) {
+        vm.userForm.gender = 0;
+        vm.activeMale = true;
+        vm.activeFemale = false;
+      } else {
+        vm.userForm.gender = 1;
+        vm.activeFemale = true;
+        vm.activeMale = false;
+      }
+    }
   }])
 
   .controller('ServiceProviderLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
@@ -40,7 +64,6 @@ angular
           vm.spForm = {};
           $state.go('spDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     };
@@ -51,7 +74,6 @@ angular
           vm.spForm = {};
           $state.go('spDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     }
@@ -69,7 +91,6 @@ angular
           vm.adminForm = {};
           $state.go('adminDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     };
@@ -80,7 +101,6 @@ angular
           vm.adminForm = {};
           $state.go('adminDashboard');
         }, function (error) {
-          // handle error redirection
           console.log(error);
       });
     }
