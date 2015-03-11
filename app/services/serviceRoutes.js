@@ -63,4 +63,11 @@ angular
 			controller: 'DriverController',
 			controllerAs: 'cf'
 		})
+
+		.state('security', {
+			ulr: '/services/security',
+			templateUrl: '/services/views/security.html',
+			controller: 'SecurityController',
+			controllerAs: 'sc'
+		})
 	}]);
