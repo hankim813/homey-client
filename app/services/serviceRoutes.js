@@ -65,9 +65,16 @@ angular
 		})
 
 		.state('security', {
-			ulr: '/services/security',
+			url: '/services/security',
 			templateUrl: '/services/views/security.html',
 			controller: 'SecurityController',
 			controllerAs: 'sc'
 		})
+
+		.state('gardening', {
+			url: '/services/gardening',
+			templateUrl: '/services/views/gardening.html',
+			controller: 'GardeningController',
+			controllerAs: 'gd'
+		});
 	}]);
