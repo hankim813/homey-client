@@ -107,16 +107,6 @@ angular
     var vm = this;
     vm.adminForm = {};
 
-    vm.register = function () {
-      adminLoginFactory.register(vm.adminForm)
-        .then(function () {
-          vm.adminForm = {};
-          $state.go('adminDashboard');
-        }, function (error) {
-          console.log(error);
-      });
-    };
-
     vm.login = function () {
       adminLoginFactory.login(vm.adminForm)
         .then(function () {
