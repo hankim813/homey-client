@@ -53,12 +53,32 @@ angular
     }
   }])
 
-  .controller('ServiceProviderLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
+  .controller('SpLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
 
     var vm = this;
     vm.spForm = {};
+    vm.login = login;
 
-    vm.register = function () {
+    function login () {
+      spLoginFactory.login(vm.spForm)
+        .then(function () {
+          vm.spForm = {};
+          $state.go('spDashboard');
+        }, function (error) {
+          console.log(error);
+      });
+    }
+
+  }])
+
+  .controller('SpRegisterController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
+
+    var vm = this;
+    vm.spForm = {};
+    vm.register = register;
+    vm.check = check;
+
+    function register () {
       spLoginFactory.register(vm.spForm)
         .then(function () {
           vm.spForm = {};
@@ -68,14 +88,16 @@ angular
       });
     };
 
-    vm.login = function () {
-      spLoginFactory.login(vm.spForm)
-        .then(function () {
-          vm.spForm = {};
-          $state.go('spDashboard');
-        }, function (error) {
-          console.log(error);
-      });
+    function check (val) {
+      if (val === 0) {
+        vm.spForm.gender = 0;
+        vm.activeMale = true;
+        vm.activeFemale = false;
+      } else {
+        vm.spForm.gender = 1;
+        vm.activeFemale = true;
+        vm.activeMale = false;
+      }
     }
 
   }])

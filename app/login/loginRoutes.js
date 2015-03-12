@@ -5,18 +5,32 @@ angular
 
 		$stateProvider
 
+		.state('userLogin', {
+		  url: '/users/login',
+		  templateUrl: '/login/userLogin.html',
+		  controller: 'UserLoginController',
+		  controllerAs: 'userAuth'
+		})
+
+		.state('spLogin', {
+		  url: '/service-providers/login',
+		  templateUrl: '/login/spLogin.html',
+		  controller: 'SpLoginController',
+		  controllerAs: 'spAuth'
+		})
+
 		.state('userRegister', {
-			url: '/register',
+			url: '/users/register',
 			templateUrl: '/login/userRegister.html',
 			controller: 'UserRegisterController',
 			controllerAs: 'userAuth'
 		})
 
-		.state('serviceProviderLogin', {
-		  url: '/serviceProviders/login',
-		  templateUrl: '/login/serviceProviderLogin.html',
-		  controller: 'ServiceProviderLoginController',
-		  controllerAs: 'spAuth'
+		.state('spRegister', {
+			url: '/service-providers/register',
+			templateUrl: '/login/spRegister.html',
+			controller: 'SpRegisterController',
+			controllerAs: 'spAuth'
 		})
 
 		.state('serviceProviderRegister', {
