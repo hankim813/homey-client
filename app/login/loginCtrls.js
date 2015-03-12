@@ -53,22 +53,13 @@ angular
     }
   }])
 
-  .controller('ServiceProviderLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
+  .controller('SpLoginController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
 
     var vm = this;
     vm.spForm = {};
+    vm.login = login;
 
-    vm.register = function () {
-      spLoginFactory.register(vm.spForm)
-        .then(function () {
-          vm.spForm = {};
-          $state.go('spDashboard');
-        }, function (error) {
-          console.log(error);
-      });
-    };
-
-    vm.login = function () {
+    function login () {
       spLoginFactory.login(vm.spForm)
         .then(function () {
           vm.spForm = {};
@@ -80,20 +71,41 @@ angular
 
   }])
 
-  .controller('AdminLoginController', ['$state', 'adminLoginFactory', function ($state, adminLoginFactory) {
+  .controller('SpRegisterController', ['$state', 'spLoginFactory', function ($state, spLoginFactory) {
 
     var vm = this;
-    vm.adminForm = {};
+    vm.spForm = {};
+    vm.register = register;
+    vm.check = check;
 
-    vm.register = function () {
-      adminLoginFactory.register(vm.adminForm)
+    function register () {
+      spLoginFactory.register(vm.spForm)
         .then(function () {
-          vm.adminForm = {};
-          $state.go('adminDashboard');
+          vm.spForm = {};
+          $state.go('spDashboard');
         }, function (error) {
           console.log(error);
       });
     };
+
+    function check (val) {
+      if (val === 0) {
+        vm.spForm.gender = 0;
+        vm.activeMale = true;
+        vm.activeFemale = false;
+      } else {
+        vm.spForm.gender = 1;
+        vm.activeFemale = true;
+        vm.activeMale = false;
+      }
+    }
+
+  }])
+
+  .controller('AdminLoginController', ['$state', 'adminLoginFactory', function ($state, adminLoginFactory) {
+
+    var vm = this;
+    vm.adminForm = {};
 
     vm.login = function () {
       adminLoginFactory.login(vm.adminForm)

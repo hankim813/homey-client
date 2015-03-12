@@ -32,13 +32,6 @@ angular
       templateUrl: '/views/landing.html'
     })
 
-    .state('login', {
-      url: '/login',
-      templateUrl: '/views/main-login.html',
-      controller: 'UserLoginController',
-      controllerAs: 'userAuth'
-    })
-
     .state('services', {
       url: '/services',
       templateUrl: '/views/services.html',
