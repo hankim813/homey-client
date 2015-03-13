@@ -111,7 +111,7 @@ angular
       adminLoginFactory.login(vm.adminForm)
         .then(function () {
           vm.adminForm = {};
-          $state.go('adminDashboard');
+          $state.go('adminUpcomingDashboard');
         }, function (error) {
           console.log(error);
       });

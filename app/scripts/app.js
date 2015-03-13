@@ -88,22 +88,22 @@ angular
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       var whitelist = ['login', 'register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
 
-      if (AuthFactory.isLogged === true && user && (toState.url === '/login' || toState.url === '/register' || toState.url === '/landing')) {
+      if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
         event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
 
-      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/serviceProviders/login' || toState.url === '/serviceProviders/register' || toState.url === '/landing')) {
+      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/service-providers/login' || toState.url === '/service-providers/register' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/landing')) {
         event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/sp/dashboard').replace();
         });
 
-      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admin/login' || toState.url === '/admin/register' || toState.url === '/landing')) {
+      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admins/login' || toState.url === '/landing' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/service-providers/login' || toState.url === '/service-providers/register')) {
         event.preventDefault();
         $rootScope.$evalAsync(function() {
-          $location.path('/admin/dashboard').replace();
+          $location.path('/admins/dashboard/upcoming').replace();
         });
 
       } else if (AuthFactory.isLogged === false && (whitelist.indexOf('/' + toState.url) !== -1)) {
