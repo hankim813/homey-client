@@ -86,7 +86,7 @@ angular.
 
 			login: function (spForm) {
 				var d = $q.defer();
-
+				
 				// $http.post('http://localhost:3000/api/serviceProviders/login', {
 				$http.post('https://homey-api.herokuapp.com/api/serviceProviders/login', {
 					email: spForm.email,
