@@ -11,9 +11,9 @@
   </div>
 
   <div class="col-xs-12 col-md-4 col-md-offset-5 navi-links" ng-show="navbar.loggedInType('user')">
-    <a><i class="fa fa-plus"></i> Book</a>
+    <a ui-sref="bookServices"><i class="fa fa-plus"></i> Book</a>
     <a ui-sref="userDashboard">Appointments</a>
-    <a>Settings</a>
+    <a ui-sref="userSettings">Settings</a>
     <a ui-sref="contact" ng-class="{'navi-active': navbar.isActive('/contact')}">Contact</a>
     <a ng-click="navbar.logoutUser()">Log Out</a>
   </div>
