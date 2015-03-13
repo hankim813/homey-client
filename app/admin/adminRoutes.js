@@ -5,8 +5,13 @@ angular
 
     $stateProvider
 
-    .state('adminDashboard', {
-      url: '/admin/dashboard',
+    .state('adminPastDashboard', {
+      url: '/admins/dashboard/past',
+      templateUrl: '/admin/pastDashboard.html'
+    })
+
+    .state('adminUpcomingDashboard', {
+      url: '/admins/dashboard/upcoming',
       resolve: {
         fetchAdmin: function (adminFactory, adminService, $localStorage) {
           return adminService.admin || adminFactory.saveAdminToService($localStorage.adminId)
@@ -59,8 +64,28 @@ angular
       controllerAs: 'admin'
     })
 
+    .state('adminUserDB', {
+      url: '/admins/user-db',
+      templateUrl: '/admin/user-db.html'
+    })
+
+    .state('adminHomeyDB', {
+      url: '/admins/homey-db',
+      templateUrl: '/admin/homey-db.html'
+    })
+
+    .state('adminSettings', {
+      url: '/admins/settings',
+      templateUrl: '/admin/settings.html'
+    })
+
+    .state('adminDiscounts', {
+      url: '/admins/discounts',
+      templateUrl: '/admin/discounts.html'
+    })
+
     .state('editAdmin', {
-      url: '/admin/edit',
+      url: '/admins/edit',
       templateUrl: '/admin/edit.html',
       controller: 'AdminEditController',
       controllerAs: 'adminEdit'

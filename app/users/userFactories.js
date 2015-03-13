@@ -5,8 +5,8 @@ angular
 		return {
 			saveUserToService: function (id) {
 				var d = $q.defer();
-				$http.get('http://localhost:3000/api/users/' + id)
-				// $http.get('https://homey-api.herokuapp.com/api/users/' + id)
+				// $http.get('http://localhost:3000/api/users/' + id)
+				$http.get('https://homey-api.herokuapp.com/api/users/' + id)
 					.success(function (response) {
 						userService.user = response;
 						userService.user.birthday = new Date(response.birthday);
@@ -20,8 +20,8 @@ angular
 
 			deleteUser: function (id) {
 				var d = $q.defer();
-				$http.delete('http://localhost:3000/api/users/' + id + '/delete')
-				// $http.delete('https://homey-api.herokuapp.com/api/users/' + id + '/delete')
+				// $http.delete('http://localhost:3000/api/users/' + id + '/delete')
+				$http.delete('https://homey-api.herokuapp.com/api/users/' + id + '/delete')
 					.success(function (response) {
 						delete $localStorage.token;
 						delete $localStorage.userId;
@@ -37,8 +37,8 @@ angular
 			  var d = $q.defer();
 			  var id = editForm.id;
 
-			  $http.put('http://localhost:3000/api/users/' + id + '/edit', {
-		  	// $http.put('https://homey-api.herokuapp.com/api/users/edit', {
+			  // $http.put('http://localhost:3000/api/users/' + id + '/edit', {
+		  	$http.put('https://homey-api.herokuapp.com/api/users/edit', {
 			    email: editForm.email,
 			    first_name: editForm.first_name,
 			    last_name: editForm.last_name,

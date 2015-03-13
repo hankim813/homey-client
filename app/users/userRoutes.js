@@ -5,6 +5,11 @@ angular
 
 		$stateProvider
 
+    .state('bookServices', {
+      url: '/book/services',
+      templateUrl: '/bookings/services.html'
+    })
+
     .state('userDashboard', {
       url: '/dashboard',
       resolve: {
@@ -38,6 +43,11 @@ angular
       templateUrl: '/views/home.html'
       // controller: 'UserDashboardController',
       // controllerAs: 'userDB'
+    })
+
+    .state('userSettings', {
+      url: '/users/settings',
+      templateUrl: 'users/settings.html'
     })
 
 		.state('profile', {

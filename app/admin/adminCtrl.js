@@ -8,7 +8,6 @@ angular
     var vm = this;
     vm.info = adminService.admin;
     vm.providers = providers;
-    console.log(providers);
     // vm.info.gender === 0 ? vm.info.genderType = 'Male' : vm.info.genderType = 'Female';
 
     vm.upcoming      = upcomingAppointments;

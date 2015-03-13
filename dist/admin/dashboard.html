@@ -1,1 +1,65 @@
-<h1>HIIIII</h1> <h1> {{ admin.info.first_name + ' ' + admin.info.last_name}}'s profile</h1> <p>{{admin.info.email}}</p> <p>{{admin.info.service}}</p> <p>{{admin.info.phone}}</p> <p>{{admin.info.address}}</p> <button class="btn btn-info" ng-click="admin.logout()">Logout</button> <a ui-sref="editAdmin"> <button class="btn btn-warning">Edit</button> </a> <button class="btn btn-danger" ng-click="admin.delete()">Delete</button> <a ui-sref="adminDashboard"> <button class="btn btn-primary">dashboard</button> </a> <a ui-sref="discounts"> <button class="btn btn-success">new discount</button> </a> <h1>Appointment Dashboard</h1> <h2>Upcoming Appointments</h2> <div ng-repeat="appointment in admin.upcoming" style="border: 1px solid black; margin-top: 3px"> <p><strong>appointment id:</strong>id {{appointment.id}}</p> <p><strong>made by:</strong> {{appt.user.first_name}}</p> <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p> <p><strong>paid status:</strong> {{appointment.paid}}</p> <p><strong>completion status:</strong> {{appointment.completed}}</p> <p><strong>canceled status:</strong> {{appointment.canceled}}</p> </div> <h1>Past Appointments</h1> <div ng-repeat="appointment in admin.past" style="border: 1px solid black; margin-top: 3px"> <p><strong>appointment id:</strong> {{appointment.id}}</p> <p><strong>made by:</strong> {{appt.user.first_name}}</p> <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p> <p><strong>paid status:</strong> {{appointment.paid}}</p> <p><strong>completion status:</strong> {{appointment.completed}}</p> <p><strong>canceled status:</strong> {{appointment.canceled}}</p> </div> <h2>Unassigned Appointments</h2> <div ng-repeat="appointment in admin.unassigned" style="border: 1px solid black; margin-top: 3px"> <p><strong>appointment id:</strong> {{appointment.id}}</p> <p><strong>made by:</strong> {{appt.user.first_name}}</p> <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p> <p><strong>paid status:</strong> {{appointment.paid}}</p> <p><strong>completion status:</strong> {{appointment.completed}}</p> <p><strong>canceled status:</strong> {{appointment.canceled}}</p> <p>Selected Provider: {{selectedProvider.first_name}}</p> <p>Selected Id: {{selectedProvider.id}}</p> <select ng-model="selectedProvider" ng-options="provider.first_name for provider in admin.providers" class="ng-valid ng-dirty"> </select> <button class="btn btn-success" ng-click="admin.assign(appointment, selectedProvider)">Assign Provider</button> </div>
+<div class="col-xs-8 col-xs-offset-2 p-lg ta-c"> <h1>Admin Dashboard: Upcoming</h1> <br><br> <p>You will be able to see upcoming appointments that have been booked. You will be able to see them by two filters: Assigned and Unassigned. The unassigned appointments you must assign Homey professionals. You can do so on this page right away.</p> <p>This page is accessible by clicking the 'Upcoming' in the navbar.</p> </div> <!-- <h1>HIIIII</h1>
+<h1> {{ admin.info.first_name + ' ' + admin.info.last_name}}'s profile</h1>
+
+<p>{{admin.info.email}}</p>
+<p>{{admin.info.service}}</p>
+<p>{{admin.info.phone}}</p>
+<p>{{admin.info.address}}</p>
+
+
+<button class="btn btn-info" ng-click="admin.logout()">Logout</button>
+<a ui-sref="editAdmin">
+  <button class="btn btn-warning">Edit</button>
+</a>
+<button class="btn btn-danger" ng-click="admin.delete()">Delete</button>
+
+<a ui-sref="adminDashboard">
+  <button class="btn btn-primary">dashboard</button>
+</a>
+
+<a ui-sref="discounts">
+	<button class="btn btn-success">new discount</button>
+</a>
+
+
+
+<h1>Appointment Dashboard</h1>
+
+<h2>Upcoming Appointments</h2>
+<div ng-repeat="appointment in admin.upcoming" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong>id {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+</div>
+
+<h1>Past Appointments</h1>
+<div ng-repeat="appointment in admin.past" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong> {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+
+</div>
+
+
+<h2>Unassigned Appointments</h2>
+<div ng-repeat="appointment in admin.unassigned" style="border: 1px solid black; margin-top: 3px;">
+  <p><strong>appointment id:</strong> {{appointment.id}}</p>
+  <p><strong>made by:</strong> {{appt.user.first_name}}</p>
+  <p><strong>scheduled for:</strong> {{appointment.service_date | amCalendar }}</p>
+  <p><strong>paid status:</strong> {{appointment.paid}}</p>
+  <p><strong>completion status:</strong> {{appointment.completed}}</p>
+  <p><strong>canceled status:</strong> {{appointment.canceled}}</p>
+  <p>Selected Provider: {{selectedProvider.first_name}}</p>
+  <p>Selected Id: {{selectedProvider.id}}</p>
+  <select ng-model="selectedProvider" ng-options="provider.first_name for provider in admin.providers" class="ng-valid ng-dirty">
+  </select>
+  <button class="btn btn-success" ng-click="admin.assign(appointment, selectedProvider)">Assign Provider</button>
+</div>
+
+ -->

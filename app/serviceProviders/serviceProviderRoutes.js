@@ -40,6 +40,11 @@ angular
       controllerAs: 'sp'
     })
 
+    .state('spSettings', {
+      url: '/homeys/settings',
+      templateUrl: '/serviceProviders/settings.html'
+    })
+
     .state('editServiceProvider', {
       url: '/serviceProvider/edit',
       templateUrl: '/serviceProviders/edit.html',
