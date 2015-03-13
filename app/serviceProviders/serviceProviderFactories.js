@@ -5,8 +5,8 @@ angular
     return {
       saveSPToService: function (id) {
         var d = $q.defer();
-        $http.get('http://localhost:3000/api/serviceProviders/' + id)
-        // $http.get('https://homey-api.herokuapp.com/api/serviceProviders/' + id)
+        // $http.get('http://localhost:3000/api/serviceProviders/' + id)
+        $http.get('https://homey-api.herokuapp.com/api/serviceProviders/' + id)
           .success(function (response) {
             spService.sp = response;
             spService.sp.birthday = new Date(response.birthday);
@@ -20,8 +20,8 @@ angular
 
       saveProvidersToService: function () {
         var d = $q.defer();
-        $http.get('http://localhost:3000/api/serviceProviders')
-        // $http.get('https://homey-api.herokuapp.com/api/serviceProviders')
+        // $http.get('http://localhost:3000/api/serviceProviders')
+        $http.get('https://homey-api.herokuapp.com/api/serviceProviders')
           .success(function (response) {
             spService.providers = response;
             d.resolve(response);
@@ -34,8 +34,8 @@ angular
 
       delete: function (id) {
         var d = $q.defer();
-        $http.delete('http://localhost:3000/api/serviceProviders/' + id + '/delete')
-        // $http.delete('https://homey-api.herokuapp.com/api/serviceProviders/' + id + '/delete')
+        // $http.delete('http://localhost:3000/api/serviceProviders/' + id + '/delete')
+        $http.delete('https://homey-api.herokuapp.com/api/serviceProviders/' + id + '/delete')
           .success(function (response) {
             delete $localStorage.token;
             delete $localStorage.spId;
@@ -51,8 +51,8 @@ angular
         var d = $q.defer();
         var id = spEditForm.id;
 
-        $http.put('http://localhost:3000/api/serviceProviders/' + id + '/edit', {
-        // $http.put('https://homey-api.herokuapp.com/api/serviceProviders/' + spEditForm.id + '/edit', {
+        // $http.put('http://localhost:3000/api/serviceProviders/' + id + '/edit', {
+        $http.put('https://homey-api.herokuapp.com/api/serviceProviders/' + spEditForm.id + '/edit', {
           email: spEditForm.email,
           first_name: spEditForm.first_name,
           last_name: spEditForm.last_name,
