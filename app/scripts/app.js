@@ -85,37 +85,37 @@ angular
       $location.path('/landing');
     }
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      var whitelist = ['admins/login', 'users/login', 'users/register', 'service-providers/login', 'service-providers/register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
-      // THIS SHIT IS COMPLETELY FUCKING FUCKED AND DOESNT FUCKING WORK 
-      if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
-        event.preventDefault();
-        $rootScope.$evalAsync(function() {
-          $location.path('/dashboard').replace();
-        });
+    // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    //   var whitelist = ['admins/login', 'users/login', 'users/register', 'service-providers/login', 'service-providers/register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
+    //   // THIS SHIT IS COMPLETELY FUCKING FUCKED AND DOESNT FUCKING WORK 
+    //   if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
+    //     event.preventDefault();
+    //     $rootScope.$evalAsync(function() {
+    //       $location.path('/dashboard').replace();
+    //     });
 
-      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/service-providers/login' || toState.url === '/service-providers/register' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/landing')) {
-        event.preventDefault();
-        $rootScope.$evalAsync(function() {
-          $location.path('/sp/dashboard').replace();
-        });
+    //   } else if (AuthFactory.isLogged === true && sp && (toState.url === '/service-providers/login' || toState.url === '/service-providers/register' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/landing')) {
+    //     event.preventDefault();
+    //     $rootScope.$evalAsync(function() {
+    //       $location.path('/sp/dashboard').replace();
+    //     });
 
-      } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admins/login' || toState.url === '/landing' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/service-providers/login' || toState.url === '/service-providers/register')) {
-        event.preventDefault();
-        $rootScope.$evalAsync(function() {
-          $location.path('/admins/dashboard/upcoming').replace();
-        });
+    //   } else if (AuthFactory.isLogged === true && admin && (toState.url === '/admins/login' || toState.url === '/landing' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/service-providers/login' || toState.url === '/service-providers/register')) {
+    //     event.preventDefault();
+    //     $rootScope.$evalAsync(function() {
+    //       $location.path('/admins/dashboard/upcoming').replace();
+    //     });
 
-      } else if (AuthFactory.isLogged === false && (whitelist.indexOf('/' + toState.url) !== -1)) {
-        event.preventDefault();
-        $rootScope.$evalAsync(function() {
-          $location.path('/landing').replace();
-        });
+    //   } else if (AuthFactory.isLogged === false && (whitelist.indexOf('/' + toState.url) !== -1)) {
+    //     event.preventDefault();
+    //     $rootScope.$evalAsync(function() {
+    //       $location.path('/landing').replace();
+    //     });
         
-      } else {
-        return;
-      }
-    });
+    //   } else {
+    //     return;
+    //   }
+    // });
     
     $rootScope.$on('$stateChangeSuccess', function() {
        document.body.scrollTop = document.documentElement.scrollTop = 0;
