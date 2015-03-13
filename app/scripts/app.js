@@ -85,16 +85,16 @@ angular
       $location.path('/landing');
     }
 
+    var whitelist = ['admins/login', 'users/login', 'users/register', 'service-providers/login', 'service-providers/register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      var whitelist = ['admins/login', 'users/login', 'users/register', 'service-providers/login', 'service-providers/register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
 
-      if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
+      if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
         event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/dashboard').replace();
         });
 
-      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/service-providers/login' || toState.url === '/service-providers/register' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/register' || toState.url === '/admins/login' || toState.url === '/landing')) {
+      } else if (AuthFactory.isLogged === true && sp && (toState.url === '/service-providers/login' || toState.url === '/service-providers/register' || toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/login' || toState.url === '/landing')) {
         event.preventDefault();
         $rootScope.$evalAsync(function() {
           $location.path('/sp/dashboard').replace();
