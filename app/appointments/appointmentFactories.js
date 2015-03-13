@@ -88,15 +88,18 @@ angular
 
 	.factory('spApptFactory', ['ajaxFactory', 'spApptService', function (ajaxFactory, spApptService) {
 		 function saveUpcomingToService (spId) {
+		 	console.log('IN HERE saveUpcomingToService')
 				// var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/upcoming';
 				var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
-				return spApptService.upcoming = ajaxFactory.request(uri, 'get');
+				return ajaxFactory.request(uri, 'get');
 		 }
 
 		 function savePastToService (spId) {
+		 	console.log('IN HERE savePastToService')
+
 				// var uri = 'http://localhost:3000/api/sp/' + spId + '/appointments/past';
 				var uri = 'https://homey-api.herokuapp.com/api/users/' + userId + '/appointments';
-				return spApptService.past = ajaxFactory.request(uri, 'get');
+				return ajaxFactory.request(uri, 'get');
 		 }
 
 			return {

@@ -86,7 +86,7 @@ angular
     }
 
     var whitelist = ['admins/login', 'users/login', 'users/register', 'service-providers/login', 'service-providers/register', 'about', 'services', 'faq', 'contact', 'thankyou', 'terms', 'services/home-cleaning'];
-    
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
       if (AuthFactory.isLogged === true && user && (toState.url === '/users/login' || toState.url === '/users/register' || toState.url === '/admins/login' || toState.url === '/service-providers/register' || toState.url === '/service-providers/login' || toState.url === '/landing')) {
