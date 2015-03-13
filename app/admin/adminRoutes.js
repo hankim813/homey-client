@@ -20,6 +20,21 @@ angular
             }, function (error) {
               console.log(error);
             });
+        }
+      },
+      templateUrl: '/admin/upcomingDashboard.html'
+    })
+
+    .state('adminDashboard', {
+      url: '/admins/dashboard/upcoming',
+      resolve: {
+        fetchAdmin: function (adminFactory, adminService, $localStorage) {
+          return adminService.admin || adminFactory.saveAdminToService($localStorage.adminId)
+            .then(function (response) {
+              return adminService.admin;
+            }, function (error) {
+              console.log(error);
+            });
         },
 
         providers: function (spFactory, spService) {
