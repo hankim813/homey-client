@@ -1,1 +1,46 @@
-update.html
+<section class="row main">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+    <div class="box">
+
+      <div class="panel-head">
+        <h3>What's Your New Password?</h3>
+      </div>
+
+      <div class="panel-bod">
+        <form class="form-group signup">
+
+          <div class="input-group">
+            <span class="input-group-addon">Email</span>
+            <input type="email" class="form-control" placeholder="Okay, what's your email?" ng-model="password.passwordForm.email">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Token</span>
+            <input type="email" class="form-control" placeholder="Now your special token." ng-model="password.passwordForm.token">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Password</span>
+            <input type="email" class="form-control" placeholder="What would you like your new password to be?" ng-model="password.passwordForm.password">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">And Again</span>
+            <input type="email" class="form-control" placeholder="One more time.." ng-model="password.passwordForm.passwordCheck">
+          </div>
+
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+              <button ng-click="password.update()" class="alternate">Reset Password</button>
+              <button ui-sref="request" class="primary">Go Back</button>
+            </div>
+          </div>
+          <a ui-sref="complete">Thanks</a>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>

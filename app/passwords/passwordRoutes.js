@@ -21,7 +21,7 @@ angular
 
     .state('complete', {
       url: '/passwords/complete',
-      templateUrl: '/passwords/complete.html',
+      templateUrl: '/passwords/thanks.html',
       controller: 'PasswordController',
       controllerAs: 'password'
     });
