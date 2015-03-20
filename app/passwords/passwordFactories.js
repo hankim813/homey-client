@@ -1,7 +1,7 @@
 angular
   .module('homey')
 
-  .factory('passwordFactory', [function() {
+  .factory('passwordFactory', ['ajaxFactory', function(ajaxFactory) {
     function request (passwordForm) {
         // var uri = 'http://localhost:3000/api/mailer/passwords/contact/';
         var uri = 'https://homey-api.herokuapp.com/api/mailer/passwords/contact/';
