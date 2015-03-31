@@ -67,9 +67,9 @@ angular
       url: '/noAccess',
       templateUrl: 'views/forbidden.html'
     });
-  }]);
+  }])
 
-  // .run(['$rootScope', '$location', '$localStorage', 'AuthFactory', '$state', function ($rootScope, $location, $localStorage, AuthFactory, $state) {
+  .run(['$rootScope', '$location', '$localStorage', '$state', function ($rootScope, $location, $localStorage, $state) {
   //   var sp = $localStorage.spId;
   //   var user = $localStorage.userId;
   //   var admin = $localStorage.adminId;
@@ -117,8 +117,8 @@ angular
   //     }
   //   });
     
-  //   $rootScope.$on('$stateChangeSuccess', function() {
-  //      document.body.scrollTop = document.documentElement.scrollTop = 0;
-  //   });
-  // }]);
+    $rootScope.$on('$stateChangeSuccess', function() {
+       document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+  }]);
 
