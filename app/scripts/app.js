@@ -23,12 +23,12 @@ angular
 
     $urlRouterProvider.otherwise('/landing');
 
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     $stateProvider
 
     .state('landing', {
-      url: '/landing',
+      url: '/',
       templateUrl: '/views/landing.html'
     })
 
