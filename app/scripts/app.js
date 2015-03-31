@@ -21,7 +21,7 @@ angular
 
     // $httpProvider.interceptors.push('AuthInterceptor');
 
-    $urlRouterProvider.otherwise('/landing');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
 
