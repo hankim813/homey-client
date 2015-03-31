@@ -23,8 +23,6 @@ angular
 
     $urlRouterProvider.otherwise('/landing');
 
-    $locationProvider.html5Mode(true);
-
     $stateProvider
 
     .state('landing', {
