@@ -42,7 +42,7 @@ angular
 			},
 			{
 				q: 'How do I file a claim or complaint?',
-				a: 'We have a variety of different ways to file complaints. Please feel free to directly contact us via phone (071-421-9246) or via our contact page with whatever complaints you may have. We will work hard to find the resolution as soon as possible.'
+				a: 'We have a variety of different ways to file complaints. Please feel free to directly contact us via phone (070-194-6405) or via our contact page with whatever complaints you may have. We will work hard to find the resolution as soon as possible.'
 			},
 			{
 				q: 'What is your cancellation and rescheduling policy?',
@@ -62,33 +62,6 @@ angular
 			} 
 		];
 
-		vm.platform = [
-			{	
-				q: 'Can I book a regularly scheduled Homey service?', 
-				a: 'Not at this time. But this is a feature we are looking to add soon!'
-			},
-			{
-				q: 'What happens after I make a booking?',
-				a: 'Once your booking is complete you will get a confirmation email regarding your booking. It will detail what to expect from the Homey team upon arrival. If we have any more inquiries that may be necessary for us to carry out your service, we will follow up your booking with a phone call to go over these details.'
-			},
-		  {
-		  	q: 'Do you have a mobile app?',
-		  	a: 'Not yet! But it is coming soon. In the meantime, our website is fully optimized for mobile browsers.'
-		  },
-		  {
-		  	q: 'Can I feel comfortable submitting payment through Homey\'s website?',
-		  	a: 'Yes, we use token authentication to protect our users as well as SSL to securely encrypt all of our requests. We also don\'t store any credit card information as we use a third party processor such as Stripe.'
-		  },
-		  {
-		  	q: 'How do I edit a booking?',
-		  	a: 'In your appointment dashboard, click the \'edit\' button on one of the upcoming appointments you would like to reschedule. Pick the new date of your service and click \'confirm changes\'. You may not edit a booking if its service date is less than six hours from now.'
-		  },
-		  {
-		  	q: 'How do I pay?',
-		  	a: 'Currently, we accept cash on site or by debit or credit card. We are working with PesaPal to integrate MPesa.'
-		  }
-		];
-
 		attachToggler();
 
 		function attachToggler () {
@@ -98,10 +71,6 @@ angular
 
 			for (var i = 0; i < vm.insurance.length; i++) {
 				vm.insurance[i].showAnswer = false;
-			}
-
-			for (var i = 0; i < vm.platform.length; i++) {
-				vm.platform[i].showAnswer = false;
 			}
 
 			for (var i = 0; i < vm.service.length; i++) {

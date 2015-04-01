@@ -34,8 +34,8 @@ angular
 
 		function calculateNumberOfProviders () {
 			var providers;
-			if (vm.number > 15) {
-				providers = Math.ceil((vm.number - 15) / 10) + 1;
+			if (vm.number > 10) {
+				providers = Math.ceil((vm.number - 10) / 10) + 1;
 			} else {
 				providers = 1;
 			}

@@ -4,9 +4,9 @@ angular
 	.controller('OfficeCleaningController', ['Neighborhoods', function (Neighborhoods) {
 		var vm = this;
 
-		vm.sqft 				= 0;
+		vm.sqft 				= 500;
 		vm.kitchen 			= false;
-		vm.price			 	= 0;
+		vm.price			 	= 1000;
 		vm.time					= 0;
 		vm.neighborhood = 'Neighborhood';
 		vm.hoods 				= Neighborhoods.list;
@@ -15,10 +15,10 @@ angular
 		vm.toggleKitchen = toggleKitchen;
 
 		function changeFt (type) {
-			if (type === 0 && vm.sqft > 0) {
-				vm.sqft -= 100;
+			if (type === 0 && vm.sqft > 500) {
+				vm.sqft -= 500;
 			} else if (type === 1) {
-				vm.sqft += 100;
+				vm.sqft += 500;
 			} else {
 				return;
 			}
@@ -42,8 +42,8 @@ angular
 
 		function calculateQuote () {
 			var providers = calculateNumberOfProviders();
-			vm.price = 0;
-			vm.price += vm.sqft * 2;
+			vm.price = 1000;
+			vm.price += (vm.sqft - 500);
 			if (vm.kitchen) { vm.price += 300 }
 			vm.price += (providers - 1) * 400;
 			if (vm.neighborhood === 'Karen' || vm.neighborhood === 'Runda' || vm.neighborhood === 'Eastlands') {

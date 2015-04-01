@@ -32,16 +32,6 @@
 				
 				<div class="row">
 					<div class="col-md-6 col-xs-12">
-						<span class="label label-info">Platform</span>
-						<div ng-repeat="question in faq.platform">
-
-							<a ng-click="question.showAnswer = !question.showAnswer">{{question.q}}</a>
-
-							<p ng-show="question.showAnswer">{{question.a}}</p>
-
-						</div>
-					</div>
-					<div class="col-md-6 col-xs-12">
 						<span class="label label-warning">Service</span>
 						<div ng-repeat="question in faq.service">
 

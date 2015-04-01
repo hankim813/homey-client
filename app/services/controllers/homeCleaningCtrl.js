@@ -22,7 +22,11 @@ angular
 		calculateQuote();
 
 		function calculateNumberOfProviders () {
-			return Math.ceil(vm.bedrooms / 3);
+			if (vm.bedrooms === 0) { 
+				return 0; 
+			} else {
+				return Math.ceil(vm.bedrooms / 3) - 1;
+			}
 		};
 
 		function applyTransportFee (hood) {
@@ -36,12 +40,12 @@ angular
 				vm.price = 1000;
 				vm.price += vm.laundry * 350;
 				vm.price += vm.ironed * 300;
-				vm.price += (providers - 1) * 300;
+				vm.price += providers * 300;
 			} else if (vm.bedrooms === 3 && vm.bathrooms === 3 && vm.kitchens === 1 && vm.livingrooms === 1) {
 				vm.price = 1500;
 				vm.price += vm.laundry * 350;
 				vm.price += vm.ironed * 300;
-				vm.price += (providers - 1) * 300;
+				vm.price += providers * 300;
 			} else {
 				vm.price = 0;
 				vm.price += vm.bedrooms * 400;
@@ -50,7 +54,7 @@ angular
 				vm.price += vm.livingrooms * 300;
 				vm.price += vm.laundry * 350;
 				vm.price += vm.ironed * 300;
-				vm.price += (providers - 1) * 300;
+				vm.price += providers * 300;
 			}
 			if (vm.neighborhood === 'Karen' || vm.neighborhood === 'Runda' || vm.neighborhood === 'Eastlands') {
 				vm.price += 250;
@@ -64,11 +68,15 @@ angular
 				vm.bathrooms 		= 2;
 				vm.kitchens 		= 1;
 				vm.livingrooms 	= 1;
+				vm.laundry			= 0;
+				vm.ironed				= 0;
 			} else {
 				vm.bedrooms			= 3;
 				vm.bathrooms 		= 3;
 				vm.kitchens 		= 1;
 				vm.livingrooms 	= 1;
+				vm.laundry			= 0;
+				vm.ironed				= 0;
 			}
 			calculateQuote();
 		};
