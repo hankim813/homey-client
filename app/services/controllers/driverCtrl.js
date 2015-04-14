@@ -40,7 +40,7 @@ angular
 				}
 				if (car.hours) {
 					if (car.hours >= 12) {
-						vm.price += (car.hours - 12) * 300 + 1500;
+						vm.price += (car.hours - 12) * 300 + 1700;
 					} else {
 						vm.price += car.hours * 300;
 					}

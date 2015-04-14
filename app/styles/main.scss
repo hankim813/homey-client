@@ -94,6 +94,18 @@ button {
 	transition: all 0.3s ease;
 }
 
+.primary-btn-nav {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #2566fc;
+	color: #fff;
+	border-radius: 6px;
+	letter-spacing: 1px;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1em;
+	transition: all 0.3s ease;
+}
+
 .fb-color {
 	background-color: #3B5998;
 	transition: all 0.3s ease;
@@ -119,6 +131,10 @@ button {
 .primary-btn:hover {
 	background-color: #033EC5;
 	transition: all 0.3s ease;
+}
+
+.primary-btn-nav:hover {
+	cursor: default;
 }
 
 .default-btn:hover {
@@ -424,7 +440,7 @@ button {
 }
 
 .main-no-bg {
-	padding: 5% 0;
+	padding: 11% 0;
 	text-align: center;
 	background-color: #FFF;
 	color: #424242;
@@ -674,6 +690,10 @@ button {
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   z-index: 1;
+}
+
+.bg-sz-cover {
+	background-size: cover;
 }
 
 .cleaning {
