@@ -101,7 +101,7 @@ button {
 	border-radius: 6px;
 	letter-spacing: 1px;
 	border: none;
-	padding: 10px 20px;
+	padding: 10px 25px;
 	font-size: 1em;
 	transition: all 0.3s ease;
 }
@@ -147,7 +147,8 @@ button {
 .nav-hf {
 	font-family: 'Squada One', cursive;
 	color: #04c2e6;
-	font-size: 3em;
+	font-size: 4em;
+	padding-top: 5px;
 	text-align: center;
 }
 
@@ -198,15 +199,24 @@ button {
 }
 
 /* Jumbo */
+@media (max-width: 768px) {
+	.jumbo {
+		padding-top: 30%;
+	}
+}
+
+@media (min-width: 769px) {
+	.jumbo {
+		padding-top: 10%;
+	}
+}
 
 .jumbo {
-	padding-top: 10%;
 	padding-bottom: 5%;
 	text-align: center;
 	min-height: 698px;
 	background-image: url('../images/homey-kitchen.jpg');
 	background-size: cover;
-
 	h1 {
 		font-family: 'Lily Script One', cursive;
 		font-size: 5em;
@@ -432,8 +442,19 @@ button {
 
 /* General */
 
+@media (max-width: 768px) {
+	.main {
+		padding: 30% 0;
+	}
+}
+
+@media (min-width: 769px) {
+	.main {
+		padding: 10% 0;
+	}
+}
+
 .main {
-	padding: 5% 0;
 	text-align: center;
 	background-image: url('../images/sky.jpg');
 	background-size: cover;
@@ -468,7 +489,7 @@ button {
 	}
 
 	.panel-bod {
-		padding: 45px 30px 10px 30px;
+		padding: 45px 30px;
 		background-color: #FFF;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
@@ -585,8 +606,19 @@ button {
 
 /* Contact */
 
+@media (max-width: 768px) {
+	.contact {
+		padding: 30% 0;
+	}
+}
+
+@media (min-width: 769px) {
+	.contact {
+		padding: 10% 0;
+	}
+}
+
 .contact {
-	padding: 5% 0;
 	text-align: center;
 	background-image: url('../images/contact.jpg');
 	background-size: cover;

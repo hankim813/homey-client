@@ -27,7 +27,8 @@ angular
 
     .state('landing', {
       url: '/',
-      templateUrl: '/views/landing.html'
+      templateUrl: '/views/landing.html',
+      controller: 'LandingController'
     })
 
     .state('services', {
