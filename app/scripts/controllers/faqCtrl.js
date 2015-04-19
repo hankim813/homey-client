@@ -42,7 +42,7 @@ angular
 			},
 			{
 				q: 'How do I file a claim or complaint?',
-				a: 'We have a variety of different ways to file complaints. Please feel free to directly contact us via phone (070-194-6405) or via our contact page with whatever complaints you may have. We will work hard to find the resolution as soon as possible.'
+				a: 'We have a variety of different ways to file complaints. Please feel free to directly contact us via phone (0701946405) or via our contact page with whatever complaints you may have. We will work hard to find the resolution as soon as possible.'
 			},
 			{
 				q: 'What is your cancellation and rescheduling policy?',
